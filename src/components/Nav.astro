@@ -1,0 +1,57 @@
+<nav id="mainNav">
+  <div class="wrap navIn">
+    <a class="brand" href="/">
+      <img src="/logo.png" alt="cardi agent." width="1151" height="368" />
+    </a>
+
+    <div class="menu">
+      <a href="#fitur">Yang Kamu Dapat</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#harga">Harga</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="navR">
+      <a class="btn" href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%20Agent!%20Saya%20ingin%20jadwalkan%20demo%20untuk%20bisnis%20saya.%20%F0%9F%98%81" target="_blank" rel="noopener">
+        Jadwalkan Demo
+      </a>
+    </div>
+
+    <button class="burger-btn" id="burgerBtn" aria-label="Toggle navigation menu">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+  <a href="#fitur" class="mobile-nav-link">Yang Kamu Dapat</a>
+  <a href="#cara-kerja" class="mobile-nav-link">Cara Kerja</a>
+  <a href="#harga" class="mobile-nav-link">Harga</a>
+  <a href="#faq" class="mobile-nav-link">FAQ</a>
+  <a class="btn" href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%20Agent!%20Saya%20ingin%20jadwalkan%20demo%20untuk%20bisnis%20saya.%20%F0%9F%98%81" target="_blank" rel="noopener" style="width:100%; justify-content:center; margin-top:8px;">
+    Jadwalkan Demo
+  </a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burgerBtn = document.getElementById('burgerBtn');
+    const drawer = document.getElementById('mobileNavDrawer');
+    if (burgerBtn && drawer) {
+      burgerBtn.addEventListener('click', () => {
+        const open = burgerBtn.classList.toggle('active');
+        drawer.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      drawer.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          burgerBtn.classList.remove('active');
+          drawer.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  });
+</script>
