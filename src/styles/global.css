@@ -667,47 +667,6 @@ nav#mainNav {
 @media (max-width: 900px) { .mobile-nav-drawer { display: block; } }
 .mobile-nav-drawer.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-.mobile-drawer-sec {
-  margin-bottom: 12px;
-}
-.mob-drawer-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
-  padding: 0 2px;
-}
-.mobile-lang-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-.mob-lang-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 9px 8px;
-  border-radius: 10px;
-  background: #FFFFFF;
-  border: 1px solid var(--line-hair);
-  font-family: var(--font-sans);
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--body);
-  cursor: pointer;
-  transition: all 0.15s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-}
-.mob-lang-btn.active {
-  background: #EFF6FF;
-  border-color: #93C5FD;
-  color: var(--accent);
-  box-shadow: 0 2px 6px rgba(30, 79, 255, 0.12);
-}
 
 /* Mobile Ecosystem Expandable Accordion */
 .mobile-eco-accordion {
