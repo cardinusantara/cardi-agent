@@ -5,14 +5,116 @@
     </a>
 
     <div class="menu">
-      <a href="#fitur">Yang Kamu Dapat</a>
-      <a href="#cara-kerja">Cara Kerja</a>
-      <a href="#harga">Harga</a>
-      <a href="#faq">FAQ</a>
+      <a href="#fitur" data-i18n="nav_fitur">Yang Kamu Dapat</a>
+      <a href="#cara-kerja" data-i18n="nav_cara_kerja">Cara Kerja</a>
+      <a href="#harga" data-i18n="nav_harga">Harga</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
     </div>
 
     <div class="navR">
-      <a class="btn" href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%20Agent!%20Saya%20ingin%20jadwalkan%20demo%20untuk%20bisnis%20saya.%20%F0%9F%98%81" target="_blank" rel="noopener">
+      <!-- 1. 3-Language Switcher (ID, EN, ZH) -->
+      <div class="lang-dropdown-wrapper" id="langDropdownWrap">
+        <button type="button" class="lang-toggle-btn" id="langToggleBtn" aria-expanded="false" aria-label="Pilih Bahasa" onclick="window.toggleLangDropdown(event)">
+          <img id="currentLangFlag" src="/flags/id.svg" alt="ID" class="lang-flag-img" />
+          <span id="currentLangCode" class="lang-code">ID</span>
+          <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="lang-dropdown-menu" id="langMenu">
+          <button type="button" class="lang-option active" data-lang="id" onclick="window.setLanguage('id')">
+            <img src="/flags/id.svg" alt="Bahasa Indonesia" class="lang-opt-flag" />
+            <div class="lang-opt-info">
+              <span class="lang-opt-name">Bahasa Indonesia</span>
+              <span class="lang-opt-sub">ID (Indonesia)</span>
+            </div>
+            <svg class="lang-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+
+          <button type="button" class="lang-option" data-lang="en" onclick="window.setLanguage('en')">
+            <img src="/flags/en.svg" alt="English" class="lang-opt-flag" />
+            <div class="lang-opt-info">
+              <span class="lang-opt-name">English</span>
+              <span class="lang-opt-sub">EN (Global)</span>
+            </div>
+            <svg class="lang-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+
+          <button type="button" class="lang-option" data-lang="zh" onclick="window.setLanguage('zh')">
+            <img src="/flags/zh.svg" alt="简体中文" class="lang-opt-flag" />
+            <div class="lang-opt-info">
+              <span class="lang-opt-name">简体中文</span>
+              <span class="lang-opt-sub">ZH (Chinese)</span>
+            </div>
+            <svg class="lang-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Ekosistem Dropdown Menu (Centered between Language and Schedule Demo) -->
+      <div class="nav-eco-dropdown" id="navEcoDropdown">
+        <button type="button" class="nav-eco-trigger" id="navEcoTrigger" aria-expanded="false" aria-haspopup="true" onclick="window.toggleEcoDropdown(event)">
+          <svg class="eco-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span class="eco-btn-label" data-i18n="nav_eco">Ekosistem</span>
+          <svg class="eco-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Dropdown Card -->
+        <div class="nav-eco-panel" id="navEcoPanel">
+          <div class="eco-accent-bar"></div>
+          <div class="eco-panel-inner">
+            <div class="eco-panel-header">
+              <span class="eco-panel-tag" data-i18n="eco_badge">Ekosistem Cardi</span>
+            </div>
+            <div class="eco-panel-list">
+              <!-- Cardi Agent (Current) -->
+              <a href="/" class="eco-card-item active">
+                <div class="eco-card-icon icon-agent">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <div class="eco-card-text">
+                  <div class="eco-card-top">
+                    <strong class="eco-card-title" data-i18n="eco_agent_title">Cardi Agent</strong>
+                    <span class="eco-pill live">Active</span>
+                  </div>
+                  <p class="eco-card-sub" data-i18n="eco_agent_sub">AI Agent Workforce & Business OS</p>
+                </div>
+              </a>
+
+              <!-- Cardi MoM -->
+              <a href="/mom" class="eco-card-item">
+                <div class="eco-card-icon icon-mom">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                </div>
+                <div class="eco-card-text">
+                  <div class="eco-card-top">
+                    <strong class="eco-card-title">Cardi MoM</strong>
+                    <span class="eco-pill live">Live</span>
+                  </div>
+                  <p class="eco-card-sub" data-i18n="eco_mom_sub">AI Meeting Intelligence & Notula Rapat</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="eco-panel-footer">
+              <div class="eco-panel-foot-text">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C2D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                <span data-i18n="ft_tagline">Cardi Business Power Ecosystem™ • Scale to IPO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Jadwalkan Demo Button -->
+      <a class="btn" href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%20Agent!%20Saya%20ingin%20jadwalkan%20demo%20untuk%20bisnis%20saya.%20%F0%9F%98%81" target="_blank" rel="noopener" data-i18n="nav_demo_btn">
         Jadwalkan Demo
       </a>
     </div>
@@ -26,32 +128,135 @@
 </nav>
 
 <div class="mobile-nav-drawer" id="mobileNavDrawer">
-  <a href="#fitur" class="mobile-nav-link">Yang Kamu Dapat</a>
-  <a href="#cara-kerja" class="mobile-nav-link">Cara Kerja</a>
-  <a href="#harga" class="mobile-nav-link">Harga</a>
-  <a href="#faq" class="mobile-nav-link">FAQ</a>
-  <a class="btn" href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%20Agent!%20Saya%20ingin%20jadwalkan%20demo%20untuk%20bisnis%20saya.%20%F0%9F%98%81" target="_blank" rel="noopener" style="width:100%; justify-content:center; margin-top:8px;">
+  <!-- Mobile 3-Language Selector -->
+  <div class="mobile-lang-row">
+    <button type="button" class="mob-lang-btn active" data-lang="id" onclick="window.setLanguage('id')">
+      <img src="/flags/id.svg" alt="ID" class="lang-flag-img" /> ID
+    </button>
+    <button type="button" class="mob-lang-btn" data-lang="en" onclick="window.setLanguage('en')">
+      <img src="/flags/en.svg" alt="EN" class="lang-flag-img" /> EN
+    </button>
+    <button type="button" class="mob-lang-btn" data-lang="zh" onclick="window.setLanguage('zh')">
+      <img src="/flags/zh.svg" alt="ZH" class="lang-flag-img" /> ZH
+    </button>
+  </div>
+
+  <div class="mobile-eco-section">
+    <div class="mobile-eco-title" data-i18n="eco_badge">Ekosistem Cardi</div>
+    <a href="/" class="mobile-eco-card">
+      <div class="mobile-eco-left">
+        <strong class="mobile-eco-badge">Cardi Agent</strong>
+        <span class="mobile-eco-sub" data-i18n="eco_agent_sub">AI Agent Workforce & Business OS</span>
+      </div>
+      <span class="eco-pill live">Active</span>
+    </a>
+    <a href="/mom" class="mobile-eco-card">
+      <div class="mobile-eco-left">
+        <strong class="mobile-eco-badge">Cardi MoM</strong>
+        <span class="mobile-eco-sub" data-i18n="eco_mom_sub">AI Meeting Intelligence</span>
+      </div>
+      <span class="eco-pill live">Live</span>
+    </a>
+  </div>
+
+  <a href="#fitur" class="mobile-nav-link" data-i18n="nav_fitur">Yang Kamu Dapat</a>
+  <a href="#cara-kerja" class="mobile-nav-link" data-i18n="nav_cara_kerja">Cara Kerja</a>
+  <a href="#harga" class="mobile-nav-link" data-i18n="nav_harga">Harga</a>
+  <a href="#faq" class="mobile-nav-link" data-i18n="nav_faq">FAQ</a>
+  <a class="btn" href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%20Agent!%20Saya%20ingin%20jadwalkan%20demo%20untuk%20bisnis%20saya.%20%F0%9F%98%81" target="_blank" rel="noopener" style="width:100%; justify-content:center; margin-top:8px;" data-i18n="nav_demo_btn">
     Jadwalkan Demo
   </a>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const burgerBtn = document.getElementById('burgerBtn');
-    const drawer = document.getElementById('mobileNavDrawer');
+<script is:inline>
+  window.toggleEcoDropdown = function(e) {
+    if (e) e.stopPropagation();
+    var langWrap = document.getElementById("langDropdownWrap");
+    if (langWrap) langWrap.classList.remove("open");
+    var ecoWrap = document.getElementById("navEcoDropdown");
+    var ecoBtn = document.getElementById("navEcoTrigger");
+    if (ecoWrap) {
+      var isOpen = ecoWrap.classList.toggle("open");
+      if (ecoBtn) ecoBtn.setAttribute("aria-expanded", String(isOpen));
+    }
+  };
+
+  window.toggleLangDropdown = function(e) {
+    if (e) e.stopPropagation();
+    var ecoWrap = document.getElementById("navEcoDropdown");
+    if (ecoWrap) ecoWrap.classList.remove("open");
+    var langWrap = document.getElementById("langDropdownWrap");
+    var langBtn = document.getElementById("langToggleBtn");
+    if (langWrap) {
+      var isOpen = langWrap.classList.toggle("open");
+      if (langBtn) langBtn.setAttribute("aria-expanded", String(isOpen));
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var burgerBtn = document.getElementById("burgerBtn");
+    var drawer = document.getElementById("mobileNavDrawer");
+    var ecoWrap = document.getElementById("navEcoDropdown");
+    var langWrap = document.getElementById("langDropdownWrap");
+
     if (burgerBtn && drawer) {
-      burgerBtn.addEventListener('click', () => {
-        const open = burgerBtn.classList.toggle('active');
-        drawer.classList.toggle('open', open);
-        document.body.style.overflow = open ? 'hidden' : '';
+      burgerBtn.addEventListener("click", function() {
+        var open = burgerBtn.classList.toggle("active");
+        drawer.classList.toggle("open", open);
+        document.body.style.overflow = open ? "hidden" : "";
       });
-      drawer.querySelectorAll('a').forEach((a) => {
-        a.addEventListener('click', () => {
-          burgerBtn.classList.remove('active');
-          drawer.classList.remove('open');
-          document.body.style.overflow = '';
+      drawer.querySelectorAll("a").forEach(function(a) {
+        a.addEventListener("click", function() {
+          burgerBtn.classList.remove("active");
+          drawer.classList.remove("open");
+          document.body.style.overflow = "";
         });
       });
     }
+
+    // Desktop Hover support for Eco dropdown
+    if (ecoWrap) {
+      var hoverTimeout;
+      ecoWrap.addEventListener("mouseenter", function() {
+        if (window.innerWidth > 900) {
+          clearTimeout(hoverTimeout);
+          if (langWrap) langWrap.classList.remove("open");
+          ecoWrap.classList.add("open");
+          var btn = document.getElementById("navEcoTrigger");
+          if (btn) btn.setAttribute("aria-expanded", "true");
+        }
+      });
+      ecoWrap.addEventListener("mouseleave", function() {
+        if (window.innerWidth > 900) {
+          hoverTimeout = setTimeout(function() {
+            ecoWrap.classList.remove("open");
+            var btn = document.getElementById("navEcoTrigger");
+            if (btn) btn.setAttribute("aria-expanded", "false");
+          }, 150);
+        }
+      });
+    }
+
+    // Close on outside click
+    document.addEventListener("click", function(e) {
+      if (ecoWrap && !ecoWrap.contains(e.target)) {
+        ecoWrap.classList.remove("open");
+        var btn = document.getElementById("navEcoTrigger");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      }
+      if (langWrap && !langWrap.contains(e.target)) {
+        langWrap.classList.remove("open");
+        var lbtn = document.getElementById("langToggleBtn");
+        if (lbtn) lbtn.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        if (ecoWrap) ecoWrap.classList.remove("open");
+        if (langWrap) langWrap.classList.remove("open");
+      }
+    });
   });
 </script>

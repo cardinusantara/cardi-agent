@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+  <path fill="#de2910" d="M0 0h900v600H0z"/>
+  <g transform="translate(150, 150) scale(30)">
+    <g id="star">
+      <polygon fill="#ffde00" points="0,-1 0.5878,0.8090 -0.9511,-0.3090 0.9511,-0.3090 -0.5878,0.8090"/>
+    </g>
+  </g>
+  <g transform="translate(300, 60) scale(10) rotate(-120.96)">
+    <polygon fill="#ffde00" points="0,-1 0.5878,0.8090 -0.9511,-0.3090 0.9511,-0.3090 -0.5878,0.8090"/>
+  </g>
+  <g transform="translate(360, 120) scale(10) rotate(-98.13)">
+    <polygon fill="#ffde00" points="0,-1 0.5878,0.8090 -0.9511,-0.3090 0.9511,-0.3090 -0.5878,0.8090"/>
+  </g>
+  <g transform="translate(360, 210) scale(10) rotate(-74.05)">
+    <polygon fill="#ffde00" points="0,-1 0.5878,0.8090 -0.9511,-0.3090 0.9511,-0.3090 -0.5878,0.8090"/>
+  </g>
+  <g transform="translate(300, 270) scale(10) rotate(-51.34)">
+    <polygon fill="#ffde00" points="0,-1 0.5878,0.8090 -0.9511,-0.3090 0.9511,-0.3090 -0.5878,0.8090"/>
+  </g>
+</svg>

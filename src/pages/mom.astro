@@ -10,8 +10,10 @@
   <title>Cardi Agent MoM — AI Meeting Intelligence | Cardi Nusantara</title>
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -19,11 +21,12 @@
   <!-- Google Fonts: Plus Jakarta Sans (Brand Standard) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
   <style is:global>
     :root {
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --blue: #0258a4;
       --blue-dark: #01417a;
       --agent-blue: #1e4fff;
@@ -44,7 +47,9 @@
       --radius-sm: 10px;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -52,7 +57,22 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 100px;
       overflow-x: clip;
+    }
+
+    /* Scroll margin for exact section landing under sticky header */
+    section[id],
+    main[id],
+    #top,
+    #features,
+    #solutions,
+    #mobile-experience,
+    #workflow,
+    #pricing,
+    #faq,
+    #feedback {
+      scroll-margin-top: 100px;
     }
 
     body {
@@ -61,10 +81,15 @@
         radial-gradient(circle at 75% 5%, rgba(30, 79, 255, 0.05), transparent 30%),
         radial-gradient(circle at 15% 15%, rgba(2, 88, 164, 0.04), transparent 25%),
         linear-gradient(180deg, #FFFFFF 0%, #F8FAFD 100%);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: var(--font-sans);
       overflow-x: clip;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
+    }
+
+    button, input, textarea, select, optgroup {
+      font-family: inherit;
     }
 
     a {
@@ -82,37 +107,27 @@
       color: var(--ink);
       font-weight: 800;
       letter-spacing: -0.025em;
+      font-family: var(--font-sans);
     }
 
     .container {
-      width: min(calc(100% - 36px), 1280px);
+      width: min(calc(100% - 32px), 1360px);
       margin: 0 auto;
     }
 
     /* Top Ecosystem Bar */
     .eco-bar {
-      background: var(--ink);
-      color: rgba(255, 255, 255, 0.8);
+      background: #0A1633;
+      color: rgba(255, 255, 255, 0.7);
       font-size: 11.5px;
       padding: 7px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .eco-bar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .eco-links {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-    .eco-links a {
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 500;
-    }
-    .eco-links a:hover {
-      color: #FFFFFF;
+      gap: 14px;
     }
     .eco-badge {
       display: inline-flex;
@@ -120,6 +135,29 @@
       gap: 6px;
       color: #64B5F6;
       font-weight: 700;
+    }
+    .eco-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .eco-link {
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 600;
+      font-size: 11.5px;
+      text-decoration: none;
+      transition: color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .eco-link:hover,
+    .eco-link.active {
+      color: #FFFFFF;
+    }
+    .eco-sep {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 9px;
     }
 
     /* Sticky Navbar */
@@ -130,29 +168,31 @@
       padding: 4px 0 12px;
     }
     .navbar {
-      min-height: 72px;
+      min-height: 68px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 8px 30px rgba(10, 22, 51, 0.06);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 24px;
-      gap: 20px;
+      padding: 0 18px;
+      gap: 14px;
+      position: relative;
     }
     .brand {
       display: flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      flex-shrink: 0;
     }
     .brand-logo {
-      height: 42px;
+      height: 38px;
       width: auto;
-      max-width: 240px;
+      max-width: 220px;
       object-fit: contain;
       display: block;
       border-radius: 6px;
@@ -162,7 +202,6 @@
       padding: 6px 12px;
       border-radius: 10px;
       height: 44px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
     .brand-sub {
       display: inline-flex;
@@ -180,35 +219,495 @@
     .nav-links {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 26px;
+      justify-content: flex-start;
+      gap: 20px;
       font-size: 13.5px;
       font-weight: 600;
       color: var(--body);
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 24px;
+      margin-right: auto;
+    }
+    .nav-links a {
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s ease;
     }
     .nav-links a:hover {
       color: var(--blue);
     }
+    .nav-links a:hover .mega-chevron {
+      color: var(--blue);
+    }
+
+    /* Clean Navbar & Dropdowns */
+    .nav-dropdown-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .nav-drop-btn {
+      background: transparent;
+      border: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--body);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      padding: 6px 0;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+    .nav-drop-btn:hover,
+    .nav-dropdown-wrapper.open .nav-drop-btn {
+      color: var(--blue);
+    }
+    .nav-chevron {
+      font-size: 8.5px;
+      color: var(--muted);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
+    }
+    .nav-dropdown-wrapper.open .nav-chevron {
+      transform: rotate(180deg);
+      color: var(--blue);
+    }
+
+    .nav-dropdown-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      box-shadow: 0 20px 45px -10px rgba(10, 22, 51, 0.15), 0 8px 20px -4px rgba(10, 22, 51, 0.06);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+      z-index: 1100;
+      overflow: hidden;
+      text-align: left;
+    }
+    .nav-dropdown-wrapper.open .nav-dropdown-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .eco-dropdown-panel {
+      width: 330px;
+      right: 0;
+      left: auto;
+    }
+    .feat-dropdown-panel {
+      width: 580px;
+      left: -40px;
+    }
+
+    .eco-nav-btn {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 0 13px;
+      height: 38px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    .eco-nav-btn:hover,
+    .nav-dropdown-wrapper.open .eco-nav-btn {
+      background: #EFF6FF;
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .eco-nav-icon {
+      font-size: 12px;
+      color: #0288D1;
+      transition: transform 0.2s ease, color 0.15s ease;
+    }
+    .eco-nav-btn:hover .eco-nav-icon,
+    .nav-dropdown-wrapper.open .eco-nav-btn .eco-nav-icon {
+      color: var(--blue);
+      transform: scale(1.1);
+    }
+
+    .dropdown-accent-bar {
+      height: 3.5px;
+      background: linear-gradient(90deg, #00C2D1 0%, #0288D1 50%, #0258A4 100%);
+      width: 100%;
+    }
+    .dropdown-inner {
+      padding: 16px 18px;
+    }
+    .dropdown-header {
+      padding: 2px 4px 10px;
+    }
+    .dropdown-category-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748B;
+    }
+    .dropdown-list-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .dropdown-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 12px;
+    }
+    .dropdown-item-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.16s ease;
+      background: #FFFFFF;
+      border: 1px solid transparent;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .dropdown-item-card:hover {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+      transform: translateY(-1px);
+    }
+    .dropdown-item-card.active {
+      background: #EFF6FF;
+      border-color: #BFDBFE;
+    }
+    .dropdown-item-card.span-full {
+      grid-column: span 2;
+      background: #F8FAFC;
+      border-color: #F1F5F9;
+      margin-top: 2px;
+    }
+    .dropdown-item-card.span-full:hover {
+      background: #EFF6FF;
+      border-color: #DBEAFE;
+    }
+    .dropdown-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+    .icon-agent {
+      background: linear-gradient(135deg, #0B0F19 0%, #1E293B 100%);
+      color: #00C2D1;
+    }
+    .icon-mom {
+      background: linear-gradient(135deg, #00C2D1 0%, #0288D1 50%, #0258A4 100%);
+      color: #FFFFFF;
+    }
+    .icon-lol {
+      background: linear-gradient(135deg, #8B5CF6, #6366F1);
+      color: #FFFFFF;
+    }
+    .icon-chunk {
+      background: linear-gradient(135deg, #0258A4, #00C2D1);
+      color: #FFFFFF;
+    }
+    .icon-trans {
+      background: linear-gradient(135deg, #1E4FFF, #6366F1);
+      color: #FFFFFF;
+    }
+    .icon-action {
+      background: linear-gradient(135deg, #0EA5E9, #0284C7);
+      color: #FFFFFF;
+    }
+    .icon-offline {
+      background: linear-gradient(135deg, #059669, #10B981);
+      color: #FFFFFF;
+    }
+    .icon-chrome {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+    }
+    .icon-chrome .f-icon-cardi {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+    .dropdown-item-body {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex: 1;
+      min-width: 0;
+    }
+    .dropdown-item-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dropdown-item-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .dropdown-item-card:hover .dropdown-item-title {
+      color: #1E4FFF;
+    }
+    .dropdown-item-sub {
+      font-size: 11.5px;
+      color: #64748B;
+      line-height: 1.4;
+      margin: 0;
+      white-space: normal;
+    }
+    .pill-badge {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .pill-badge.live {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #BBF7D0;
+    }
+    .pill-badge.new {
+      background: #EDE9FE;
+      color: #6D28D9;
+      border: 1px solid #DDD6FE;
+    }
+    .dropdown-foot {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #F1F5F9;
+    }
+    .dropdown-foot-caption {
+      font-size: 10.5px;
+      color: #94A3B8;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 4px;
+    }
+    .dropdown-foot-caption i {
+      color: #64B5F6;
+    }
+    .dropdown-foot-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 2px 4px;
+      transition: all 0.15s ease;
+    }
+    .dropdown-foot-link:hover {
+      color: var(--blue-dark);
+      transform: translateX(2px);
+    }
+
+    /* Language Switcher Dropdown */
+    .lang-dropdown-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-left: 2px;
+    }
+    .lang-toggle-btn {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 0 11px;
+      height: 38px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      white-space: nowrap;
+    }
+    .lang-toggle-btn:hover,
+    .lang-dropdown-wrapper.open .lang-toggle-btn {
+      background: #EFF6FF;
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .lang-flag-img {
+      width: 18px;
+      height: 12px;
+      border-radius: 2px;
+      object-fit: cover;
+      display: inline-block;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+      border: 0.5px solid rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+    .lang-code {
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+    .lang-chevron {
+      font-size: 9px;
+      color: var(--muted);
+      transition: transform 0.2s ease;
+    }
+    .lang-dropdown-wrapper.open .lang-chevron {
+      transform: rotate(180deg);
+      color: var(--blue);
+    }
+    .lang-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 12px 32px rgba(6, 26, 54, 0.12);
+      padding: 6px;
+      min-width: 175px;
+      display: none;
+      flex-direction: column;
+      gap: 3px;
+      z-index: 1200;
+      animation: langFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes langFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .lang-dropdown-wrapper.open .lang-dropdown-menu {
+      display: flex;
+    }
+    .lang-select-item {
+      background: transparent;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      transition: all 0.15s ease;
+      font-family: inherit;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .lang-select-item:hover {
+      background: #F1F5F9;
+    }
+    .lang-select-item.active {
+      background: #EFF6FF;
+    }
+    .flag-menu-img {
+      width: 22px;
+      height: 15px;
+      border-radius: 3px;
+      object-fit: cover;
+      display: inline-block;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+      border: 0.5px solid rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+    .lang-menu-text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .lang-menu-text strong {
+      font-size: 12.5px;
+      color: var(--navy);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .lang-menu-text span {
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .lang-check {
+      font-size: 11px;
+      color: var(--blue);
+      display: none;
+    }
+    .lang-select-item.active .lang-check {
+      display: block;
+    }
+    .mobile-lang-wrap {
+      display: none;
+    }
+
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .btn-main-site {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--body);
-      padding: 8px 14px;
-      border-radius: var(--radius-sm);
+      padding: 0 13px;
+      height: 38px;
+      border-radius: 999px;
       border: 1px solid var(--line);
       background: #FFFFFF;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
     }
     .btn-main-site:hover {
       border-color: var(--blue);
       color: var(--blue);
+      background: #F8FAFC;
     }
 
     /* Buttons */
@@ -216,14 +715,14 @@
       border: 0;
       text-decoration: none;
       border-radius: var(--radius-sm);
-      padding: 11px 18px;
+      padding: 9px 15px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 12.5px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 7px;
       transition: all 0.22s ease;
       white-space: nowrap;
       font-family: inherit;
@@ -242,6 +741,14 @@
       color: #FFFFFF;
       background: #25D366;
       box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
+      padding: 0 15px;
+      height: 38px;
+      border-radius: 999px;
+      font-size: 12px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-wa:hover {
       background: #1EBE5D;
@@ -643,7 +1150,7 @@
     /* Feature Grid Strip */
     .feature-strip {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 18px;
       margin-bottom: 42px;
     }
@@ -720,6 +1227,50 @@
       box-shadow: var(--shadow-hover);
       transform: translateY(-3px);
     }
+    .usecase-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 145px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 14px;
+      background: var(--soft-blue);
+      border: 1px solid var(--line);
+    }
+    .usecase-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .usecase-card:hover .usecase-img {
+      transform: scale(1.05);
+    }
+    .usecase-img-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--blue-dark);
+      box-shadow: 0 4px 12px rgba(10, 22, 51, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+    }
+    .usecase-img-badge i {
+      color: var(--blue);
+      font-size: 11px;
+    }
     .usecase-icon-wrap {
       display: flex;
       justify-content: space-between;
@@ -765,6 +1316,279 @@
       background: var(--soft-blue);
     }
 
+    /* Chrome Extension Card in Carousel */
+    .chrome-ext-preview-wrap {
+      background: #202124 !important;
+      color: #E8EAED;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #3C4043 !important;
+      user-select: none;
+      box-sizing: border-box;
+    }
+    .chrome-ext-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .chrome-ext-tab-title {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #9AA0A6;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .chrome-ext-tab-title i {
+      color: #8AB4F8;
+      font-size: 10.5px;
+    }
+    .chrome-ext-dev-badge {
+      font-size: 8px;
+      font-weight: 600;
+      color: #81C995;
+      background: rgba(129, 201, 149, 0.12);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+    .chrome-ext-inner-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      background: #292A2D;
+      border: 1px solid #3C4043;
+      border-radius: 8px;
+      padding: 7px 9px;
+      margin-bottom: 2px;
+    }
+    .chrome-ext-icon-box {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+    .chrome-ext-icon-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #1E4FFF;
+      display: block;
+    }
+    .chrome-ext-cam-badge {
+      position: absolute;
+      right: -3px;
+      bottom: -3px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #EA580C;
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-size: 6.5px;
+      border: 1.5px solid #292A2D;
+    }
+    .chrome-ext-details {
+      flex: 1;
+      min-width: 0;
+    }
+    .chrome-ext-title-row {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1.2;
+    }
+    .chrome-ext-ver {
+      font-size: 8.5px;
+      color: #9AA0A6;
+      font-weight: 500;
+    }
+    .chrome-ext-text {
+      font-size: 8.5px !important;
+      line-height: 1.25 !important;
+      color: #BDC1C6 !important;
+      margin: 2px 0 !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .chrome-ext-id {
+      font-size: 7.5px;
+      color: #80868B;
+      font-family: monospace;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chrome-ext-inspect {
+      font-size: 7.5px;
+      color: #80868B;
+      margin-top: 1px;
+    }
+    .chrome-ext-link {
+      color: #8AB4F8;
+      text-decoration: underline;
+    }
+    .chrome-badge-pill {
+      top: auto !important;
+      bottom: 8px !important;
+      left: auto !important;
+      right: 8px !important;
+      background: rgba(32, 33, 36, 0.92) !important;
+      color: #8AB4F8 !important;
+      border: 1px solid #3C4043 !important;
+    }
+
+    /* Google Chrome Extension Banner on top of Carousel */
+    .carousel-ext-banner {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius);
+      padding: 16px 22px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid #334155;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    }
+    .ext-banner-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ext-badge-live {
+      font-size: 11px;
+      font-weight: 800;
+      color: #60A5FA;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .carousel-ext-banner h3 {
+      color: #FFFFFF;
+      font-size: 14.5px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .ext-banner-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .ext-id-pill {
+      font-size: 9.5px;
+      font-family: monospace;
+      background: rgba(255, 255, 255, 0.08);
+      color: #94A3B8;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn-ext-install {
+      font-size: 11.5px;
+      font-weight: 700;
+      background: #1E4FFF;
+      color: #FFFFFF;
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(30, 79, 255, 0.3);
+    }
+    .btn-ext-install:hover {
+      background: #1538c7;
+      transform: translateY(-1px);
+    }
+
+    /* Cardi Icons for Extensions, Badges, and Pricing */
+    .cardi-tag-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .pricing-cardi-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .f-icon-cardi {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: block;
+    }
+    .cardi-btn-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Extension & Platform Compatibility Bar on Every Card */
+    .card-compat-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 10px 0 14px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+    .compat-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2.5px 7px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.01em;
+    }
+    .compat-tag.chrome {
+      background: #EFF6FF;
+      color: #1E4FFF;
+      border: 1px solid #DBEAFE;
+    }
+    .compat-tag.android {
+      background: #F0FDF4;
+      color: #16A34A;
+      border: 1px solid #DCFCE7;
+    }
+    .compat-tag.web {
+      background: #FFFBEB;
+      color: #D97706;
+      border: 1px solid #FEF3C7;
+    }
+
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -806,6 +1630,380 @@
     .carousel-dots button.active {
       background: var(--blue);
       transform: scale(1.25);
+    }
+
+    /* Mobile-First Experience Section */
+    .mobile-experience-section {
+      padding: 80px 0;
+      background: #FFFFFF;
+      position: relative;
+    }
+    .mob-section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+    .mob-section-head .kicker {
+      color: var(--agent-blue);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .mob-section-head h2 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.22;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+    }
+    .mob-head-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #64748B;
+      margin: 0;
+    }
+    .mob-showcase-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    /* Left Android Phone Mockup Container */
+    .mob-mockup-wrapper {
+      background: linear-gradient(180deg, #F0F6FF 0%, #E6F0FD 100%);
+      border-radius: 28px;
+      padding: 38px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #DBEAFE;
+      box-shadow: 0 10px 30px rgba(30, 79, 255, 0.04);
+    }    /* Ultra-Realistic Flagship Android Smartphone Mockup */
+    .android-realistic-phone {
+      position: relative;
+      width: 295px;
+      aspect-ratio: 388 / 842;
+      border-radius: 34px;
+      background: #FFFFFF;
+      box-shadow:
+        0 25px 60px -12px rgba(2, 88, 164, 0.28),
+        0 15px 35px -8px rgba(15, 23, 42, 0.22);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .phone-mockup-frame-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+      object-fit: fill;
+    }
+
+    /* Edge-to-Edge Android Screen Interior */
+    .android-screen-inner {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 12px 12px 8px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    /* Android Status Bar */
+    .android-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      font-weight: 800;
+      color: #0F172A;
+      height: 14px;
+      margin-bottom: 8px;
+      padding: 0 4px;
+    }
+    .android-status-time {
+      letter-spacing: 0.02em;
+    }
+    .android-status-icons {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 8px;
+      color: #334155;
+    }
+
+    /* Android App Header */
+    .android-app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      padding: 0 2px;
+    }
+    .android-app-logo-box {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #00d2ff 0%, #0066ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 102, 255, 0.25);
+    }
+    .android-app-logo-box img {
+      width: 14px;
+      height: 14px;
+      display: block;
+    }
+    .android-app-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #1E4FFF;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 6px rgba(30, 79, 255, 0.2);
+    }
+
+    /* Search Box */
+    .android-search-box {
+      margin-bottom: 8px;
+    }
+    .android-search-input {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 8.5px;
+      color: #0F172A;
+      font-family: inherit;
+      box-sizing: border-box;
+      outline: none;
+    }
+    .android-search-input::placeholder {
+      color: #94A3B8;
+    }
+
+    /* Section Header (› SELESAI) */
+    .android-list-section-title {
+      font-size: 8.5px;
+      font-weight: 800;
+      color: #475569;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 6px;
+      padding: 0 2px;
+    }
+    .android-list-section-title i {
+      font-size: 7px;
+      color: #64748B;
+    }
+
+    /* Meeting List */
+    .android-meeting-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .android-meeting-card {
+      background: #FFFFFF;
+      padding: 1px 2px;
+    }
+    .android-meeting-title {
+      font-size: 9px;
+      font-weight: 700;
+      color: #0F172A;
+      line-height: 1.25;
+      margin-bottom: 2px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .android-meeting-meta {
+      font-size: 7.5px;
+      color: #64748B;
+      font-weight: 500;
+      margin-bottom: 1.5px;
+    }
+    .android-meeting-status {
+      font-size: 7.5px;
+      font-weight: 800;
+      color: #1E4FFF;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .android-meeting-status i {
+      font-size: 6.5px;
+    }
+
+    /* Bottom Action Buttons Bar */
+    .android-bottom-actions {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 5px;
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid #F1F5F9;
+    }
+    .mob-btn-action {
+      font-size: 8.5px;
+      font-weight: 700;
+      padding: 6px 4px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: default;
+      font-family: inherit;
+    }
+    .mob-btn-action.record {
+      background: #1E4FFF;
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(30, 79, 255, 0.3);
+    }
+    .mob-btn-action.record .rec-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      display: inline-block;
+    }
+    .mob-btn-action.secondary {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+      color: #0F172A;
+    }
+
+    /* Ultra-Slim Modern Android Gesture Pill Bar */
+    .android-nav-indicator {
+      width: 50px;
+      height: 2.5px;
+      background: #CBD5E1;
+      border-radius: 99px;
+      margin: 6px auto 0;
+      flex-shrink: 0;
+    }
+
+    /* Right Feature Grid (2 columns x 5 rows) */
+    .mob-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .mob-feat-card {
+      background: #FFFFFF;
+      border: 1px solid #E6ECF7;
+      border-radius: 16px;
+      padding: 18px 20px 16px;
+      box-shadow: 0 4px 16px rgba(10, 22, 51, 0.03);
+      transition: all 0.22s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .mob-feat-card:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 10px 24px rgba(30, 79, 255, 0.08);
+      transform: translateY(-2px);
+    }
+    .mob-feat-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #EEF4FF;
+      color: #1E4FFF;
+      display: grid;
+      place-items: center;
+      font-size: 13.5px;
+      margin-bottom: 12px;
+    }
+    .mob-feat-card h3 {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .mob-feat-card p {
+      font-size: 11.8px;
+      line-height: 1.55;
+      color: #64748B;
+      margin: 0;
+    }
+
+    /* Bottom Meeting Schedule Strips */
+    .mob-schedule-strips {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .mob-schedule-item {
+      background: #FFFFFF;
+      border: 1px solid #E6ECF7;
+      border-radius: 12px;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(10, 22, 51, 0.02);
+      transition: all 0.2s ease;
+    }
+    .mob-schedule-item:hover {
+      border-color: #BFDBFE;
+      box-shadow: 0 6px 16px rgba(2, 88, 164, 0.06);
+    }
+    .mob-sched-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .mob-sched-meta {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .mob-sched-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .mob-sched-status-dot.yellow {
+      background: #F59E0B;
+      box-shadow: 0 0 0 3.5px rgba(245, 158, 11, 0.18);
+    }
+    .mob-sched-status-dot.slate {
+      background: #64748B;
+      box-shadow: 0 0 0 3.5px rgba(100, 116, 139, 0.18);
     }
 
     /* Workflow Pipeline Section */
@@ -943,43 +2141,93 @@
     }
     .price-card h3 {
       font-size: 20px;
-      margin-bottom: 4px;
-    }
-    .price-card > p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 20px;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 8px;
     }
     .price {
       font-size: 32px;
-      font-weight: 900;
-      color: var(--ink);
+      font-weight: 800;
+      color: #0F172A;
       letter-spacing: -0.03em;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 16px;
+      margin: 0 0 4px;
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
     }
     .price small {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      color: #64748B;
+    }
+    .coin-desc {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: #64748B;
+      margin-bottom: 22px;
     }
     .price-list {
       list-style: none;
-      margin-bottom: 28px;
+      margin: 0 0 26px;
+      padding: 16px 0 0;
+      border-top: 1px solid #F1F5F9;
       flex: 1;
     }
     .price-list li {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 13px;
-      color: var(--body);
+      font-size: 13.5px;
+      color: #334155;
       margin-bottom: 12px;
     }
     .price-list li i {
-      color: #00A87E;
-      font-size: 12px;
+      color: var(--blue);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .btn-plan {
+      background: linear-gradient(180deg, #2563EB 0%, #1D4ED8 100%);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-family: inherit;
+    }
+    .btn-plan:hover {
+      background: linear-gradient(180deg, #1D4ED8 0%, #1E40AF 100%);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+      transform: translateY(-1px);
+    }
+    .pricing-play-footer {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 13.5px;
+      color: #64748B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .pricing-play-footer i {
+      font-size: 20px;
+      color: #0F172A;
+      flex-shrink: 0;
     }
 
     /* FAQ Section */
@@ -1024,6 +2272,207 @@
       display: block;
     }
 
+    #faq.section {
+      padding-bottom: 24px;
+    }
+
+    /* Feedback Section */
+    #feedback.section {
+      padding-top: 12px;
+      padding-bottom: 24px;
+    }
+    .feedback-head-stacked {
+      margin-bottom: 20px;
+    }
+    .feedback-head-stacked .kicker {
+      margin-bottom: 6px;
+    }
+    .feedback-head-stacked h2 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 3.2vw, 40px);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+    .feedback-head-stacked p {
+      max-width: 100%;
+      color: var(--body);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .feedback-card {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 48px;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+    .feedback-card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(2, 88, 164, 0.2);
+    }
+    .feedback-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .feedback-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--blue-light);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .feedback-card-header h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 4px;
+    }
+    .feedback-card-header p {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin: 0;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .form-label .required {
+      color: #EF4444;
+    }
+    .feedback-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .category-chip {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      color: var(--body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .category-chip:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-light);
+    }
+    .category-chip.active {
+      background: var(--blue);
+      color: #FFFFFF;
+      border-color: var(--blue);
+      box-shadow: 0 3px 10px rgba(2, 88, 164, 0.25);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-size: 14px;
+      color: var(--navy);
+      font-family: inherit;
+      transition: all 0.2s ease;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      background: #FFFFFF;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(2, 88, 164, 0.12);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-actions {
+      margin-top: 26px;
+    }
+    .btn-wa-feedback-main {
+      width: 100%;
+      background: #25D366;
+      color: #FFFFFF;
+      font-size: 15.5px;
+      font-weight: 700;
+      padding: 15px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      font-family: inherit;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    }
+    .btn-wa-feedback-main:hover {
+      background: #20BA5A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    }
+    .btn-wa-feedback-main i {
+      font-size: 18px;
+    }
+    .feedback-direct-note {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: var(--muted);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      line-height: 1.5;
+    }
+    .feedback-direct-note i {
+      color: #25D366;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .feedback-card {
+        padding: 28px 20px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+
     /* Bottom CTA */
     .bottom-cta {
       background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
@@ -1034,25 +2483,64 @@
       justify-content: space-between;
       align-items: center;
       gap: 32px;
-      margin: 48px auto;
+      margin: 24px auto 48px;
       box-shadow: 0 20px 48px rgba(2, 88, 164, 0.25);
     }
     .bottom-cta h2 {
       color: #FFFFFF;
       margin-bottom: 8px;
+      font-size: 26px;
+      font-weight: 800;
     }
     .bottom-cta p {
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.88);
       font-size: 14.5px;
       max-width: 540px;
       margin: 0;
+      line-height: 1.6;
+    }
+    .btn-wa-bottom {
+      background: #25D366;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      transition: all 0.22s ease;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .btn-wa-bottom:hover {
+      background: #20BA5A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    }
+    .btn-wa-bottom i {
+      font-size: 17px;
+      color: #FFFFFF;
     }
 
-    /* Footer - Aligned with Cardi Brand Ecosystem */
+    /* Footer - Aligned with Cardi Brand Ecosystem (Dark Theme with White Text) */
     footer {
-      background: #FFFFFF;
-      border-top: 1px solid var(--line);
-      padding: 56px 0 24px;
+      background: #0A1633;
+      color: #FFFFFF;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 56px 0 28px;
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3.5px;
+      background: linear-gradient(90deg, #00C2D1 0%, #0288D1 50%, #0258A4 100%);
     }
     .footer-grid {
       display: grid;
@@ -1062,49 +2550,59 @@
     }
     .footer-brand p {
       font-size: 12.5px;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.78);
       line-height: 1.65;
-      margin: 14px 0 16px;
+      margin: 16px 0 16px;
       max-width: 320px;
     }
     .footer-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: var(--soft);
-      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(0, 194, 209, 0.4);
       font-size: 11px;
       font-weight: 700;
-      color: var(--ink);
+      color: #FFFFFF;
+    }
+    .footer-badge i {
+      color: #00C2D1;
     }
     .footer-col h4 {
-      font-size: 13.5px;
-      margin-bottom: 16px;
-      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
     }
     .footer-col ul {
       list-style: none;
     }
     .footer-col li {
-      margin-bottom: 10px;
+      margin-bottom: 11px;
     }
     .footer-col a {
-      font-size: 12.5px;
-      color: var(--muted);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
     .footer-col a:hover {
-      color: var(--blue);
+      color: #00C2D1;
+      transform: translateX(2px);
     }
     .copyright-bar {
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 12px;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     /* Floating WhatsApp Button */
@@ -1158,6 +2656,14 @@
       .usecase-card {
         flex: 0 0 calc((100% - 16px) / 2);
       }
+      .mob-showcase-grid {
+        grid-template-columns: 320px 1fr;
+        gap: 20px;
+      }
+      .mob-section-head {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
       .workflow-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1173,12 +2679,59 @@
     }
 
     @media (max-width: 768px) {
+      html {
+        scroll-padding-top: 86px;
+      }
+      section[id],
+      main[id],
+      #top,
+      #features,
+      #solutions,
+      #mobile-experience,
+      #workflow,
+      #pricing,
+      #faq,
+      #feedback {
+        scroll-margin-top: 86px;
+      }
       .eco-bar { display: none; }
       .nav-links { display: none; }
+      .mobile-lang-wrap { display: inline-flex !important; }
       .btn-main-site { display: none; }
       .section-head {
         flex-direction: column;
         align-items: flex-start;
+      }
+      .mobile-experience-section {
+        padding: 48px 0;
+      }
+      .carousel-ext-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+      }
+      .ext-banner-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-ext-install {
+        text-align: center;
+        justify-content: center;
+      }
+      .mob-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .mob-mockup-wrapper {
+        padding: 28px 16px;
+      }
+      .mob-features-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .mob-section-head h2 {
+        font-size: 26px;
       }
       .feature-strip {
         grid-template-columns: 1fr;
@@ -1221,13 +2774,12 @@
   <div class="eco-bar">
     <div class="container eco-bar-inner">
       <div class="eco-badge">
-        <i class="fa-solid fa-layer-group"></i> Cardi Business Power Ecosystem™ • Partner for IPO
+        <i class="fa-solid fa-layer-group"></i> <span data-i18n="eco_badge">Ekosistem Cardi • Cardi Business Power Ecosystem™</span>
       </div>
       <div class="eco-links">
-        <a href="https://cardi.co.id" target="_blank" rel="noopener">Website Utama</a>
-        <a href="https://cardinusantara.com" target="_blank" rel="noopener">Cardi Nusantara</a>
-        <a href="https://digital.cardinusantara.com" target="_blank" rel="noopener">Cardi Digital</a>
-        <a href="https://branding.cardinusantara.com" target="_blank" rel="noopener">Cardi Branding</a>
+        <a href="/" class="eco-link"><span data-i18n="eco_agent">Cardi Agent</span></a>
+        <span class="eco-sep">•</span>
+        <a href="#top" class="eco-link active"><span data-i18n="eco_mom">Cardi MoM</span></a>
       </div>
     </div>
   </div>
@@ -1236,23 +2788,59 @@
   <div class="container nav-wrap">
     <nav class="navbar">
       <a class="brand" href="#top" aria-label="Cardi Agent MoM">
-        <img class="brand-logo" src="/logo-mom.png" onerror="this.onerror=null;this.src='./logo-mom.png';" alt="Cardi Agent MoM" />
+        <img class="brand-logo" src="/logo-mom-transparent.png" onerror="this.onerror=null;this.src='./logo-mom.png';" alt="Cardi Agent MoM" />
       </a>
 
       <div class="nav-links">
-        <a href="#features">Fitur</a>
-        <a href="#solutions">Solusi Industri</a>
-        <a href="#workflow">Alur Kerja</a>
-        <a href="#pricing">Harga</a>
-        <a href="#faq">FAQ</a>
+        <a href="#features" data-i18n="nav_features">Fitur</a>
+        <a href="#solutions" data-i18n="nav_solutions">Solusi Industri</a>
+        <a href="#workflow" data-i18n="nav_workflow">Alur Kerja</a>
+        <a href="#pricing" data-i18n="nav_pricing">Langganan</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#feedback" data-i18n="nav_feedback">Feedback</a>
       </div>
 
       <div class="nav-actions">
+        <!-- Language Switcher in Nav -->
+        <div class="lang-dropdown-wrapper" id="langDropdownWrap">
+          <button type="button" class="lang-toggle-btn" aria-expanded="false" aria-label="Pilih Bahasa" onclick="toggleLangDropdown(event)">
+            <img src="/flags/id.svg" alt="ID" class="lang-flag-img" />
+            <span class="lang-code">ID</span>
+            <i class="fa-solid fa-chevron-down lang-chevron"></i>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-select-item active" data-lang="id" onclick="setLanguage('id')">
+              <img src="/flags/id.svg" alt="Indonesia" class="flag-menu-img" />
+              <div class="lang-menu-text">
+                <strong>Indonesia</strong>
+                <span>Bahasa Indonesia</span>
+              </div>
+              <i class="fa-solid fa-check lang-check"></i>
+            </button>
+            <button type="button" class="lang-select-item" data-lang="en" onclick="setLanguage('en')">
+              <img src="/flags/en.svg" alt="English" class="flag-menu-img" />
+              <div class="lang-menu-text">
+                <strong>English</strong>
+                <span>Global English</span>
+              </div>
+              <i class="fa-solid fa-check lang-check"></i>
+            </button>
+            <button type="button" class="lang-select-item" data-lang="zh" onclick="setLanguage('zh')">
+              <img src="/flags/zh.svg" alt="Chinese" class="flag-menu-img" />
+              <div class="lang-menu-text">
+                <strong>简体中文</strong>
+                <span>Chinese</span>
+              </div>
+              <i class="fa-solid fa-check lang-check"></i>
+            </button>
+          </div>
+        </div>
+
         <a class="btn-main-site" href="https://cardi.co.id" target="_blank" rel="noopener">
-          <i class="fa-solid fa-arrow-left"></i> cardi.co.id
+          <i class="fa-solid fa-arrow-left"></i> <span data-i18n="btn_main">cardi.co.id</span>
         </a>
         <button class="btn btn-wa" onclick="openWhatsApp('demo')">
-          <i class="fa-brands fa-whatsapp"></i><span>Konsultasi Demo</span>
+          <i class="fa-brands fa-whatsapp"></i><span data-i18n="btn_demo">Konsultasi Demo</span>
         </button>
       </div>
     </nav>
@@ -1263,18 +2851,18 @@
     <section class="container hero">
       <div class="hero-copy">
         <div class="eyebrow">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> AI MEETING INTELLIGENCE
+          <i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="hero_eyebrow">AI MEETING INTELLIGENCE</span>
         </div>
-        <h1>Ubah Waktu Rapat Jadi <span class="accent">Tindakan Nyata & Eksekusi Cepat.</span></h1>
-        <p>
+        <h1><span data-i18n="hero_title_1">Ubah Waktu Rapat Jadi </span><span class="accent" data-i18n="hero_title_2">Tindakan Nyata & Eksekusi Cepat.</span></h1>
+        <p data-i18n="hero_desc">
           Cardi Agent MoM merekam, mentranskripsi suara, merangkum, dan menyusun notula rapat otomatis (Minutes of Meeting)—sehingga tim Anda fokus pada keputusan strategis dan pertumbuhan bisnis skala IPO.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#features">
-            Lihat Fitur Lengkap <i class="fa-solid fa-arrow-right"></i>
+            <span data-i18n="hero_btn_features">Lihat Fitur Lengkap</span> <i class="fa-solid fa-arrow-right"></i>
           </a>
           <button class="btn btn-outline" onclick="openWhatsApp('demo')">
-            <i class="fa-regular fa-circle-play"></i> Jadwalkan Demo
+            <i class="fa-regular fa-circle-play"></i> <span data-i18n="hero_btn_demo">Jadwalkan Demo</span>
           </button>
         </div>
       </div>
@@ -1287,8 +2875,8 @@
             <div class="meeting-title">
               <div class="meeting-badge-icon"><i class="fa-solid fa-microphone-lines"></i></div>
               <div>
-                <strong>Rapat Koordinasi Roadmap Q3</strong><span class="live"><i class="fa-solid fa-circle" style="font-size:6px"></i> Live</span>
-                <small>Hari ini, 10:00 • 48:12 • Hybrid</small>
+                <strong data-i18n="sim_title">Rapat Koordinasi Roadmap Q3</strong><span class="live"><i class="fa-solid fa-circle" style="font-size:6px"></i> Live</span>
+                <small data-i18n="sim_meta">Hari ini, 10:00 • 48:12 • Hybrid</small>
               </div>
             </div>
             <div class="avatars">
@@ -1301,10 +2889,10 @@
           </div>
 
           <div class="meeting-tabs">
-            <span class="active">Transkripsi Live</span>
-            <span>Rangkuman AI</span>
-            <span>Action Items</span>
-            <span>Insight Rapat</span>
+            <span class="active" data-i18n="sim_tab_trans">Transkripsi Live</span>
+            <span data-i18n="sim_tab_summary">Rangkuman AI</span>
+            <span data-i18n="sim_tab_action">Action Items</span>
+            <span data-i18n="sim_tab_insight">Insight Rapat</span>
           </div>
 
           <div class="meeting-body">
@@ -1313,21 +2901,21 @@
                 <div class="mini-avatar">DI</div>
                 <div>
                   <div class="speaker-line">Diana (Product Manager)<span>10:01 WIB</span></div>
-                  <div class="speech">Kita samakan target roadmap dan milestone utama automasi operasional Q3.</div>
+                  <div class="speech" data-i18n="sim_speech1">Kita samakan target roadmap dan milestone utama automasi operasional Q3.</div>
                 </div>
               </div>
               <div class="transcript-row">
                 <div class="mini-avatar">RA</div>
                 <div>
                   <div class="speaker-line">Rafi (Lead Engineer)<span>10:02 WIB</span></div>
-                  <div class="speech">Modul integrasi AI summarization sudah siap untuk pengujian internal minggu ini.</div>
+                  <div class="speech" data-i18n="sim_speech2">Modul integrasi AI summarization sudah siap untuk pengujian internal minggu ini.</div>
                 </div>
               </div>
               <div class="transcript-row">
                 <div class="mini-avatar">SA</div>
                 <div>
                   <div class="speaker-line">Sarah (Product Design)<span>10:03 WIB</span></div>
-                  <div class="speech">Desain alur export PDF dan sinkronisasi notula akan dibagikan setelah sesi ini.</div>
+                  <div class="speech" data-i18n="sim_speech3">Desain alur export PDF dan sinkronisasi notula akan dibagikan setelah sesi ini.</div>
                 </div>
               </div>
 
@@ -1349,21 +2937,21 @@
                 <span class="bar" style="height:21px"></span>
               </div>
               <div class="live-line">
-                <span class="pause"><i class="fa-solid fa-pause"></i></span> Live audio stream & multi-speaker recognition aktif
+                <span class="pause"><i class="fa-solid fa-pause"></i></span> <span data-i18n="sim_live_line">Live audio stream & multi-speaker recognition aktif</span>
               </div>
             </div>
 
             <aside class="side-panel">
               <div class="panel-card">
-                <h4>Action Items (4)</h4>
-                <div class="task"><span class="check"></span><span>Rafi: Finalisasi technical spec</span><span class="date">22 Ags</span></div>
-                <div class="task"><span class="check"></span><span>Sarah: Update UI mobile flow</span><span class="date">23 Ags</span></div>
-                <div class="task"><span class="check"></span><span>Diana: Finalisasi roadmap Q3</span><span class="date">24 Ags</span></div>
-                <div class="task"><span class="check"></span><span>Review paket bersama finance</span><span class="date">25 Ags</span></div>
-                <div class="add-item">＋ Tambah Action Item</div>
+                <h4 data-i18n="sim_action_head">Action Items (4)</h4>
+                <div class="task"><span class="check"></span><span data-i18n="sim_task1">Rafi: Finalisasi technical spec</span><span class="date">22 Ags</span></div>
+                <div class="task"><span class="check"></span><span data-i18n="sim_task2">Sarah: Update UI mobile flow</span><span class="date">23 Ags</span></div>
+                <div class="task"><span class="check"></span><span data-i18n="sim_task3">Diana: Finalisasi roadmap Q3</span><span class="date">24 Ags</span></div>
+                <div class="task"><span class="check"></span><span data-i18n="sim_task4">Review paket bersama finance</span><span class="date">25 Ags</span></div>
+                <div class="add-item" data-i18n="sim_add_item">＋ Tambah Action Item</div>
               </div>
               <div class="panel-card">
-                <h4>Kontribusi Pembicara</h4>
+                <h4 data-i18n="sim_speaker_contrib">Kontribusi Pembicara</h4>
                 <div class="speaker-stat"><span>DI • Product</span><div class="progress"><span style="width:46%"></span></div><span>46%</span></div>
                 <div class="speaker-stat"><span>RA • Eng</span><div class="progress"><span style="width:32%"></span></div><span>32%</span></div>
                 <div class="speaker-stat"><span>SA • Design</span><div class="progress"><span style="width:22%"></span></div><span>22%</span></div>
@@ -1378,10 +2966,10 @@
     <section class="container section" id="features">
       <div class="section-head">
         <div class="title-wrap">
-          <div class="kicker">Keunggulan Produk</div>
-          <h2>Teknologi Cerdas untuk Setiap Tahap Rapat Anda.</h2>
+          <div class="kicker" data-i18n="feat_kicker">Keunggulan Produk</div>
+          <h2 data-i18n="feat_head">Teknologi Cerdas untuk Setiap Tahap Rapat Anda.</h2>
         </div>
-        <p>
+        <p data-i18n="feat_sub">
           Tingkatkan efisiensi kerja tim dengan dokumentasi rapat otomatis berbasis LLM canggih dan arsitektur cloud serverless.
         </p>
       </div>
@@ -1389,23 +2977,28 @@
       <div class="feature-strip">
         <div class="feature-box">
           <div class="f-icon"><i class="fa-solid fa-microphone-lines"></i></div>
-          <h3>Chunked Recording</h3>
-          <p>Audio rapat direkam dalam potongan aman secara berkala agar tetap resilien dan berjalan lancar meski di latar belakang.</p>
+          <h3 data-i18n="feat_1_title">Chunked Recording</h3>
+          <p data-i18n="feat_1_desc">Audio rapat direkam dalam potongan aman secara berkala agar tetap resilien dan berjalan lancar meski di latar belakang.</p>
         </div>
         <div class="feature-box">
           <div class="f-icon"><i class="fa-solid fa-language"></i></div>
-          <h3>Transkripsi Akurat</h3>
-          <p>Mendukung Bahasa Indonesia, istilah teknis, percakapan campuran (Bahasa Inggris/daerah), dan identifikasi pembicara.</p>
+          <h3 data-i18n="feat_2_title">Transkripsi Akurat</h3>
+          <p data-i18n="feat_2_desc">Mendukung Bahasa Indonesia, istilah teknis, percakapan campuran (Bahasa Inggris/daerah), dan identifikasi pembicara.</p>
         </div>
         <div class="feature-box">
           <div class="f-icon"><i class="fa-solid fa-list-check"></i></div>
-          <h3>MoM & Action Items</h3>
-          <p>AI mengekstrak ringkasan eksekutif, poin keputusan penting, dan daftar tugas lengkap dengan penanggung jawab dan tenggat.</p>
+          <h3 data-i18n="feat_3_title">MoM & Action Items</h3>
+          <p data-i18n="feat_3_desc">AI mengekstrak ringkasan eksekutif, poin keputusan penting, dan daftar tugas lengkap dengan penanggung jawab dan tenggat.</p>
         </div>
         <div class="feature-box">
           <div class="f-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-          <h3>Offline-First & Sync</h3>
-          <p>Rapat dapat direkam tanpa koneksi internet dan otomatis tersinkronisasi saat perangkat Anda terhubung kembali.</p>
+          <h3 data-i18n="feat_4_title">Offline-First & Sync</h3>
+          <p data-i18n="feat_4_desc">Rapat dapat direkam tanpa koneksi internet dan otomatis tersinkronisasi saat perangkat Anda terhubung kembali.</p>
+        </div>
+        <div class="feature-box">
+          <div class="f-icon" style="background:#EFF6FF;"><img src="/cardi-circle-logo.svg" alt="Cardi" class="f-icon-cardi" /></div>
+          <h3 data-i18n="feat_5_title">Ekstensi Google Chrome</h3>
+          <p data-i18n="feat_5_desc">Transkrip langsung dari tab browser Chrome untuk meeting Zoom, Meet, Teams, dan YouTube tanpa instalasi aplikasi desktop.</p>
         </div>
       </div>
     </section>
@@ -1415,10 +3008,21 @@
       <div class="container">
         <div class="section-head">
           <div class="title-wrap">
-            <div class="kicker">Solusi Lintas Departemen</div>
-            <h2>Didesain untuk Kebutuhan Setiap Divisi & Industri.</h2>
+            <div class="kicker" data-i18n="sol_kicker">Solusi Lintas Departemen</div>
+            <h2 data-i18n="sol_head">Didesain untuk Kebutuhan Setiap Divisi & Industri.</h2>
           </div>
-          <p>Dari panggilan penjualan hingga dewan direksi, Cardi Agent MoM memastikan tidak ada keputusan penting yang terlewat.</p>
+          <p data-i18n="sol_sub">Dari panggilan penjualan hingga dewan direksi, Cardi Agent MoM memastikan tidak ada keputusan penting yang terlewat.</p>
+        </div>
+
+        <!-- Chrome Web Extension Banner -->
+        <div class="carousel-ext-banner">
+          <div class="ext-banner-left">
+            <span class="ext-badge-live"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> <span data-i18n="ext_banner_badge">Google Chrome Web Extension Live</span></span>
+            <h3 data-i18n="ext_banner_title">Transkrip Rapat Zoom, Google Meet & YouTube Langsung dari Browser Chrome</h3>
+          </div>
+          <div class="ext-banner-right">
+            <a href="javascript:void(0)" onclick="openWhatsApp('extension')" class="btn-ext-install"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-btn-icon" /> <span data-i18n="ext_banner_btn">Pasang Ekstensi Cardi →</span></a>
+          </div>
         </div>
 
         <div class="carousel-shell">
@@ -1426,82 +3030,153 @@
 
           <div class="carousel-viewport">
             <div class="usecase-track" id="usecaseTrack">
-              <!-- Sales -->
+              <!-- Ekstensi Google Chrome & Web -->
               <article class="usecase-card">
                 <div>
-                  <div class="usecase-icon-wrap">
-                    <div class="usecase-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <span class="usecase-badge">Sales</span>
+                  <div class="usecase-img-wrap chrome-ext-preview-wrap">
+                    <div class="chrome-ext-header-bar">
+                      <div class="chrome-ext-tab-title"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> All Extensions</div>
+                      <span class="chrome-ext-dev-badge">Developer Mode</span>
+                    </div>
+                    <div class="chrome-ext-inner-card">
+                      <div class="chrome-ext-icon-box">
+                        <img src="/cardi-circle-logo.svg" alt="Cardi Extension" class="chrome-ext-icon-img" />
+                        <div class="chrome-ext-cam-badge"><i class="fa-solid fa-video"></i></div>
+                      </div>
+                      <div class="chrome-ext-details">
+                        <div class="chrome-ext-title-row">
+                          <strong>Cardi</strong> <span class="chrome-ext-ver">0.0.1</span>
+                        </div>
+                        <p class="chrome-ext-text" data-i18n="chrome_ext_preview_text">Transkrip meeting Zoom/Meet/YouTube langsung dari Chrome.</p>
+                        <div class="chrome-ext-inspect">Inspect views <span class="chrome-ext-link">service worker</span></div>
+                      </div>
+                    </div>
+                    <div class="usecase-img-badge chrome-badge-pill">
+                      <img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> <span data-i18n="badge_chrome">Ekstensi Chrome</span>
+                    </div>
                   </div>
-                  <h3>Sales & Client Pitch</h3>
-                  <p>Rekam discovery call, catat kebutuhan klien, kualifikasi prospek, dan follow-up penawaran tanpa lupa detail.</p>
+                  <h3 data-i18n="card_chrome_title">Ekstensi Google Chrome & Web</h3>
+                  <p data-i18n="card_chrome_desc">Transkrip meeting Zoom, Google Meet, Microsoft Teams, dan YouTube langsung dari browser Chrome tanpa install aplikasi tambahan.</p>
+                  <div class="card-compat-bar">
+                    <span class="compat-tag chrome"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> <span data-i18n="compat_cardi_ext">Ekstensi Cardi</span></span>
+                    <span class="compat-tag web"><i class="fa-solid fa-globe"></i> Zoom / Meet / YouTube</span>
+                  </div>
                 </div>
-                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')">Gunakan untuk Sales →</a>
+                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('extension')" data-i18n="card_chrome_cta">Gunakan di Chrome →</a>
               </article>
 
-              <!-- Management / Board -->
+              <!-- Penjualan & Klien -->
               <article class="usecase-card">
                 <div>
-                  <div class="usecase-icon-wrap">
-                    <div class="usecase-icon"><i class="fa-solid fa-building-columns"></i></div>
-                    <span class="usecase-badge">Executive</span>
+                  <div class="usecase-img-wrap">
+                    <img src="/sales-rep.png" alt="Penjualan & Presentasi Klien" class="usecase-img" loading="lazy" />
+                    <div class="usecase-img-badge">
+                      <i class="fa-solid fa-chart-line"></i> <span data-i18n="badge_sales">Penjualan</span>
+                    </div>
                   </div>
-                  <h3>Board & Management Sync</h3>
-                  <p>Dokumentasikan rapat direksi, keputusan strategis IPO, dan alokasi anggaran dengan notula formal yang siap diekspor.</p>
+                  <h3 data-i18n="card_sales_title">Penjualan & Presentasi Klien</h3>
+                  <p data-i18n="card_sales_desc">Rekam pertemuan eksplorasi, catat kebutuhan klien, kualifikasi prospek, dan tindak lanjut penawaran tanpa ada rincian yang terlewat.</p>
+                  <div class="card-compat-bar">
+                    <span class="compat-tag chrome"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> Ekstensi Cardi</span>
+                    <span class="compat-tag android"><i class="fa-brands fa-android"></i> Android App</span>
+                  </div>
                 </div>
-                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')">Gunakan untuk Board →</a>
+                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')" data-i18n="card_sales_cta">Gunakan untuk Penjualan →</a>
               </article>
 
-              <!-- Product & Tech -->
+              <!-- Eksekutif & Manajemen -->
               <article class="usecase-card">
                 <div>
-                  <div class="usecase-icon-wrap">
-                    <div class="usecase-icon"><i class="fa-solid fa-code-branch"></i></div>
-                    <span class="usecase-badge">Product</span>
+                  <div class="usecase-img-wrap">
+                    <img src="/executive.png" alt="Eksekutif & Direksi" class="usecase-img" loading="lazy" />
+                    <div class="usecase-img-badge">
+                      <i class="fa-solid fa-building-columns"></i> <span data-i18n="badge_exec">Eksekutif</span>
+                    </div>
                   </div>
-                  <h3>Sprint & Tech Planning</h3>
-                  <p>Ubah diskusi teknis, retro, dan product roadmap menjadi action items yang terstruktur dan langsung dapat dieksekusi.</p>
+                  <h3 data-i18n="card_exec_title">Rapat Direksi & Eksekutif</h3>
+                  <p data-i18n="card_exec_desc">Dokumentasikan rapat direksi, keputusan strategis IPO, dan alokasi anggaran dengan notula formal yang siap diekspor.</p>
+                  <div class="card-compat-bar">
+                    <span class="compat-tag chrome"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> Ekstensi Cardi</span>
+                    <span class="compat-tag android"><i class="fa-brands fa-android"></i> Android App</span>
+                  </div>
                 </div>
-                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')">Gunakan untuk Tech →</a>
+                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')" data-i18n="card_exec_cta">Gunakan untuk Eksekutif →</a>
               </article>
 
-              <!-- HR & Recruitment -->
+              <!-- Manajemen Produk -->
               <article class="usecase-card">
                 <div>
-                  <div class="usecase-icon-wrap">
-                    <div class="usecase-icon"><i class="fa-solid fa-user-tie"></i></div>
-                    <span class="usecase-badge">HR Team</span>
+                  <div class="usecase-img-wrap">
+                    <img src="/tech.png" alt="Manajemen Produk & Tim Teknis" class="usecase-img" loading="lazy" />
+                    <div class="usecase-img-badge">
+                      <i class="fa-solid fa-code-branch"></i> <span data-i18n="badge_tech">Manajemen Produk</span>
+                    </div>
                   </div>
-                  <h3>Interview & HR Evaluation</h3>
-                  <p>Transkrip sesi wawancara kandidat dan evaluasi kinerja karyawan secara objektif berdasarkan catatan rapat lengkap.</p>
+                  <h3 data-i18n="card_tech_title">Manajemen Produk & Teknis</h3>
+                  <p data-i18n="card_tech_desc">Ubah diskusi teknis, retrospeksi tim, dan peta jalan produk menjadi daftar rencana kerja terstruktur yang siap dieksekusi.</p>
+                  <div class="card-compat-bar">
+                    <span class="compat-tag chrome"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> Ekstensi Cardi</span>
+                    <span class="compat-tag android"><i class="fa-brands fa-android"></i> Android App</span>
+                  </div>
                 </div>
-                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')">Gunakan untuk HR →</a>
+                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')" data-i18n="card_tech_cta">Gunakan untuk Tim Produk →</a>
               </article>
 
-              <!-- Healthcare -->
+              <!-- SDM & Rekrutmen -->
               <article class="usecase-card">
                 <div>
-                  <div class="usecase-icon-wrap">
-                    <div class="usecase-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                    <span class="usecase-badge">Kesehatan</span>
+                  <div class="usecase-img-wrap">
+                    <img src="/hr.png" alt="Wawancara & Evaluasi SDM" class="usecase-img" loading="lazy" />
+                    <div class="usecase-img-badge">
+                      <i class="fa-solid fa-user-tie"></i> <span data-i18n="badge_hr">Tim SDM</span>
+                    </div>
                   </div>
-                  <h3>Klinik & Konsultasi Medis</h3>
-                  <p>Dokumentasikan konsultasi dokter, resume medik tim kesehatan, dan rapat koordinasi layanan pasien.</p>
+                  <h3 data-i18n="card_hr_title">Wawancara & Evaluasi SDM</h3>
+                  <p data-i18n="card_hr_desc">Transkrip sesi wawancara kandidat dan evaluasi kinerja karyawan secara objektif berdasarkan catatan rapat lengkap.</p>
+                  <div class="card-compat-bar">
+                    <span class="compat-tag chrome"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> Ekstensi Cardi</span>
+                    <span class="compat-tag android"><i class="fa-brands fa-android"></i> Android App</span>
+                  </div>
                 </div>
-                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')">Gunakan untuk Medis →</a>
+                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')" data-i18n="card_hr_cta">Gunakan untuk SDM →</a>
               </article>
 
-              <!-- Education -->
+              <!-- Layanan Kesehatan & Medis -->
               <article class="usecase-card">
                 <div>
-                  <div class="usecase-icon-wrap">
-                    <div class="usecase-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <span class="usecase-badge">Edukasi</span>
+                  <div class="usecase-img-wrap">
+                    <img src="/medical.png" alt="Klinik & Konsultasi Medis" class="usecase-img" loading="lazy" />
+                    <div class="usecase-img-badge">
+                      <i class="fa-solid fa-hospital-user"></i> <span data-i18n="badge_med">Layanan Kesehatan</span>
+                    </div>
                   </div>
-                  <h3>Akademik & Sekolah</h3>
-                  <p>Rangkuman rapat guru, sidang evaluasi kurikulum, dan bimbingan tugas akhir tersimpan rapi dan mudah dicari.</p>
+                  <h3 data-i18n="card_med_title">Klinik & Konsultasi Medis</h3>
+                  <p data-i18n="card_med_desc">Dokumentasikan konsultasi dokter, resume medik tim kesehatan, dan rapat koordinasi layanan pasien secara akurat.</p>
+                  <div class="card-compat-bar">
+                    <span class="compat-tag chrome"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> Ekstensi Cardi</span>
+                    <span class="compat-tag android"><i class="fa-brands fa-android"></i> Android App</span>
+                  </div>
                 </div>
-                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')">Gunakan untuk Edukasi →</a>
+                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')" data-i18n="card_med_cta">Gunakan untuk Medis →</a>
+              </article>
+
+              <!-- Pendidikan & Akademik -->
+              <article class="usecase-card">
+                <div>
+                  <div class="usecase-img-wrap">
+                    <img src="/education.png" alt="Institusi Pendidikan & Akademik" class="usecase-img" loading="lazy" />
+                    <div class="usecase-img-badge">
+                      <i class="fa-solid fa-graduation-cap"></i> <span data-i18n="badge_edu">Pendidikan</span>
+                    </div>
+                  </div>
+                  <h3 data-i18n="card_edu_title">Institusi Pendidikan & Akademik</h3>
+                  <p data-i18n="card_edu_desc">Dokumentasikan rapat dewan pendidik, evaluasi kurikulum, sidang akademik, dan bimbingan tugas akhir secara terstruktur serta mudah dicari.</p>
+                  <div class="card-compat-bar">
+                    <span class="compat-tag chrome"><img src="/cardi-circle-logo.svg" alt="Cardi" class="cardi-tag-icon" /> Ekstensi Cardi</span>
+                    <span class="compat-tag android"><i class="fa-brands fa-android"></i> Android App</span>
+                  </div>
+                </div>
+                <a class="small-cta" href="javascript:void(0)" onclick="openWhatsApp('demo')" data-i18n="card_edu_cta">Gunakan untuk Pendidikan →</a>
               </article>
             </div>
           </div>
@@ -1512,39 +3187,247 @@
       </div>
     </section>
 
+    <!-- Mobile-First Experience Section -->
+    <section class="mobile-experience-section" id="mobile-experience">
+      <div class="container">
+        <!-- Section Head -->
+        <div class="mob-section-head">
+          <div class="title-wrap">
+            <div class="kicker" data-i18n="mob_kicker">MOBILE-FIRST EXPERIENCE</div>
+            <h2 data-i18n="mob_title">Satu workspace untuk merekam, menjadwalkan, dan mengeksekusi hasil rapat.</h2>
+          </div>
+          <p class="mob-head-desc" data-i18n="mob_desc">
+            Fitur landing page ini disesuaikan dengan kapabilitas aplikasi mobile Cardi Agent: perekaman background, penjadwalan berbasis suara, transkrip, MoM, pencarian, offline-first, sinkronisasi, serta reminder.
+          </p>
+        </div>
+
+        <!-- Main Mobile Showcase Grid (Phone Mockup on Left + Feature Cards on Right) -->
+        <div class="mob-showcase-grid">
+          
+          <!-- Left Column: Android Phone Mockup in Light Blue Card -->
+          <div class="mob-mockup-wrapper">
+            <div class="android-realistic-phone">
+              <!-- Realistic Android Smartphone Mockup Frame Overlay -->
+              <img src="/android-mockup-frame.png" alt="Android Smartphone Mockup" class="phone-mockup-frame-img" />
+              
+              <!-- Screen Content Inside Frame -->
+              <div class="android-screen-inner">
+                <!-- Android Status Bar -->
+                <div class="android-status-bar">
+                  <span class="android-status-time">09:41</span>
+                  <div class="android-status-icons">
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-signal"></i>
+                    <i class="fa-solid fa-battery-full"></i>
+                  </div>
+                </div>
+
+                <!-- App Header Bar -->
+                <div class="android-app-header">
+                  <div class="android-app-logo-box">
+                    <img src="/cardi-circle-logo.svg" alt="Cardi" />
+                  </div>
+                  <div class="android-app-avatar">F</div>
+                </div>
+
+                <!-- Search Input -->
+                <div class="android-search-box">
+                  <input type="text" class="android-search-input" readonly placeholder="Cari judul, tanggal, atau peserta" data-i18n-ph="mob_ui_search_ph" />
+                </div>
+
+                <!-- Section Title: › SELESAI -->
+                <div class="android-list-section-title">
+                  <i class="fa-solid fa-chevron-right"></i>
+                  <span data-i18n="mob_ui_status_done">SELESAI</span>
+                </div>
+
+                <!-- Meeting Items List -->
+                <div class="android-meeting-list">
+                  <div class="android-meeting-card">
+                    <div class="android-meeting-title" data-i18n="mob_mock_m1_title">Laporan Ketiadaan Transkrip Rapat - 22 Agustus 2026</div>
+                    <div class="android-meeting-meta" data-i18n="mob_mock_m1_meta">2026-08-22 • 21:59</div>
+                    <div class="android-meeting-status">
+                      <i class="fa-solid fa-chevron-right"></i> <span data-i18n="mob_ui_ready">SIAP</span>
+                    </div>
+                  </div>
+
+                  <div class="android-meeting-card">
+                    <div class="android-meeting-title" data-i18n="mob_mock_m2_title">Laporan Rapat 22 Agustus 2026 (Tanpa Transkrip)</div>
+                    <div class="android-meeting-meta" data-i18n="mob_mock_m2_meta">2026-08-22 • 21:49</div>
+                    <div class="android-meeting-status">
+                      <i class="fa-solid fa-chevron-right"></i> <span data-i18n="mob_ui_ready">SIAP</span>
+                    </div>
+                  </div>
+
+                  <div class="android-meeting-card">
+                    <div class="android-meeting-title" data-i18n="mob_mock_m3_title">Laporan Pertemuan 22 Agustus 2026 (Transkrip Tidak Tersedia)</div>
+                    <div class="android-meeting-meta" data-i18n="mob_mock_m3_meta">2026-08-22 • 17:52</div>
+                    <div class="android-meeting-status">
+                      <i class="fa-solid fa-chevron-right"></i> <span data-i18n="mob_ui_ready">SIAP</span>
+                    </div>
+                  </div>
+
+                  <div class="android-meeting-card">
+                    <div class="android-meeting-title" data-i18n="mob_mock_m4_title">Uji Coba Teknis dan Inisiasi Perekaman Suara Rapat</div>
+                    <div class="android-meeting-meta" data-i18n="mob_mock_m4_meta">2026-08-21 • 17:01</div>
+                    <div class="android-meeting-status">
+                      <i class="fa-solid fa-chevron-right"></i> <span data-i18n="mob_ui_ready">SIAP</span>
+                    </div>
+                  </div>
+
+                  <div class="android-meeting-card">
+                    <div class="android-meeting-title" data-i18n="mob_mock_m5_title">Review Desain Tata Letak dan Skema Warna Logo Cardi Agent</div>
+                    <div class="android-meeting-meta" data-i18n="mob_mock_m5_meta">2026-08-21 • 16:49</div>
+                    <div class="android-meeting-status">
+                      <i class="fa-solid fa-chevron-right"></i> <span data-i18n="mob_ui_ready">SIAP</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Action Buttons: Rekam, Jadwalkan, Unggah -->
+                <div class="android-bottom-actions">
+                  <div class="mob-btn-action record"><span class="rec-dot"></span> <span data-i18n="mob_btn_record">Rekam</span></div>
+                  <div class="mob-btn-action secondary"><span data-i18n="mob_btn_schedule">Jadwalkan</span></div>
+                  <div class="mob-btn-action secondary"><span data-i18n="mob_btn_upload">Unggah</span></div>
+                </div>
+
+                <!-- Android Gesture Nav Bar -->
+                <div class="android-nav-indicator"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 10 Feature Cards (2x5 Grid) -->
+          <div class="mob-features-grid">
+            
+            <!-- 1. Chunked & Background Recording -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-quote-left"></i></div>
+              <h3 data-i18n="mob_f1_title">Chunked & Background Recording</h3>
+              <p data-i18n="mob_f1_desc">Audio rapat direkam per chunk agar lebih resilien dan tetap berjalan saat aplikasi diminimalkan pada Android.</p>
+            </div>
+
+            <!-- 2. Meeting Scheduling -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-regular fa-calendar-check"></i></div>
+              <h3 data-i18n="mob_f2_title">Meeting Scheduling</h3>
+              <p data-i18n="mob_f2_desc">Buat atau edit judul, tanggal, jam mulai, durasi, peserta, serta lokasi rapat dari aplikasi.</p>
+            </div>
+
+            <!-- 3. Voice Scheduling -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-comment-dots"></i></div>
+              <h3 data-i18n="mob_f3_title">Voice Scheduling</h3>
+              <p data-i18n="mob_f3_desc">Ucapkan jadwal secara natural lalu form diisi otomatis.</p>
+            </div>
+
+            <!-- 4. Audio Player & Transcript -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-file-audio"></i></div>
+              <h3 data-i18n="mob_f4_title">Audio Player & Transcript</h3>
+              <p data-i18n="mob_f4_desc">Putar kembali audio, baca transkrip lengkap, dan lihat identifikasi pembicara.</p>
+            </div>
+
+            <!-- 5. Structured Minutes of Meeting -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-check"></i></div>
+              <h3 data-i18n="mob_f5_title">Structured Minutes of Meeting</h3>
+              <p data-i18n="mob_f5_desc">Ringkasan eksekutif, keputusan, dan action items tampil rapi.</p>
+            </div>
+
+            <!-- 6. Copy & Share -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+              <h3 data-i18n="mob_f6_title">Copy & Share</h3>
+              <p data-i18n="mob_f6_desc">Bagikan hasil notula secara langsung tanpa menyusun ulang.</p>
+            </div>
+
+            <!-- 7. Fast Search & Filter -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <h3 data-i18n="mob_f7_title">Fast Search & Filter</h3>
+              <p data-i18n="mob_f7_desc">Cari rapat berdasarkan judul, lokasi, peserta, dan isi notula.</p>
+            </div>
+
+            <!-- 8. Offline-First & Auto Sync -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-rotate"></i></div>
+              <h3 data-i18n="mob_f8_title">Offline-First & Auto Sync</h3>
+              <p data-i18n="mob_f8_desc">Data lokal tersinkron otomatis saat koneksi tersedia.</p>
+            </div>
+
+            <!-- 9. Reminders & Notifications -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-bell"></i></div>
+              <h3 data-i18n="mob_f9_title">Reminders & Notifications</h3>
+              <p data-i18n="mob_f9_desc">Pengingat membantu agenda rapat tidak terlewat.</p>
+            </div>
+
+            <!-- 10. Retry & State Recovery -->
+            <div class="mob-feat-card">
+              <div class="mob-feat-icon"><i class="fa-solid fa-rotate-left"></i></div>
+              <h3 data-i18n="mob_f10_title">Retry & State Recovery</h3>
+              <p data-i18n="mob_f10_desc">Proses gagal dapat dilanjutkan dari tahap terakhir.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bottom Meeting Schedule Strips (as in screenshot) -->
+        <div class="mob-schedule-strips">
+          <div class="mob-schedule-item">
+            <div class="mob-sched-left">
+              <div class="mob-sched-title" data-i18n="mob_sched_1_title">Client Discovery Call</div>
+              <div class="mob-sched-meta" data-i18n="mob_sched_1_meta">13:30 • 60 menit • Online</div>
+            </div>
+            <div class="mob-sched-status-dot yellow"></div>
+          </div>
+
+          <div class="mob-schedule-item">
+            <div class="mob-sched-left">
+              <div class="mob-sched-title" data-i18n="mob_sched_2_title">Engineering Retrospective</div>
+              <div class="mob-sched-meta" data-i18n="mob_sched_2_meta">16:00 • 45 menit • Hybrid</div>
+            </div>
+            <div class="mob-sched-status-dot slate"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Workflow Section -->
     <section class="container section" id="workflow">
       <div class="workflow">
         <div class="workflow-top">
-          <div class="kicker" style="color:#64B5F6">Pipeline AI Cerdas</div>
-          <h2>Dari Percakapan Lisan Menjadi Notula Siap Eksekusi.</h2>
-          <p>Cardi Agent MoM mengolah seluruh siklus rapat secara end-to-end dengan akurasi tinggi dan keamanan data terjamin.</p>
+          <div class="kicker" style="color:#64B5F6" data-i18n="wf_kicker">Pipeline AI Cerdas</div>
+          <h2 data-i18n="wf_head">Dari Percakapan Lisan Menjadi Notula Siap Eksekusi.</h2>
+          <p data-i18n="wf_sub">Cardi Agent MoM mengolah seluruh siklus rapat secara end-to-end dengan akurasi tinggi dan keamanan data terjamin.</p>
         </div>
 
         <div class="workflow-grid">
           <article class="flow-card">
-            <div class="num">01 / REKAM</div>
+            <div class="num" data-i18n="wf_step1_num">01 / REKAM</div>
             <i class="fa-solid fa-microphone"></i>
-            <h3>Rekam & Chunk Audio</h3>
-            <p>Perekaman modular melindungi data audio dari kegagalan jaringan atau aplikasi yang ditutup mendadak.</p>
+            <h3 data-i18n="wf_step1_title">Rekam & Chunk Audio</h3>
+            <p data-i18n="wf_step1_desc">Perekaman modular melindungi data audio dari kegagalan jaringan atau aplikasi yang ditutup mendadak.</p>
           </article>
           <article class="flow-card">
-            <div class="num">02 / TRANSKRIP</div>
+            <div class="num" data-i18n="wf_step2_num">02 / TRANSKRIP</div>
             <i class="fa-solid fa-wave-square"></i>
-            <h3>Merge & Speech-to-Text</h3>
-            <p>Audio digabungkan lalu diolah oleh engine STT canggih dengan toleransi error dan retry otomatis.</p>
+            <h3 data-i18n="wf_step2_title">Merge & Speech-to-Text</h3>
+            <p data-i18n="wf_step2_desc">Audio digabungkan lalu diolah oleh engine STT canggih dengan toleransi error dan retry otomatis.</p>
           </article>
           <article class="flow-card">
-            <div class="num">03 / PAHAMI</div>
+            <div class="num" data-i18n="wf_step3_num">03 / PAHAMI</div>
             <i class="fa-solid fa-brain"></i>
-            <h3>AI Summarization</h3>
-            <p>Model AI merangkum percakapan, mengidentifikasi keputusan utama, dan memformat action items.</p>
+            <h3 data-i18n="wf_step3_title">AI Summarization</h3>
+            <p data-i18n="wf_step3_desc">Model AI merangkum percakapan, mengidentifikasi keputusan utama, dan memformat action items.</p>
           </article>
           <article class="flow-card">
-            <div class="num">04 / DISTRIBUSI</div>
+            <div class="num" data-i18n="wf_step4_num">04 / DISTRIBUSI</div>
             <i class="fa-solid fa-share-nodes"></i>
-            <h3>Akses, Cari & Bagikan</h3>
-            <p>Hasil notula langsung tersedia di aplikasi, dapat diekspor ke PDF, dibagikan ke WhatsApp, atau dicari kembali.</p>
+            <h3 data-i18n="wf_step4_title">Akses, Cari & Bagikan</h3>
+            <p data-i18n="wf_step4_desc">Hasil notula langsung tersedia di aplikasi, dapat diekspor ke PDF, dibagikan ke WhatsApp, atau dicari kembali.</p>
           </article>
         </div>
       </div>
@@ -1554,63 +3437,77 @@
     <section class="pricing" id="pricing">
       <div class="container">
         <div class="pricing-head">
-          <div class="kicker">Pilihan Paket Investasi</div>
-          <h2>Pilih Paket yang Sesuai dengan Skala Tim Anda.</h2>
-          <p>Dapatkan efisiensi kerja maksimal dengan biaya transparan. Hubungi tim sales kami untuk demo langsung.</p>
+          <div class="kicker" data-i18n="price_kicker">Langganan</div>
+          <h2 data-i18n="price_head">Pilih paket langganan</h2>
+          <p data-i18n="price_sub">1 coin ≈ 1 menit transkrip. Saldo terisi ulang otomatis tiap siklus tagihan lewat Google Play.</p>
         </div>
 
         <div class="price-grid">
-          <!-- Starter -->
+          <!-- 1. Quick (Pojok Kiri) -->
           <article class="price-card">
-            <h3>Starter</h3>
-            <p>Untuk individu, profesional, dan tim kecil.</p>
-            <div class="price">Rp 99.000 <small>/bulan</small></div>
-            <ul class="price-list">
-              <li><i class="fa-solid fa-check"></i> Transkripsi otomatis multi-bahasa</li>
-              <li><i class="fa-solid fa-check"></i> Rangkuman MoM & Action items AI</li>
-              <li><i class="fa-solid fa-check"></i> Pencarian cerdas & filter rapat</li>
-              <li><i class="fa-solid fa-check"></i> Pengingat jadwal meeting</li>
-              <li><i class="fa-solid fa-check"></i> Akses mobile & offline-first</li>
-            </ul>
-            <button class="btn btn-primary" style="width:100%" onclick="openWhatsApp('starter')">
-              <i class="fa-brands fa-whatsapp"></i> Pilih Paket Starter
+            <div>
+              <h3 data-i18n="plan_quick_name">Quick</h3>
+              <div class="price"><span data-i18n="plan_quick_price">Rp 90.000</span><small data-i18n="plan_quick_period">/bulan</small></div>
+              <div class="coin-desc" data-i18n="plan_quick_quota">500 coin / bulan</div>
+              <ul class="price-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_quick_f1">500 coin transkrip (~8,3 jam audio)</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_quick_f2">Transkripsi verbatim Speech-to-Text</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_quick_f3">Ringkasan MoM & Action items AI</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_quick_f4">Perekaman offline-first & latar belakang</span></li>
+                <li><img src="/cardi-circle-logo.svg" alt="Cardi" class="pricing-cardi-icon" /> <span data-i18n="plan_quick_f_ext">Ekstensi Google Chrome (Zoom, Meet & YouTube)</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_quick_f5">Saldo terisi otomatis per siklus</span></li>
+              </ul>
+            </div>
+            <button class="btn-plan" onclick="openWhatsApp('quick')" data-i18n="plan_quick_btn">
+              Pilih Quick
             </button>
           </article>
 
-          <!-- Business -->
+          <!-- 2. Bulk (Tengah - Paling Populer) -->
           <article class="price-card featured">
-            <span class="popular">PALING POPULER</span>
-            <h3>Business</h3>
-            <p>Untuk perusahaan berkembang & skala menengah.</p>
-            <div class="price">Rp 599.000 <small>/bulan</small></div>
-            <ul class="price-list">
-              <li><i class="fa-solid fa-check"></i> Semua fitur paket Starter</li>
-              <li><i class="fa-solid fa-check"></i> Template MoM kustom & export formal</li>
-              <li><i class="fa-solid fa-check"></i> Multi-device & kolaborasi tim</li>
-              <li><i class="fa-solid fa-check"></i> Analisis kontribusi pembicara</li>
-              <li><i class="fa-solid fa-check"></i> Priority customer support via WA</li>
-            </ul>
-            <button class="btn btn-primary" style="width:100%" onclick="openWhatsApp('business')">
-              <i class="fa-brands fa-whatsapp"></i> Pilih Paket Business
+            <span class="popular" data-i18n="popular_badge">PALING POPULER</span>
+            <div>
+              <h3 data-i18n="plan_bulk_name">Bulk</h3>
+              <div class="price"><span data-i18n="plan_bulk_price">Rp 399.000</span><small data-i18n="plan_bulk_period">/bulan</small></div>
+              <div class="coin-desc" data-i18n="plan_bulk_quota">2.500 coin / bulan</div>
+              <ul class="price-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_bulk_f1">2.500 coin transkrip (~41,6 jam audio)</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_bulk_f2">Semua fitur paket Quick</span></li>
+                <li><img src="/cardi-circle-logo.svg" alt="Cardi" class="pricing-cardi-icon" /> <span data-i18n="plan_bulk_f_ext">Akses Ekstensi Chrome multi-tab & multi-device</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_bulk_f3">Alokasi coin besar untuk rapat intensif</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_bulk_f4">Analisis kontribusi pembicara dalam rapat</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_bulk_f5">Sinkronisasi multi-device & priority support</span></li>
+              </ul>
+            </div>
+            <button class="btn-plan" onclick="openWhatsApp('bulk')" data-i18n="plan_bulk_btn">
+              Pilih Bulk
             </button>
           </article>
 
-          <!-- Enterprise -->
+          <!-- 3. Enterprise (Pojok Kanan) -->
           <article class="price-card">
-            <h3>Enterprise</h3>
-            <p>Untuk korporasi besar dan persiapan IPO.</p>
-            <div class="price">Custom <small>/kebutuhan</small></div>
-            <ul class="price-list">
-              <li><i class="fa-solid fa-check"></i> Semua fitur paket Business</li>
-              <li><i class="fa-solid fa-check"></i> Integrasi API ke sistem internal (ERP/CRM)</li>
-              <li><i class="fa-solid fa-check"></i> Dedicated server / On-premise option</li>
-              <li><i class="fa-solid fa-check"></i> SLA jaminan uptime 99.9%</li>
-              <li><i class="fa-solid fa-check"></i> Dedicated Account Manager</li>
-            </ul>
-            <button class="btn btn-outline" style="width:100%" onclick="openWhatsApp('enterprise')">
-              <i class="fa-brands fa-whatsapp"></i> Hubungi Tim Enterprise
+            <div>
+              <h3 data-i18n="plan_enterprise_name">Enterprise</h3>
+              <div class="price"><span data-i18n="plan_enterprise_price">Kustom</span><small data-i18n="plan_enterprise_period">/organisasi</small></div>
+              <div class="coin-desc" data-i18n="plan_enterprise_quota">Kapasitas & Coin Kustom</div>
+              <ul class="price-list">
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_enterprise_f1">Alokasi coin tak terbatas / sesuai kebutuhan</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_enterprise_f2">Semua fitur paket Bulk & Chrome Extension</span></li>
+                <li><img src="/cardi-circle-logo.svg" alt="Cardi" class="pricing-cardi-icon" /> <span data-i18n="plan_enterprise_f_ext">Integrasi SSO, API & Webhook internal tim</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_enterprise_f3">Dedicated AI transcription cluster & SLA 99,9%</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_enterprise_f4">Kustomisasi template MoM & keamanan enterprise</span></li>
+                <li><i class="fa-solid fa-check"></i> <span data-i18n="plan_enterprise_f5">Dedicated Account Manager & support prioritas 24/7</span></li>
+              </ul>
+            </div>
+            <button class="btn-plan" onclick="openWhatsApp('enterprise')" data-i18n="plan_enterprise_btn">
+              Hubungi Tim Enterprise
             </button>
           </article>
+        </div>
+
+        <div class="pricing-play-footer">
+          <i class="fa-brands fa-google-play"></i>
+          <span data-i18n="price_play_footer">Pembayaran & perpanjangan otomatis lewat Google Play. Batalkan kapan saja dari Play Store.</span>
         </div>
       </div>
     </section>
@@ -1619,52 +3516,137 @@
     <section class="container section" id="faq">
       <div class="section-head">
         <div class="title-wrap">
-          <div class="kicker">Pertanyaan Umum</div>
-          <h2>FAQ Seputar Cardi Agent MoM.</h2>
+          <div class="kicker" data-i18n="faq_kicker">Pertanyaan Umum</div>
+          <h2 data-i18n="faq_head">FAQ Seputar Cardi Agent MoM.</h2>
         </div>
-        <p>Temukan jawaban seputar fungsionalitas aplikasi, keamanan data, dan cara implementasi di perusahaan Anda.</p>
+        <p data-i18n="faq_sub">Temukan jawaban seputar fungsionalitas aplikasi, sistem coin, keamanan data, dan cara langganan.</p>
       </div>
 
       <div class="faq">
         <div class="faq-item open">
           <button class="faq-button">
-            Apakah Cardi Agent MoM bisa merekam saat aplikasi diminimalkan di HP?
+            <span data-i18n="faq_q1">Bagaimana cara kerja sistem coin dan paket langganan?</span>
             <i class="fa-solid fa-plus"></i>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" data-i18n="faq_a1">
+            1 coin bernilai sekitar 1 menit transkrip audio yang diproses oleh AI. Paket yang tersedia mencakup Quick (500 coin / Rp 90.000), Standard (1.000 coin / Rp 179.000), dan Bulk (2.500 coin / Rp 399.000). Saldo coin akan terisi ulang otomatis tiap siklus tagihan lewat Google Play dan dapat dibatalkan kapan saja dari Play Store.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-button">
+            <span data-i18n="faq_q2">Apakah Cardi Agent MoM bisa merekam saat aplikasi diminimalkan di HP?</span>
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="faq-answer" data-i18n="faq_a2">
             Ya. Aplikasi mendukung foreground service pada Android sehingga proses perekaman audio tetap aman berjalan meski aplikasi diminimalkan atau layar terkunci.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-button">
-            Apakah hasil transkripsi dan rangkuman bisa dicari kembali?
+            <span data-i18n="faq_q3">Apakah hasil transkripsi dan rangkuman bisa dicari kembali?</span>
             <i class="fa-solid fa-plus"></i>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" data-i18n="faq_a3">
             Sangat bisa. Fitur pencarian pintar kami mencakup judul, nama peserta, lokasi, transkrip verbatim, hingga poin kesimpulan rapat lama sehingga dokumen mudah ditemukan kembali dalam hitungan detik.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-button">
-            Bagaimana jika koneksi internet terputus saat meeting berlangsung?
+            <span data-i18n="faq_q4">Bagaimana jika koneksi internet terputus saat meeting berlangsung?</span>
             <i class="fa-solid fa-plus"></i>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" data-i18n="faq_a4">
             Aplikasi mengusung arsitektur offline-first. Audio tetap tersimpan aman di memori lokal perangkat, lalu secara otomatis diunggah dan ditranskripsi oleh AI saat koneksi internet Anda kembali stabil.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-button">
-            Bagaimana cara menjadwalkan demo langsung untuk tim kami?
+            <span data-i18n="faq_q5">Bagaimana cara menjadwalkan demo langsung untuk tim kami?</span>
             <i class="fa-solid fa-plus"></i>
           </button>
           <div class="faq-answer">
-            Cukup klik tombol "Konsultasi Demo" atau hubungi WhatsApp Official kami di nomor +62 812-8989-5646. Tim spesialis kami akan segera mengatur jadwal demo sesuai waktu yang Anda tentukan.
+            <span data-i18n="faq_a5_p1">Cukup klik tombol "Konsultasi Demo" atau hubungi </span><a href="javascript:void(0)" onclick="openWhatsApp('demo')" style="color:var(--blue);font-weight:600;text-decoration:underline;" data-i18n="faq_a5_link">WhatsApp Official kami</a><span data-i18n="faq_a5_p2">. Tim spesialis kami akan segera mengatur jadwal demo sesuai waktu yang Anda tentukan.</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Feedback & User Comments Section -->
+    <section class="container section" id="feedback">
+      <div class="feedback-head-stacked">
+        <div class="kicker" data-i18n="fb_kicker">Kritik, Saran & Umpan Balik</div>
+        <h2 data-i18n="fb_head">Bantu Kami Menyempurnakan Cardi Agent MoM.</h2>
+        <p data-i18n="fb_sub">Apakah ada kendala saat pemakaian atau fitur baru yang Anda butuhkan? Tuliskan komentar dan masukan Anda langsung kepada tim pengembang kami melalui WhatsApp resmi.</p>
+      </div>
+
+      <div class="feedback-card">
+        <div class="feedback-card-header">
+          <div class="feedback-icon-box">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div>
+            <h3 data-i18n="fb_card_title">Kirim Masukan via WhatsApp</h3>
+            <p data-i18n="fb_card_desc">Laporkan kendala, kekurangan, atau usulkan fitur baru langsung ke tim pengembang.</p>
+          </div>
+        </div>
+
+        <form id="feedbackForm" onsubmit="handleFeedbackSubmit(event)">
+          <!-- Category Chips -->
+          <div class="form-group">
+            <label class="form-label" data-i18n="fb_cat_label">Kategori Masukan:</label>
+            <div class="feedback-categories">
+              <button type="button" class="category-chip active" data-cat="Saran Fitur Baru" onclick="selectFeedbackCategory(this)">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="cat_feature">Saran Fitur Baru</span>
+              </button>
+              <button type="button" class="category-chip" data-cat="Laporan Bug / Kendala" onclick="selectFeedbackCategory(this)">
+                <i class="fa-solid fa-bug"></i> <span data-i18n="cat_bug">Laporan Kendala / Bug</span>
+              </button>
+              <button type="button" class="category-chip" data-cat="Kualitas AI & Transkrip" onclick="selectFeedbackCategory(this)">
+                <i class="fa-solid fa-brain"></i> <span data-i18n="cat_ai">Kualitas Transkripsi & AI</span>
+              </button>
+              <button type="button" class="category-chip" data-cat="Tampilan & Kemudahan UX" onclick="selectFeedbackCategory(this)">
+                <i class="fa-solid fa-mobile-screen"></i> <span data-i18n="cat_ux">Tampilan & UX</span>
+              </button>
+              <button type="button" class="category-chip" data-cat="Masukan Lainnya" onclick="selectFeedbackCategory(this)">
+                <i class="fa-solid fa-comment-dots"></i> <span data-i18n="cat_other">Masukan Lainnya</span>
+              </button>
+            </div>
+            <input type="hidden" id="selectedCategory" value="Saran Fitur Baru" />
+          </div>
+
+          <!-- User Details Grid -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="feedbackName"><span data-i18n="fb_name_label">Nama Anda</span> <span class="required">*</span></label>
+              <input type="text" id="feedbackName" class="form-input" placeholder="Contoh: Rian Pratama" data-i18n-ph="fb_name_ph" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="feedbackRole" data-i18n="fb_role_label">Profesi / Divisi (Opsional)</label>
+              <input type="text" id="feedbackRole" class="form-input" placeholder="Contoh: HR Manager / Mahasiswa" data-i18n-ph="fb_role_ph" />
+            </div>
+          </div>
+
+          <!-- Comment Textarea -->
+          <div class="form-group">
+            <label class="form-label" for="feedbackMessage"><span data-i18n="fb_msg_label">Komentar, Kekurangan & Saran Anda</span> <span class="required">*</span></label>
+            <textarea id="feedbackMessage" class="form-textarea" rows="4" placeholder="Ceritakan kendala yang dialami, bug yang ditemukan, atau fitur apa yang ingin ditambahkan di Cardi Agent MoM..." data-i18n-ph="fb_msg_ph" required></textarea>
+          </div>
+
+          <!-- Action Button -->
+          <div class="form-actions">
+            <button type="submit" class="btn-wa-feedback-main">
+              <i class="fa-brands fa-whatsapp"></i> <span data-i18n="fb_btn_submit">Kirim Masukan via WhatsApp</span>
+            </button>
+            <div class="feedback-direct-note">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span data-i18n="fb_direct_note">Masukan Anda langsung tersinkronisasi ke WhatsApp Tim Produk & Pengembang Cardi Nusantara.</span>
+            </div>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -1672,11 +3654,11 @@
     <div class="container">
       <section class="bottom-cta">
         <div>
-          <h2>Siap Meningkatkan Produktivitas Rapat Tim Anda?</h2>
-          <p>Mulai gunakan Cardi Agent MoM sekarang dan rasakan kemudahan dokumentasi rapat otomatis yang siap mendukung akselerasi bisnis Anda.</p>
+          <h2 data-i18n="cta_title">Siap Meningkatkan Produktivitas Rapat Tim Anda?</h2>
+          <p data-i18n="cta_desc">Mulai gunakan Cardi Agent MoM sekarang dan rasakan kemudahan dokumentasi rapat otomatis yang siap mendukung akselerasi bisnis Anda.</p>
         </div>
-        <button class="btn btn-white" onclick="openWhatsApp('general')">
-          <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp Sekarang
+        <button class="btn-wa-bottom" onclick="openWhatsApp('general')">
+          <i class="fa-brands fa-whatsapp"></i> <span data-i18n="cta_btn">Chat WhatsApp Sekarang</span>
         </button>
       </section>
     </div>
@@ -1686,68 +3668,1034 @@
   <footer>
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="#top"><img class="brand-logo" src="/logo-mom.png" onerror="this.onerror=null;this.src='./logo-mom.png';" alt="Cardi Agent MoM" /></a>
-        <p>AI Meeting Intelligence terdepan bagian dari ekosistem Cardi Nusantara untuk merekam, merangkum, dan mendokumentasikan hasil rapat secara instan.</p>
-        <span class="footer-badge"><i class="fa-solid fa-shield-halved"></i> Partner for IPO • PT Cardi Nusantara Semesta</span>
+        <a href="#top"><img class="brand-logo" src="/logo-mom-transparent.png" onerror="this.onerror=null;this.src='./logo-mom.png';" alt="Cardi Agent MoM" /></a>
+        <p data-i18n="ft_desc">AI Meeting Intelligence terdepan bagian dari ekosistem Cardi Nusantara untuk merekam, merangkum, dan mendokumentasikan hasil rapat secara instan.</p>
+        <span class="footer-badge"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="ft_badge">Partner for IPO • PT Digital Cardi Nusantara</span></span>
       </div>
 
       <div class="footer-col">
-        <h4>Produk MoM</h4>
+        <h4 data-i18n="ft_col_prod">Produk MoM</h4>
         <ul>
-          <li><a href="#features">Transkripsi Live</a></li>
-          <li><a href="#features">AI Summarization</a></li>
-          <li><a href="#features">Action Items Generator</a></li>
-          <li><a href="#workflow">Alur Kerja AI</a></li>
-          <li><a href="#pricing">Pilihan Harga</a></li>
+          <li><a href="#features" data-i18n="ft_link_trans">Transkripsi Live</a></li>
+          <li><a href="#features" data-i18n="ft_link_sum">AI Summarization</a></li>
+          <li><a href="#features" data-i18n="ft_link_action">Action Items Generator</a></li>
+          <li><a href="#workflow" data-i18n="ft_link_wf">Alur Kerja AI</a></li>
+          <li><a href="#pricing" data-i18n="nav_pricing">Langganan</a></li>
+          <li><a href="#feedback" data-i18n="ft_link_feedback">Kritik & Saran</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Ekosistem Cardi</h4>
+        <h4 data-i18n="ft_col_eco">Ekosistem Cardi</h4>
         <ul>
-          <li><a href="https://aiagent.cardi.co.id" target="_blank" rel="noopener">Cardi AI Agent</a></li>
-          <li><a href="https://cardinusantara.com" target="_blank" rel="noopener">Cardi Nusantara</a></li>
-          <li><a href="https://digital.cardinusantara.com" target="_blank" rel="noopener">Cardi Digital</a></li>
-          <li><a href="https://branding.cardinusantara.com" target="_blank" rel="noopener">Cardi Branding</a></li>
-          <li><a href="https://cardi.co.id" target="_blank" rel="noopener">Website Utama Cardi</a></li>
+          <li><a href="/"><span data-i18n="eco_agent">Cardi Agent</span></a></li>
+          <li><a href="#top"><span data-i18n="eco_mom">Cardi MoM</span></a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Kontak & Bantuan</h4>
+        <h4 data-i18n="ft_col_contact">Kontak & Bantuan</h4>
         <ul>
-          <li><a href="javascript:void(0)" onclick="openWhatsApp('general')"><i class="fa-brands fa-whatsapp"></i> WhatsApp: +62 812-8989-5646</a></li>
-          <li><a href="#faq">Pusat Bantuan / FAQ</a></li>
-          <li><a href="https://cardi.co.id/tentang-kami" target="_blank" rel="noopener">Tentang Cardi</a></li>
-          <li><a href="https://cardi.co.id/solusi" target="_blank" rel="noopener">Solusi Bisnis</a></li>
+          <li><a href="https://wa.me/6281289895646?text=Halo%20Cardi%20Agent%20MoM%2C%20saya%20ingin%20mengetahui%20informasi%20lebih%20lanjut%20mengenai%20solusi%20AI%20Meeting%20Intelligence." target="_blank" rel="noopener noreferrer" onclick="event.preventDefault(); openWhatsApp('general');"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+          <li><a href="#faq" data-i18n="ft_link_faq">Pusat Bantuan / FAQ</a></li>
+          <li><a href="https://cardi.co.id/tentang-kami" target="_blank" rel="noopener" data-i18n="ft_link_about">Tentang Cardi</a></li>
+          <li><a href="https://cardi.co.id/solusi" target="_blank" rel="noopener" data-i18n="ft_link_solutions">Solusi Bisnis</a></li>
         </ul>
       </div>
     </div>
 
     <div class="container copyright-bar">
-      <span>© 2026 PT Cardi Nusantara Semesta. All rights reserved.</span>
-      <span>Cardi Business Power Ecosystem™ • Scale to IPO</span>
+      <span data-i18n="ft_copy">© 2026 PT Cardi Nusantara. All rights reserved.</span>
+      <span data-i18n="ft_tagline">Cardi Business Power Ecosystem™ • Scale to IPO</span>
     </div>
   </footer>
 
   <!-- Floating WhatsApp Action -->
-  <span class="wa-tooltip">Konsultasi dengan Cardi Agent</span>
+  <span class="wa-tooltip" data-i18n="wa_tooltip">Konsultasi dengan Cardi Agent</span>
   <button class="wa-float" aria-label="Hubungi Cardi Agent via WhatsApp" onclick="openWhatsApp('general')">
     <i class="fa-brands fa-whatsapp"></i>
   </button>
 
   <script is:inline>
     const WHATSAPP_NUMBER = "6281289895646";
-    const waMessages = {
-      demo: "Halo Cardi Agent MoM, saya tertarik untuk melihat demo langsung produk AI Meeting Intelligence. Bisa bantu jadwalkan sesi demo?",
-      starter: "Halo Cardi Agent MoM, saya tertarik dengan paket Starter Rp 99.000/bulan. Bisa jelaskan detail aktivasi akunnya?",
-      business: "Halo Cardi Agent MoM, saya ingin berkonsultasi mengenai paket Business Rp 599.000/bulan untuk tim kami.",
-      enterprise: "Halo Cardi Agent MoM, kami ingin berdiskusi mengenai paket Enterprise dan integrasi kustom ke sistem perusahaan kami.",
-      general: "Halo Cardi Agent MoM, saya ingin mengetahui informasi lebih lanjut mengenai solusi AI Meeting Intelligence."
+    let currentLang = "id";
+
+    const translations = {
+      id: {
+        // Eco & Nav
+        eco_badge: "Ekosistem Cardi • Cardi Business Power Ecosystem™",
+        eco_agent: "Cardi Agent",
+        eco_mom: "Cardi MoM",
+        eco_lol: "Cardi LoL",
+        eco_agent_sub: "AI Workforce & Sistem Operasi Bisnis",
+        ft_eco_desc: "Platform kecerdasan operasional terintegrasi dari Cardi Business Power Ecosystem™.",
+        nav_ecosystem: "Ekosistem",
+        nav_features: "Fitur",
+        nav_solutions: "Solusi Industri",
+        nav_workflow: "Alur Kerja",
+        nav_pricing: "Langganan",
+        nav_faq: "FAQ",
+        nav_feedback: "Feedback",
+        btn_main: "cardi.co.id",
+        btn_demo: "Konsultasi Demo",
+
+        // Ekosistem Mega Menu
+        mega_sec_software: "APLIKASI & AGEN AI",
+        mega_sec_services: "LAYANAN EKOSISTEM",
+        mega_sec_enterprise: "ENTERPRISE",
+        mega_mom_sub: "AI Meeting Intelligence & Notula Rapat",
+        mega_lol_sub: "Log of Lessons & Knowledge Base",
+        mega_aiagent_sub: "Agen AI Penjualan & Layanan 24/7",
+        mega_digital_sub: "Transformasi Digital & Sistem IT",
+        mega_branding_sub: "Brand Strategy & Corporate Identity",
+        mega_nusantara_sub: "Business Advisory & Scale to IPO",
+        mega_univ_title: "Cardi University",
+        mega_univ_sub: "Pelatihan AI & Executive Masterclass",
+        mega_partner_title: "Cardi Partner",
+        mega_partner_sub: "Jaringan Integrator & Konsultan",
+        mega_referral_title: "Cardi Referral Agent",
+        mega_referral_sub: "Program Afiliasi & Referral",
+        mega_community_title: "Cardi Community",
+        mega_community_sub: "Komunitas Founder & Eksekutif",
+        mega_care_title: "Cardi Customer Care",
+        mega_care_sub: "Dukungan Teknis & Dedicated SLA",
+        mega_suite_desc: "Solusi custom Cardi yang dirancang untuk menghubungkan agen AI, tata kelola rapat, dan operasional bisnis ke dalam satu ekosistem terpadu secara fleksibel.",
+        mega_suite_cta: "Pelajari lebih lanjut",
+
+        // Hero
+        hero_eyebrow: "AI MEETING INTELLIGENCE",
+        hero_title_1: "Ubah Waktu Rapat Jadi ",
+        hero_title_2: "Tindakan Nyata & Eksekusi Cepat.",
+        hero_desc: "Cardi Agent MoM merekam, mentranskripsi suara, merangkum, dan menyusun notula rapat otomatis (Minutes of Meeting)—sehingga tim Anda fokus pada keputusan strategis dan pertumbuhan bisnis skala IPO.",
+        hero_btn_features: "Lihat Fitur Lengkap",
+        hero_btn_demo: "Jadwalkan Demo",
+
+        // Simulator
+        sim_title: "Rapat Koordinasi Roadmap Q3",
+        sim_meta: "Hari ini, 10:00 • 48:12 • Hybrid",
+        sim_tab_trans: "Transkripsi Live",
+        sim_tab_summary: "Rangkuman AI",
+        sim_tab_action: "Action Items",
+        sim_tab_insight: "Insight Rapat",
+        sim_speech1: "Kita samakan target roadmap dan milestone utama automasi operasional Q3.",
+        sim_speech2: "Modul integrasi AI summarization sudah siap untuk pengujian internal minggu ini.",
+        sim_speech3: "Desain alur export PDF dan sinkronisasi notula akan dibagikan setelah sesi ini.",
+        sim_live_line: "Live audio stream & multi-speaker recognition aktif",
+        sim_action_head: "Action Items (4)",
+        sim_task1: "Rafi: Finalisasi technical spec",
+        sim_task2: "Sarah: Update UI mobile flow",
+        sim_task3: "Diana: Finalisasi roadmap Q3",
+        sim_task4: "Review paket bersama finance",
+        sim_add_item: "＋ Tambah Action Item",
+        sim_speaker_contrib: "Kontribusi Pembicara",
+
+        // Features
+        feat_kicker: "Keunggulan Produk",
+        feat_head: "Teknologi Cerdas untuk Setiap Tahap Rapat Anda.",
+        feat_sub: "Tingkatkan efisiensi kerja tim dengan dokumentasi rapat otomatis berbasis LLM canggih dan arsitektur cloud serverless.",
+        feat_1_title: "Chunked Recording",
+        feat_1_desc: "Audio rapat direkam dalam potongan aman secara berkala agar tetap resilien dan berjalan lancar meski di latar belakang.",
+        feat_2_title: "Transkripsi Akurat",
+        feat_2_desc: "Mendukung Bahasa Indonesia, istilah teknis, percakapan campuran (Bahasa Inggris/daerah), dan identifikasi pembicara.",
+        feat_3_title: "MoM & Action Items",
+        feat_3_desc: "AI mengekstrak ringkasan eksekutif, poin keputusan penting, dan daftar tugas lengkap dengan penanggung jawab dan tenggat.",
+        feat_4_title: "Offline-First & Sync",
+        feat_4_desc: "Rapat dapat direkam tanpa koneksi internet dan otomatis tersinkronisasi saat perangkat Anda terhubung kembali.",
+        feat_5_title: "Ekstensi Google Chrome",
+        feat_5_desc: "Transkrip langsung dari tab browser Chrome untuk meeting Zoom, Meet, Teams, dan YouTube tanpa instalasi aplikasi desktop.",
+        feat_explore_all: "Lihat Seluruh Fitur & Spesifikasi",
+
+        // Solutions (Carousel)
+        sol_kicker: "Solusi Lintas Departemen",
+        sol_head: "Didesain untuk Kebutuhan Setiap Divisi & Industri.",
+        sol_sub: "Dari panggilan penjualan hingga dewan direksi, Cardi Agent MoM memastikan tidak ada keputusan penting yang terlewat.",
+        ext_banner_badge: "Google Chrome Web Extension Live",
+        ext_banner_title: "Transkrip Rapat Zoom, Google Meet & YouTube Langsung dari Browser Chrome",
+        ext_banner_btn: "Pasang Ekstensi Cardi →",
+        chrome_ext_preview_text: "Transkrip meeting Zoom/Meet/YouTube langsung dari Chrome.",
+        compat_cardi_ext: "Ekstensi Cardi",
+        badge_chrome: "Ekstensi Chrome",
+        card_chrome_title: "Ekstensi Google Chrome & Web",
+        card_chrome_desc: "Transkrip meeting Zoom, Google Meet, Microsoft Teams, dan YouTube langsung dari browser Chrome tanpa install aplikasi tambahan.",
+        card_chrome_cta: "Gunakan di Chrome →",
+        badge_sales: "Penjualan",
+        card_sales_title: "Penjualan & Presentasi Klien",
+        card_sales_desc: "Rekam pertemuan eksplorasi, catat kebutuhan klien, kualifikasi prospek, dan tindak lanjut penawaran tanpa ada rincian yang terlewat.",
+        card_sales_cta: "Gunakan untuk Penjualan →",
+        badge_exec: "Eksekutif",
+        card_exec_title: "Rapat Direksi & Eksekutif",
+        card_exec_desc: "Dokumentasikan rapat direksi, keputusan strategis IPO, dan alokasi anggaran dengan notula formal yang siap diekspor.",
+        card_exec_cta: "Gunakan untuk Eksekutif →",
+        badge_tech: "Manajemen Produk",
+        card_tech_title: "Manajemen Produk & Teknis",
+        card_tech_desc: "Ubah diskusi teknis, retrospeksi tim, dan peta jalan produk menjadi daftar rencana kerja terstruktur yang siap dieksekusi.",
+        card_tech_cta: "Gunakan untuk Tim Produk →",
+        badge_hr: "Tim SDM",
+        card_hr_title: "Wawancara & Evaluasi SDM",
+        card_hr_desc: "Transkrip sesi wawancara kandidat dan evaluasi kinerja karyawan secara objektif berdasarkan catatan rapat lengkap.",
+        card_hr_cta: "Gunakan untuk SDM →",
+        badge_med: "Layanan Kesehatan",
+        card_med_title: "Klinik & Konsultasi Medis",
+        card_med_desc: "Dokumentasikan konsultasi dokter, resume medik tim kesehatan, dan rapat koordinasi layanan pasien secara akurat.",
+        card_med_cta: "Gunakan untuk Medis →",
+        badge_edu: "Pendidikan",
+        card_edu_title: "Institusi Pendidikan & Akademik",
+        card_edu_desc: "Dokumentasikan rapat dewan pendidik, evaluasi kurikulum, sidang akademik, dan bimbingan tugas akhir secara terstruktur serta mudah dicari.",
+        card_edu_cta: "Gunakan untuk Pendidikan →",
+
+        // Mobile Experience
+        mob_kicker: "MOBILE-FIRST EXPERIENCE",
+        mob_title: "Satu workspace untuk merekam, menjadwalkan, dan mengeksekusi hasil rapat.",
+        mob_desc: "Fitur landing page ini disesuaikan dengan kapabilitas aplikasi mobile Cardi Agent: perekaman background, penjadwalan berbasis suara, transkrip, MoM, pencarian, offline-first, sinkronisasi, serta reminder.",
+        mob_f1_title: "Chunked & Background Recording",
+        mob_f1_desc: "Audio rapat direkam per chunk secara resilien dan tetap berjalan di latar belakang (HP Android & Chrome Extension Service Worker).",
+        mob_f2_title: "Meeting Scheduling",
+        mob_f2_desc: "Buat atau edit judul, tanggal, jam mulai, durasi, peserta, serta lokasi rapat dari aplikasi.",
+        mob_f3_title: "Voice Scheduling",
+        mob_f3_desc: "Ucapkan jadwal secara natural lalu form diisi otomatis.",
+        mob_f4_title: "Audio Player & Transcript",
+        mob_f4_desc: "Putar kembali audio, baca transkrip lengkap, dan lihat identifikasi pembicara.",
+        mob_f5_title: "Structured Minutes of Meeting",
+        mob_f5_desc: "Ringkasan eksekutif, keputusan, dan action items tampil rapi.",
+        mob_f6_title: "Copy & Share",
+        mob_f6_desc: "Bagikan hasil notula secara langsung tanpa menyusun ulang.",
+        mob_f7_title: "Fast Search & Filter",
+        mob_f7_desc: "Cari rapat berdasarkan judul, lokasi, peserta, dan isi notula.",
+        mob_f8_title: "Offline-First & Auto Sync",
+        mob_f8_desc: "Data lokal tersinkron otomatis antar HP Android, Ekstensi Chrome, dan cloud saat koneksi tersedia.",
+        mob_f9_title: "Reminders & Notifications",
+        mob_f9_desc: "Pengingat membantu agenda rapat tidak terlewat.",
+        mob_f10_title: "Retry & State Recovery",
+        mob_f10_desc: "Proses gagal dapat dilanjutkan dari tahap terakhir.",
+        mob_ui_search_ph: "Cari judul, tanggal, atau peserta",
+        mob_ui_status_done: "SELESAI",
+        mob_ui_ready: "SIAP",
+        mob_btn_record: "Rekam",
+        mob_btn_schedule: "Jadwalkan",
+        mob_btn_upload: "Unggah",
+        mob_mock_m1_title: "Laporan Ketiadaan Transkrip Rapat - 22 Agustus 2026",
+        mob_mock_m1_meta: "2026-08-22 • 21:59",
+        mob_mock_m2_title: "Laporan Rapat 22 Agustus 2026 (Tanpa Transkrip)",
+        mob_mock_m2_meta: "2026-08-22 • 21:49",
+        mob_mock_m3_title: "Laporan Pertemuan 22 Agustus 2026 (Transkrip Tidak Tersedia)",
+        mob_mock_m3_meta: "2026-08-22 • 17:52",
+        mob_mock_m4_title: "Uji Coba Teknis dan Inisiasi Perekaman Suara Rapat",
+        mob_mock_m4_meta: "2026-08-21 • 17:01",
+        mob_mock_m5_title: "Review Desain Tata Letak dan Skema Warna Logo Cardi Agent",
+        mob_mock_m5_meta: "2026-08-21 • 16:49",
+        mob_sched_1_title: "Client Discovery Call",
+        mob_sched_1_meta: "13:30 • 60 menit • Online",
+        mob_sched_2_title: "Engineering Retrospective",
+        mob_sched_2_meta: "16:00 • 45 menit • Hybrid",
+
+        // Workflow
+        wf_kicker: "Pipeline AI Cerdas",
+        wf_head: "Dari Percakapan Lisan Menjadi Notula Siap Eksekusi.",
+        wf_sub: "Cardi Agent MoM mengolah seluruh siklus rapat secara end-to-end dengan akurasi tinggi dan keamanan data terjamin.",
+        wf_step1_num: "01 / REKAM",
+        wf_step1_title: "Rekam & Chunk Audio",
+        wf_step1_desc: "Perekaman modular melindungi data audio dari kegagalan jaringan atau aplikasi yang ditutup mendadak.",
+        wf_step2_num: "02 / TRANSKRIP",
+        wf_step2_title: "Merge & Speech-to-Text",
+        wf_step2_desc: "Audio digabungkan lalu diolah oleh engine STT canggih dengan toleransi error dan retry otomatis.",
+        wf_step3_num: "03 / PAHAMI",
+        wf_step3_title: "AI Summarization",
+        wf_step3_desc: "Model AI merangkum percakapan, mengidentifikasi keputusan utama, dan memformat action items.",
+        wf_step4_num: "04 / DISTRIBUSI",
+        wf_step4_title: "Akses, Cari & Bagikan",
+        wf_step4_desc: "Hasil notula langsung tersedia di aplikasi, dapat diekspor ke PDF, dibagikan ke WhatsApp, atau dicari kembali.",
+
+        // Pricing
+        price_kicker: "Langganan",
+        price_head: "Pilih paket langganan",
+        price_sub: "1 coin ≈ 1 menit transkrip. Saldo terisi ulang otomatis tiap siklus tagihan lewat Google Play.",
+        plan_quick_name: "Quick",
+        plan_quick_price: "Rp 90.000",
+        plan_quick_period: "/bulan",
+        plan_quick_quota: "500 coin / bulan",
+        plan_quick_f1: "500 coin transkrip (~8,3 jam audio)",
+        plan_quick_f2: "Transkripsi verbatim Speech-to-Text",
+        plan_quick_f3: "Ringkasan MoM & Action items AI",
+        plan_quick_f4: "Perekaman offline-first & latar belakang",
+        plan_quick_f_ext: "Ekstensi Google Chrome (Zoom, Meet & YouTube)",
+        plan_quick_f5: "Saldo terisi otomatis per siklus",
+        plan_quick_btn: "Pilih Quick",
+        popular_badge: "PALING POPULER",
+        plan_bulk_name: "Bulk",
+        plan_bulk_price: "Rp 399.000",
+        plan_bulk_period: "/bulan",
+        plan_bulk_quota: "2.500 coin / bulan",
+        plan_bulk_f1: "2.500 coin transkrip (~41,6 jam audio)",
+        plan_bulk_f2: "Semua fitur paket Quick",
+        plan_bulk_f_ext: "Akses Ekstensi Chrome multi-tab & multi-device",
+        plan_bulk_f3: "Alokasi coin besar untuk rapat intensif",
+        plan_bulk_f4: "Analisis kontribusi pembicara dalam rapat",
+        plan_bulk_f5: "Sinkronisasi multi-device & priority support",
+        plan_bulk_btn: "Pilih Bulk",
+        plan_enterprise_name: "Enterprise",
+        plan_enterprise_price: "Kustom",
+        plan_enterprise_period: "/organisasi",
+        plan_enterprise_quota: "Kapasitas & Coin Kustom",
+        plan_enterprise_f1: "Alokasi coin tak terbatas / sesuai kebutuhan",
+        plan_enterprise_f2: "Semua fitur paket Bulk & Chrome Extension",
+        plan_enterprise_f_ext: "Integrasi SSO, API & Webhook internal tim",
+        plan_enterprise_f3: "Dedicated AI transcription cluster & SLA 99,9%",
+        plan_enterprise_f4: "Kustomisasi template MoM & keamanan enterprise",
+        plan_enterprise_f5: "Dedicated Account Manager & support prioritas 24/7",
+        plan_enterprise_btn: "Hubungi Tim Enterprise",
+        price_play_footer: "Pembayaran & perpanjangan otomatis lewat Google Play. Batalkan kapan saja dari Play Store.",
+
+        // FAQ
+        faq_kicker: "Pertanyaan Umum",
+        faq_head: "FAQ Seputar Cardi Agent MoM.",
+        faq_sub: "Temukan jawaban seputar fungsionalitas aplikasi, sistem coin, keamanan data, dan cara langganan.",
+        faq_q1: "Bagaimana cara kerja sistem coin dan paket langganan?",
+        faq_a1: "1 coin bernilai sekitar 1 menit transkrip audio yang diproses oleh AI. Paket langganan mencakup Quick (500 coin / Rp 90.000), Bulk Paling Populer (2.500 coin / Rp 399.000), serta paket Enterprise kustom untuk kebutuhan organisasi skala besar. Saldo coin terisi otomatis tiap siklus dan dapat dibatalkan kapan saja.",
+        faq_q2: "Apakah Cardi Agent MoM bisa merekam saat aplikasi diminimalkan di HP?",
+        faq_a2: "Ya. Aplikasi mendukung foreground service pada Android sehingga proses perekaman audio tetap aman berjalan meski aplikasi diminimalkan atau layar terkunci.",
+        faq_q3: "Apakah hasil transkripsi dan rangkuman bisa dicari kembali?",
+        faq_a3: "Sangat bisa. Fitur pencarian pintar kami mencakup judul, nama peserta, lokasi, transkrip verbatim, hingga poin kesimpulan rapat lama sehingga dokumen mudah ditemukan kembali dalam hitungan detik.",
+        faq_q4: "Bagaimana jika koneksi internet terputus saat meeting berlangsung?",
+        faq_a4: "Aplikasi mengusung arsitektur offline-first. Audio tetap tersimpan aman di memori lokal perangkat, lalu secara otomatis diunggah dan ditranskripsi oleh AI saat koneksi internet Anda kembali stabil.",
+        faq_q5: "Bagaimana cara menjadwalkan demo langsung untuk tim kami?",
+        faq_a5_p1: 'Cukup klik tombol "Konsultasi Demo" atau hubungi ',
+        faq_a5_link: "WhatsApp Official kami",
+        faq_a5_p2: ". Tim spesialis kami akan segera mengatur jadwal demo sesuai waktu yang Anda tentukan.",
+
+        // Feedback
+        fb_kicker: "Kritik, Saran & Umpan Balik",
+        fb_head: "Bantu Kami Menyempurnakan Cardi Agent MoM.",
+        fb_sub: "Apakah ada kendala saat pemakaian atau fitur baru yang Anda butuhkan? Tuliskan komentar dan masukan Anda langsung kepada tim pengembang kami melalui WhatsApp resmi.",
+        fb_card_title: "Kirim Masukan via WhatsApp",
+        fb_card_desc: "Laporkan kendala, kekurangan, atau usulkan fitur baru langsung ke tim pengembang.",
+        fb_cat_label: "Kategori Masukan:",
+        cat_feature: "Saran Fitur Baru",
+        cat_bug: "Laporan Kendala / Bug",
+        cat_ai: "Kualitas Transkripsi & AI",
+        cat_ux: "Tampilan & UX",
+        cat_other: "Masukan Lainnya",
+        fb_name_label: "Nama Anda",
+        fb_name_ph: "Contoh: Rian Pratama",
+        fb_role_label: "Profesi / Divisi (Opsional)",
+        fb_role_ph: "Contoh: HR Manager / Mahasiswa",
+        fb_msg_label: "Komentar, Kekurangan & Saran Anda",
+        fb_msg_ph: "Ceritakan kendala yang dialami, bug yang ditemukan, atau fitur apa yang ingin ditambahkan di Cardi Agent MoM...",
+        fb_btn_submit: "Kirim Masukan via WhatsApp",
+        fb_direct_note: "Masukan Anda langsung tersinkronisasi ke WhatsApp Tim Produk & Pengembang Cardi Nusantara.",
+
+        // Bottom CTA
+        cta_title: "Siap Meningkatkan Produktivitas Rapat Tim Anda?",
+        cta_desc: "Mulai gunakan Cardi Agent MoM sekarang dan rasakan kemudahan dokumentasi rapat otomatis yang siap mendukung akselerasi bisnis Anda.",
+        cta_btn: "Chat WhatsApp Sekarang",
+
+        // Footer
+        ft_desc: "AI Meeting Intelligence terdepan bagian dari ekosistem Cardi Nusantara untuk merekam, merangkum, dan mendokumentasikan hasil rapat secara instan.",
+        ft_badge: "Partner for IPO • PT Digital Cardi Nusantara",
+        ft_col_prod: "Produk MoM",
+        ft_link_trans: "Transkripsi Live",
+        ft_link_sum: "AI Summarization",
+        ft_link_action: "Action Items Generator",
+        ft_link_wf: "Alur Kerja AI",
+        ft_link_feedback: "Kritik & Saran",
+        ft_col_eco: "Ekosistem Cardi",
+        ft_link_main: "Website Utama Cardi",
+        ft_col_contact: "Kontak & Bantuan",
+        ft_link_faq: "Pusat Bantuan / FAQ",
+        ft_link_about: "Tentang Cardi",
+        ft_link_solutions: "Solusi Bisnis",
+        ft_copy: "© 2026 PT Cardi Nusantara. All rights reserved.",
+        ft_tagline: "Cardi Business Power Ecosystem™ • Scale to IPO",
+        wa_tooltip: "Konsultasi dengan Cardi Agent"
+      },
+      en: {
+        // Eco & Nav
+        eco_badge: "Cardi Ecosystem • Cardi Business Power Ecosystem™",
+        eco_agent: "Cardi Agent",
+        eco_mom: "Cardi MoM",
+        eco_lol: "Cardi LoL",
+        eco_agent_sub: "AI Workforce & Business Operating System",
+        ft_eco_desc: "Integrated operational intelligence platform from Cardi Business Power Ecosystem™.",
+        nav_ecosystem: "Ecosystem",
+        nav_features: "Features",
+        nav_solutions: "Industry Solutions",
+        nav_workflow: "Workflow",
+        nav_pricing: "Pricing",
+        nav_faq: "FAQ",
+        nav_feedback: "Feedback",
+        btn_main: "cardi.co.id",
+        btn_demo: "Book a Demo",
+
+        // Ekosistem Mega Menu
+        mega_sec_software: "AI APPS & AGENTS",
+        mega_sec_services: "SERVICES",
+        mega_sec_enterprise: "ENTERPRISE",
+        mega_mom_sub: "AI Meeting Intelligence & Minutes",
+        mega_lol_sub: "Log of Lessons & Knowledge Repository",
+        mega_aiagent_sub: "24/7 Sales & Customer Service AI",
+        mega_digital_sub: "Digital Transformation & IT Systems",
+        mega_branding_sub: "Brand Strategy & Corporate Identity",
+        mega_nusantara_sub: "Business Advisory & Scale to IPO",
+        mega_univ_title: "Cardi University",
+        mega_univ_sub: "AI Training & Executive Masterclass",
+        mega_partner_title: "Cardi Partner",
+        mega_partner_sub: "Integrator & Consultant Network",
+        mega_referral_title: "Cardi Referral Agent",
+        mega_referral_sub: "Affiliate & Business Referral",
+        mega_community_title: "Cardi Community",
+        mega_community_sub: "Founders & Executive Network",
+        mega_care_title: "Cardi Customer Care",
+        mega_care_sub: "Technical Support & Dedicated SLA",
+        mega_suite_desc: "Custom Cardi solutions designed to flexibly connect AI agents, meeting governance, and business operations into one unified ecosystem.",
+        mega_suite_cta: "Learn more",
+
+        // Hero
+        hero_eyebrow: "AI MEETING INTELLIGENCE",
+        hero_title_1: "Turn Meeting Hours into ",
+        hero_title_2: "Real Action & Swift Execution.",
+        hero_desc: "Cardi Agent MoM records, transcribes, summarizes, and automatically drafts Minutes of Meeting—freeing your team to focus on strategic decisions and IPO-scale growth.",
+        hero_btn_features: "Explore All Features",
+        hero_btn_demo: "Schedule Demo",
+
+        // Simulator
+        sim_title: "Q3 Roadmap Strategic Sync Meeting",
+        sim_meta: "Today, 10:00 • 48:12 • Hybrid",
+        sim_tab_trans: "Live Transcript",
+        sim_tab_summary: "AI Summary",
+        sim_tab_action: "Action Items",
+        sim_tab_insight: "Meeting Insights",
+        sim_speech1: "Let's align our Q3 automation roadmap targets and critical operational milestones.",
+        sim_speech2: "The AI summarization integration module is ready for internal testing this week.",
+        sim_speech3: "PDF export flow designs and real-time minutes synchronization will be shared after this call.",
+        sim_live_line: "Live audio stream & multi-speaker recognition active",
+        sim_action_head: "Action Items (4)",
+        sim_task1: "Rafi: Finalize technical specs",
+        sim_task2: "Sarah: Update mobile UI flow",
+        sim_task3: "Diana: Finalize Q3 roadmap",
+        sim_task4: "Review plan pricing with finance",
+        sim_add_item: "＋ Add Action Item",
+        sim_speaker_contrib: "Speaker Share",
+
+        // Features
+        feat_kicker: "Next-Gen AI Capabilities",
+        feat_head: "Smart Technology for Every Stage of Your Meetings.",
+        feat_sub: "Boost team productivity with automated meeting documentation powered by state-of-the-art LLMs and serverless cloud.",
+        feat_1_title: "Chunked Recording",
+        feat_1_desc: "Meeting audio is securely captured in real-time chunks to guarantee resilience even when running in the background.",
+        feat_2_title: "Accurate Transcription",
+        feat_2_desc: "Supports Indonesian, technical vocabulary, mixed language discussions (English/local), and speaker diarization.",
+        feat_3_title: "MoM & Action Items",
+        feat_3_desc: "AI extracts executive summaries, vital decision points, and clear task lists complete with assignees and due dates.",
+        feat_4_title: "Offline-First & Sync",
+        feat_4_desc: "Record meetings without internet connectivity; audio automatically syncs once your device reconnects.",
+        feat_5_title: "Google Chrome Extension",
+        feat_5_desc: "Transcribe Zoom, Google Meet, MS Teams, and YouTube meetings directly from Chrome browser without desktop apps.",
+        feat_explore_all: "Explore All Features & Specs",
+
+        // Solutions (Carousel)
+        sol_kicker: "Cross-Department Solutions",
+        sol_head: "Tailored for Every Division & Industry Need.",
+        sol_sub: "From sales calls to executive boardrooms, Cardi Agent MoM ensures no critical decision slips through the cracks.",
+        ext_banner_badge: "Google Chrome Web Extension Live",
+        ext_banner_title: "Transcribe Zoom, Google Meet & YouTube Meetings Directly from Chrome Browser",
+        ext_banner_btn: "Install Cardi Extension →",
+        chrome_ext_preview_text: "Transcribe Zoom/Meet/YouTube meetings directly from Chrome.",
+        compat_cardi_ext: "Cardi Extension",
+        badge_chrome: "Chrome Extension",
+        card_chrome_title: "Google Chrome & Web Extension",
+        card_chrome_desc: "Transcribe Zoom, Google Meet, Microsoft Teams, and YouTube meetings directly from Chrome browser without extra software installation.",
+        card_chrome_cta: "Use on Chrome →",
+        badge_sales: "Sales",
+        card_sales_title: "Sales & Client Pitches",
+        card_sales_desc: "Capture discovery calls, client requirements, prospect qualification, and follow-ups with zero forgotten details.",
+        card_sales_cta: "Use for Sales →",
+        badge_exec: "Executive",
+        card_exec_title: "Board & Executive Meetings",
+        card_exec_desc: "Document board meetings, IPO strategies, and budget allocations with formal minutes ready for corporate governance.",
+        card_exec_cta: "Use for Executives →",
+        badge_tech: "Product Mgmt",
+        card_tech_title: "Product & Tech Management",
+        card_tech_desc: "Transform architecture debates, sprint retrospectives, and product roadmaps into structured action items for developers.",
+        card_tech_cta: "Use for Product Teams →",
+        badge_hr: "HR Team",
+        card_hr_title: "HR Interviews & Evaluations",
+        card_hr_desc: "Transcribe candidate interviews and performance reviews objectively based on thorough, verifiable meeting logs.",
+        card_hr_cta: "Use for HR →",
+        badge_med: "Healthcare",
+        card_med_title: "Clinics & Medical Consultations",
+        card_med_desc: "Document physician consults, medical summaries, and patient care coordination with utmost clinical precision.",
+        card_med_cta: "Use for Healthcare →",
+        badge_edu: "Education",
+        card_edu_title: "Education & Academic Institutions",
+        card_edu_desc: "Document faculty meetings, curriculum reviews, academic defenses, and thesis guidance in structured, searchable records.",
+        card_edu_cta: "Use for Education →",
+
+        // Mobile Experience
+        mob_kicker: "MOBILE-FIRST EXPERIENCE",
+        mob_title: "One unified workspace to record, schedule, and execute meeting outcomes.",
+        mob_desc: "Tailored specifically for Cardi Agent mobile capabilities: background recording, voice-based scheduling, transcripts, MoM, search, offline-first, sync, and smart reminders.",
+        mob_f1_title: "Chunked & Background Recording",
+        mob_f1_desc: "Meeting audio is resiliently recorded per chunk and continues in the background (Android & Chrome Extension Service Worker).",
+        mob_f2_title: "Meeting Scheduling",
+        mob_f2_desc: "Create or edit meeting title, date, start time, duration, attendees, and location directly in-app.",
+        mob_f3_title: "Voice Scheduling",
+        mob_f3_desc: "Speak your schedule naturally and let AI auto-populate the meeting form.",
+        mob_f4_title: "Audio Player & Transcript",
+        mob_f4_desc: "Replay recorded audio, read verbatim transcripts, and view speaker diarization.",
+        mob_f5_title: "Structured Minutes of Meeting",
+        mob_f5_desc: "Executive summaries, decisions, and clear action items presented neatly.",
+        mob_f6_title: "Copy & Share",
+        mob_f6_desc: "Share polished minutes directly to messaging apps without manual editing.",
+        mob_f7_title: "Fast Search & Filter",
+        mob_f7_desc: "Search meetings instantly by title, location, participants, or transcript content.",
+        mob_f8_title: "Offline-First & Auto Sync",
+        mob_f8_desc: "Local data synchronizes seamlessly across Android phone, Chrome Extension, and cloud when connected.",
+        mob_f9_title: "Reminders & Notifications",
+        mob_f9_desc: "Intelligent reminders keep your team aligned so no meeting is missed.",
+        mob_f10_title: "Retry & State Recovery",
+        mob_f10_desc: "Interrupted or failed tasks resume seamlessly from the last known state.",
+        mob_ui_search_ph: "Search title, date, or attendee",
+        mob_ui_status_done: "COMPLETED",
+        mob_ui_ready: "READY",
+        mob_btn_record: "Record",
+        mob_btn_schedule: "Schedule",
+        mob_btn_upload: "Upload",
+        mob_mock_m1_title: "Meeting Summary & Audio Session - August 22, 2026",
+        mob_mock_m1_meta: "2026-08-22 • 21:59",
+        mob_mock_m2_title: "Executive Strategy Meeting Report (August 2026)",
+        mob_mock_m2_meta: "2026-08-22 • 21:49",
+        mob_mock_m3_title: "Client Coordination & Project Alignment Notes",
+        mob_mock_m3_meta: "2026-08-22 • 17:52",
+        mob_mock_m4_title: "Technical Architecture & Voice Recording Pipeline",
+        mob_mock_m4_meta: "2026-08-21 • 17:01",
+        mob_mock_m5_title: "Cardi Agent MoM Design & Layout System Review",
+        mob_mock_m5_meta: "2026-08-21 • 16:49",
+        mob_sched_1_title: "Client Discovery Call",
+        mob_sched_1_meta: "13:30 • 60 mins • Online",
+        mob_sched_2_title: "Engineering Retrospective",
+        mob_sched_2_meta: "16:00 • 45 mins • Hybrid",
+
+        // Workflow
+        wf_kicker: "Smart AI Pipeline",
+        wf_head: "From Spoken Dialogue to Actionable Minutes.",
+        wf_sub: "Cardi Agent MoM manages the complete meeting cycle end-to-end with high precision and enterprise-grade data security.",
+        wf_step1_num: "01 / RECORD",
+        wf_step1_title: "Record & Chunk Audio",
+        wf_step1_desc: "Modular recording safeguards audio from network drops or unexpected app closures.",
+        wf_step2_num: "02 / TRANSCRIBE",
+        wf_step2_title: "Merge & Speech-to-Text",
+        wf_step2_desc: "Audio chunks merge seamlessly and are processed by cutting-edge STT engines with automatic retry.",
+        wf_step3_num: "03 / SYNTHESIZE",
+        wf_step3_title: "AI Summarization",
+        wf_step3_desc: "AI models distill discussions, identify core decisions, and structure actionable to-do deliverables.",
+        wf_step4_num: "04 / DISTRIBUTE",
+        wf_step4_title: "Access, Search & Share",
+        wf_step4_desc: "Minutes are instantly available in-app, exportable to PDF, shareable via WhatsApp, or fully searchable.",
+
+        // Pricing
+        price_kicker: "Subscriptions",
+        price_head: "Choose your subscription plan",
+        price_sub: "1 coin ≈ 1 minute transcript. Balance auto-renews each billing cycle via Google Play.",
+        plan_quick_name: "Quick",
+        plan_quick_price: "Rp 90.000",
+        plan_quick_period: "/month",
+        plan_quick_quota: "500 coins / month",
+        plan_quick_f1: "500 transcript coins (~8.3 hours audio)",
+        plan_quick_f2: "Verbatim Speech-to-Text transcription",
+        plan_quick_f3: "AI MoM summary & Action items",
+        plan_quick_f4: "Offline-first & background recording",
+        plan_quick_f_ext: "Google Chrome Extension (Zoom, Meet & YouTube)",
+        plan_quick_f5: "Auto-renew balance per billing cycle",
+        plan_quick_btn: "Choose Quick",
+        popular_badge: "MOST POPULAR",
+        plan_bulk_name: "Bulk",
+        plan_bulk_price: "Rp 399.000",
+        plan_bulk_period: "/month",
+        plan_bulk_quota: "2,500 coins / month",
+        plan_bulk_f1: "2,500 transcript coins (~41.6 hours audio)",
+        plan_bulk_f2: "All features in Quick plan",
+        plan_bulk_f_ext: "Chrome Extension multi-tab & multi-device access",
+        plan_bulk_f3: "High coin allocation for intensive meetings",
+        plan_bulk_f4: "Speaker contribution analytics",
+        plan_bulk_f5: "Multi-device sync & priority support",
+        plan_bulk_btn: "Choose Bulk",
+        plan_enterprise_name: "Enterprise",
+        plan_enterprise_price: "Custom",
+        plan_enterprise_period: "/organization",
+        plan_enterprise_quota: "Custom Volume & Coins",
+        plan_enterprise_f1: "Unlimited / tailored coin allocation",
+        plan_enterprise_f2: "All Bulk & Chrome Extension features",
+        plan_enterprise_f_ext: "SSO, API & Internal Webhook integrations",
+        plan_enterprise_f3: "Dedicated AI cluster & 99.9% uptime SLA",
+        plan_enterprise_f4: "Custom MoM templates & enterprise security",
+        plan_enterprise_f5: "Dedicated Account Manager & 24/7 priority support",
+        plan_enterprise_btn: "Contact Enterprise Team",
+        price_play_footer: "Payment & auto-renewal securely processed via Google Play. Cancel anytime in the Play Store.",
+
+        // FAQ
+        faq_kicker: "Frequently Asked Questions",
+        faq_head: "FAQ About Cardi Agent MoM.",
+        faq_sub: "Find answers regarding app functionality, coin economics, data confidentiality, and subscriptions.",
+        faq_q1: "How does the Coin system and subscription plans work?",
+        faq_a1: "1 coin equals approximately 1 minute of AI-processed audio transcript. Available plans include Quick (500 coins / Rp 90.000), Bulk Most Popular (2,500 coins / Rp 399.000), and custom Enterprise solutions for organizations. Coin balance refreshes automatically each billing cycle and can be cancelled anytime.",
+        faq_q2: "Can Cardi Agent MoM record while minimized or locked?",
+        faq_a2: "Yes. The app utilizes Android foreground services to guarantee that recording continues reliably even when minimized or screen locked.",
+        faq_q3: "Can I search for keywords across past transcripts and summaries?",
+        faq_a3: "Absolutely. Our smart indexing searches titles, participant names, dates, verbatim transcripts, and synthesized takeaways so you can retrieve records in seconds.",
+        faq_q4: "What happens if internet drops during a meeting?",
+        faq_a4: "The app employs an offline-first architecture. Audio is preserved safely in local device storage and automatically uploaded for AI transcription when connection restores.",
+        faq_q5: "How do we schedule a customized live demo for our team?",
+        faq_a5_p1: 'Simply click "Book a Demo" or message our ',
+        faq_a5_link: "Official WhatsApp",
+        faq_a5_p2: ". Our specialists will promptly coordinate a tailored demonstration.",
+
+        // Feedback
+        fb_kicker: "Feedback & Suggestions",
+        fb_head: "Help Us Perfect Cardi Agent MoM.",
+        fb_sub: "Encountering bugs or have feature suggestions? Share your thoughts directly with our product engineering team via official WhatsApp.",
+        fb_card_title: "Send Feedback via WhatsApp",
+        fb_card_desc: "Report issues, UI friction, or propose new features directly to our product developers.",
+        fb_cat_label: "Feedback Category:",
+        cat_feature: "Feature Request",
+        cat_bug: "Bug Report",
+        cat_ai: "Transcription & AI Quality",
+        cat_ux: "Design & UX",
+        cat_other: "Other Feedback",
+        fb_name_label: "Your Name",
+        fb_name_ph: "E.g. Alex Johnson",
+        fb_role_label: "Profession / Role (Optional)",
+        fb_role_ph: "E.g. Product Manager / HR Lead",
+        fb_msg_label: "Your Comments, Issues & Suggestions",
+        fb_msg_ph: "Describe any issues experienced, bugs found, or features you would like added to Cardi Agent MoM...",
+        fb_btn_submit: "Send Feedback via WhatsApp",
+        fb_direct_note: "Your feedback synchronizes directly to the official Cardi Nusantara Product & Dev WhatsApp.",
+
+        // Bottom CTA
+        cta_title: "Ready to Boost Your Team's Meeting Productivity?",
+        cta_desc: "Start using Cardi Agent MoM today and experience seamless automated meeting documentation designed for high-growth businesses.",
+        cta_btn: "Chat on WhatsApp Now",
+
+        // Footer
+        ft_desc: "Leading AI Meeting Intelligence from the Cardi Nusantara ecosystem to record, summarize, and document meetings instantly.",
+        ft_badge: "Partner for IPO • PT Digital Cardi Nusantara",
+        ft_col_prod: "MoM Product",
+        ft_link_trans: "Live Transcription",
+        ft_link_sum: "AI Summarization",
+        ft_link_action: "Action Items Generator",
+        ft_link_wf: "AI Workflow",
+        ft_link_feedback: "Feedback & Suggestions",
+        ft_col_eco: "Cardi Ecosystem",
+        ft_link_main: "Cardi Main Website",
+        ft_col_contact: "Help & Contact",
+        ft_link_faq: "Help Center / FAQ",
+        ft_link_about: "About Cardi",
+        ft_link_solutions: "Business Solutions",
+        ft_copy: "© 2026 PT Cardi Nusantara. All rights reserved.",
+        ft_tagline: "Cardi Business Power Ecosystem™ • Scale to IPO",
+        wa_tooltip: "Consult with Cardi Agent"
+      },
+      zh: {
+        // Eco & Nav
+        eco_badge: "Cardi 商业生态系统 • Cardi Business Power Ecosystem™",
+        eco_agent: "Cardi Agent",
+        eco_mom: "Cardi MoM",
+        eco_lol: "Cardi LoL",
+        eco_agent_sub: "企业级AI智能体团队与业务操作系统",
+        ft_eco_desc: "Cardi Business Power Ecosystem™ 旗下企业级智能运营核心平台。",
+        nav_ecosystem: "产品生态",
+        nav_features: "核心功能",
+        nav_solutions: "行业方案",
+        nav_workflow: "工作流程",
+        nav_pricing: "订阅方案",
+        nav_faq: "常见问题",
+        nav_feedback: "意见反馈",
+        btn_main: "cardi.co.id",
+        btn_demo: "预约演示",
+
+        // Ekosistem Mega Menu
+        mega_sec_software: "AI 智能应用与系统",
+        mega_sec_services: "生态配套服务",
+        mega_sec_enterprise: "企业定制方案",
+        mega_mom_sub: "AI 智能会议转写与纪要管理",
+        mega_lol_sub: "经验教训复盘与企业知识库",
+        mega_aiagent_sub: "24/7 商务销售与智能客服代理",
+        mega_digital_sub: "企业数字化转型与 IT 系统集成",
+        mega_branding_sub: "品牌战略咨询与企业形象塑造",
+        mega_nusantara_sub: "商业顾问咨询与 IPO 辅导",
+        mega_univ_title: "Cardi 商业大学",
+        mega_univ_sub: "企业 AI 培训与高管研修课",
+        mega_partner_title: "Cardi 合作伙伴",
+        mega_partner_sub: "系统集成商与咨询服务网络",
+        mega_referral_title: "Cardi 推广合伙人",
+        mega_referral_sub: "商务推荐与推广返利计划",
+        mega_community_title: "Cardi 商业社群",
+        mega_community_sub: "创始人与企业高管人脉圈",
+        mega_care_title: "Cardi 专属客户支持",
+        mega_care_sub: "7x24 小时技术保障与专属服务",
+        mega_suite_desc: "Cardi 定制化企业方案，灵活整合 AI 智能体、会议治理与日常业务运营，打造一体化协同生态。",
+        mega_suite_cta: "了解更多",
+
+        // Hero
+        hero_eyebrow: "AI 智能会议纪要系统",
+        hero_title_1: "将会议时间转化为 ",
+        hero_title_2: "实质行动与高效执行力。",
+        hero_desc: "Cardi Agent MoM 自动进行语音录音、多语种转写、智能摘要并起草专业会议纪要（MoM），让您的团队专注于战略决策与企业规模化增长。",
+        hero_btn_features: "探索完整功能",
+        hero_btn_demo: "预约产品演示",
+
+        // Simulator
+        sim_title: "Q3 业务与技术路线图协调会",
+        sim_meta: "今天, 10:00 • 48:12 • 混合会议",
+        sim_tab_trans: "实时转写",
+        sim_tab_summary: "AI 摘要",
+        sim_tab_action: "待办清单",
+        sim_tab_insight: "会议洞察",
+        sim_speech1: "我们先统一步伐，明确 Q3 运营自动化路线图与核心里程碑。",
+        sim_speech2: "AI 智能摘要集成模块已准备就绪，本周可进行内部全面测试。",
+        sim_speech3: "PDF 导出流程与会议纪要实时同步设计方案将在会后同步分享。",
+        sim_live_line: "实时音频流与多说话人识别已启用",
+        sim_action_head: "待办行动项 (4)",
+        sim_task1: "Rafi: 完成技术规范定稿",
+        sim_task2: "Sarah: 更新移动端 UI 交互",
+        sim_task3: "Diana: 敲定 Q3 产品路线图",
+        sim_task4: "与财务团队复核套餐定价",
+        sim_add_item: "＋ 新增行动项",
+        sim_speaker_contrib: "发言占比",
+
+        // Features
+        feat_kicker: "前沿人工智能科技",
+        feat_head: "赋能会议全生命周期的智能技术。",
+        feat_sub: "基于前沿 LLM 大语言模型与无服务器云架构，打造全自动会议纪要，大幅提升团队协作效率。",
+        feat_1_title: "分块安全录音 (Chunked)",
+        feat_1_desc: "会议音频分段实时加密保存，即便网络断开或后台运行也能确保数据万无一失。",
+        feat_2_title: "高精度语音转写",
+        feat_2_desc: "支持印尼语、英语、专业行业术语及混合语种对话，精准区分发言人角色。",
+        feat_3_title: "MoM 与待办生成",
+        feat_3_desc: "AI 自动提炼执行摘要、核心决议以及责任到人、包含截止日期的行动清单。",
+        feat_4_title: "离线优先与即时同步",
+        feat_4_desc: "无网络环境下依然可流畅录音，设备重新联网后自动完成云端转写与纪要生成。",
+        feat_5_title: "Google Chrome 网页扩展插件",
+        feat_5_desc: "无需安装额外客户端，直接在 Chrome 浏览器中对 Zoom、Google Meet、Teams 及 YouTube 进行实时转写。",
+        feat_explore_all: "查看全部核心功能与技术规格",
+
+        // Solutions (Carousel)
+        sol_kicker: "跨部门业务方案",
+        sol_head: "专为各业务部门与行业场景量身定制。",
+        sol_sub: "从商务销售谈判到董事会高层决策，Cardi Agent MoM 确保不错过任何关键决议。",
+        ext_banner_badge: "Google Chrome 网页扩展已上线",
+        ext_banner_title: "直接从 Chrome 浏览器转写 Zoom、Google Meet 及 YouTube 会议",
+        ext_banner_btn: "安装 Cardi 扩展插件 →",
+        chrome_ext_preview_text: "直接从 Chrome 浏览器转写 Zoom/Meet/YouTube 线上会议。",
+        compat_cardi_ext: "Cardi 扩展",
+        badge_chrome: "Chrome 插件",
+        card_chrome_title: "Google Chrome 网页扩展插件",
+        card_chrome_desc: "直接在 Chrome 浏览器中对 Zoom、Google Meet、Microsoft Teams 及 YouTube 进行实时转写，无需安装额外客户端。",
+        card_chrome_cta: "在 Chrome 中使用 →",
+        badge_sales: "商务销售",
+        card_sales_title: "商务销售与客户提案",
+        card_sales_desc: "精准记录商务需求沟通、线索资格评估与报价跟进，确保不错过任何合作细节。",
+        card_sales_cta: "应用于销售团队 →",
+        badge_exec: "高管决策",
+        card_exec_title: "董事会与高管决策会",
+        card_exec_desc: "生成符合正规审计标准的董事会决议与高管纪要，提升企业治理与合规归档效率。",
+        card_exec_cta: "应用于高管会议 →",
+        badge_tech: "产品技术",
+        card_tech_title: "产品管理与技术研发",
+        card_tech_desc: "将复杂的系统架构研讨与迭代规划快速转化为研发人员可落地的结构化任务清单。",
+        card_tech_cta: "应用于产研团队 →",
+        badge_hr: "人力资源",
+        card_hr_title: "人力面试与绩效评估",
+        card_hr_desc: "客观、安全且保密地记录候选人面试表现与员工绩效评估，全程提供完整逐字凭据。",
+        card_hr_cta: "应用于人力资源 →",
+        badge_med: "医疗健康",
+        card_med_title: "医疗问诊与临床研讨",
+        card_med_desc: "高精度记录病历问诊与疑难病例分析，让医护人员全身心投入与患者的沟通。",
+        card_med_cta: "应用于医疗团队 →",
+        badge_edu: "学术教育",
+        card_edu_title: "教育机构与学术研讨",
+        card_edu_desc: "将大学讲座、学位答辩与学术会议提炼为详尽笔记，助力教学总结与科研成果沉淀。",
+        card_edu_cta: "应用于学术教育 →",
+
+        // Mobile Experience
+        mob_kicker: "移动端优先体验",
+        mob_title: "集录音、日程安排与会议纪要执行于一体的移动工作台。",
+        mob_desc: "专为 Cardi Agent 移动端核心能力打造：后台分段录音、语音日程安排、实时转写、智能纪要、全文检索、离线优先、自动同步及智能提醒。",
+        mob_f1_title: "分段与后台持续录音",
+        mob_f1_desc: "会议音频分段存储以提高容错率，在 Android 手机后台与 Chrome 扩展 Service Worker 中均可平稳静默运行。",
+        mob_f2_title: "会议日程规划",
+        mob_f2_desc: "在应用内轻松创建或编辑会议标题、日期、开始时间、时长、参会人及地点。",
+        mob_f3_title: "自然语音排程",
+        mob_f3_desc: "只需自然说出日程安排，AI 即可自动识别并填入表单。",
+        mob_f4_title: "音频播放与全文转写",
+        mob_f4_desc: "回放原始音频、阅读逐字稿转写，并查看清晰的说话人角色分离。",
+        mob_f5_title: "结构化会议纪要 (MoM)",
+        mob_f5_desc: "高管摘要、核心决策与待办行动清单清晰呈现，条理分明。",
+        mob_f6_title: "一键复制与分享",
+        mob_f6_desc: "直接分享生成的专业纪要，无需再次耗时整理。",
+        mob_f7_title: "极速搜索与多维过滤",
+        mob_f7_desc: "按会议标题、地点、参会人及纪要全文内容极速查找历史记录。",
+        mob_f8_title: "离线优先与自动同步",
+        mob_f8_desc: "本地数据在 Android 手机、Chrome 扩展及云端之间实现全自动无缝同步。",
+        mob_f9_title: "智能通知与日程提醒",
+        mob_f9_desc: "及时推送会议前提醒，确保重要议程不被遗漏。",
+        mob_f10_title: "异常重试与状态恢复",
+        mob_f10_desc: "遇到异常或网络中断时，可随时从中断环节继续恢复处理。",
+        mob_ui_search_ph: "搜索会议标题、日期或参会人",
+        mob_ui_status_done: "已完成",
+        mob_ui_ready: "已就绪",
+        mob_btn_record: "录音",
+        mob_btn_schedule: "安排",
+        mob_btn_upload: "上传",
+        mob_mock_m1_title: "会议纪要与音频处理报告 - 2026年8月22日",
+        mob_mock_m1_meta: "2026-08-22 • 21:59",
+        mob_mock_m2_title: "高管战略规划协调会纪要 (2026年8月)",
+        mob_mock_m2_meta: "2026-08-22 • 21:49",
+        mob_mock_m3_title: "客户需求调研与项目进度对齐纪要",
+        mob_mock_m3_meta: "2026-08-22 • 17:52",
+        mob_mock_m4_title: "系统技术架构演进与语音录制管线测试",
+        mob_mock_m4_meta: "2026-08-21 • 17:01",
+        mob_mock_m5_title: "Cardi Agent MoM 界面布局与视觉规范评审",
+        mob_mock_m5_meta: "2026-08-21 • 16:49",
+        mob_sched_1_title: "客户需求对接会",
+        mob_sched_1_meta: "13:30 • 60分钟 • 线上",
+        mob_sched_2_title: "研发团队复盘会",
+        mob_sched_2_meta: "16:00 • 45分钟 • 混合",
+
+        // Workflow
+        wf_kicker: "高效流转管线",
+        wf_head: "从口头对话到可落地纪要的完整闭环。",
+        wf_sub: "Cardi Agent MoM 提供端到端会议智能处理，兼具高识别准确率与严格数据安全防护。",
+        wf_step1_num: "01 / 录音",
+        wf_step1_title: "分段加密录音",
+        wf_step1_desc: "模块化分段录制，保障音频免受断网或应用意外退出的影响。",
+        wf_step2_num: "02 / 转写",
+        wf_step2_title: "合并与语音转写",
+        wf_step2_desc: "音频智能合并后经由领先的语音识别引擎处理，支持自动纠错与重试。",
+        wf_step3_num: "03 / 提炼",
+        wf_step3_title: "AI 智能总结与分析",
+        wf_step3_desc: "AI 深入解析会议上下文，提炼决策要点并格式化待办事项清单。",
+        wf_step4_num: "04 / 分发",
+        wf_step4_title: "导出、检索与共享",
+        wf_step4_desc: "纪要成果即时可用，一键导出 PDF，支持 WhatsApp 分发与全文秒级检索。",
+
+        // Pricing
+        price_kicker: "订阅方案",
+        price_head: "选择最适合您的套餐",
+        price_sub: "1 币 ≈ 1 分钟转写。通过 Google Play 账单周期自动续订与充值代币。",
+        plan_quick_name: "Quick (基础版)",
+        plan_quick_price: "Rp 90.000",
+        plan_quick_period: "/月",
+        plan_quick_quota: "500 币 / 月",
+        plan_quick_f1: "500 币转写额度（约 8.3 小时音频）",
+        plan_quick_f2: "高精度逐字语音转文字",
+        plan_quick_f3: "AI 会议纪要与待办清单生成",
+        plan_quick_f4: "离线优先与后台静默录制",
+        plan_quick_f_ext: "Google Chrome 扩展插件 (Zoom/Meet/YouTube)",
+        plan_quick_f5: "按月度账单周期自动刷新充值",
+        plan_quick_btn: "选择 Quick",
+        popular_badge: "最受欢迎",
+        plan_bulk_name: "Bulk (大额版)",
+        plan_bulk_price: "Rp 399.000",
+        plan_bulk_period: "/月",
+        plan_bulk_quota: "2.500 币 / 月",
+        plan_bulk_f1: "2.500 币转写额度（约 41.6 小时音频）",
+        plan_bulk_f2: "包含 Quick 基础版所有权益",
+        plan_bulk_f_ext: "Chrome 插件多标签页与多设备无缝支持",
+        plan_bulk_f3: "大额代币配额，满足高频会议需求",
+        plan_bulk_f4: "与会成员发言时长与贡献分析",
+        plan_bulk_f5: "多设备无缝同步与优先客服支持",
+        plan_bulk_btn: "选择 Bulk",
+        plan_enterprise_name: "Enterprise",
+        plan_enterprise_price: "定制方案",
+        plan_enterprise_period: "/按需定制",
+        plan_enterprise_quota: "定制算力与额度",
+        plan_enterprise_f1: "无上限 / 按需定制会议币额度",
+        plan_enterprise_f2: "包含 Bulk 及 Chrome 插件所有功能",
+        plan_enterprise_f_ext: "支持 SSO 单点登录、API 及 Webhook 集成",
+        plan_enterprise_f3: "专属 AI 算力集群与 99.9% SLA 保障",
+        plan_enterprise_f4: "企业级安全审计与专属纪要模板定制",
+        plan_enterprise_f5: "专属客户成功经理与 24/7 优先支持",
+        plan_enterprise_btn: "联系企业专属顾问",
+        price_play_footer: "所有付款与自动续订均通过 Google Play 安全处理。随时可在 Play Store 取消。",
+
+        // FAQ
+        faq_kicker: "常见问题",
+        faq_head: "Cardi Agent MoM 常见答疑。",
+        faq_sub: "了解应用功能、代币机制、数据安全及订阅方式的详细解答。",
+        faq_q1: "Cardi Agent MoM 的代币（Coin）机制是如何运作的？",
+        faq_a1: "1 个代币约等于 1 分钟的 AI 音频转写额度。套餐包含 Quick 基础版（500 币 / Rp 90.000）、最受欢迎的 Bulk 大额版（2.500 币 / Rp 399.000）以及面向组织的 Enterprise 企业定制版。代币会在每月账单周期自动刷新，随时可取消。",
+        faq_q2: "在手机锁屏或切换到后台时是否依然可以正常录音？",
+        faq_a2: "可以。应用支持 Android 前台服务（Foreground Service），即便应用最小化或屏幕锁定，录音流程依然稳定进行。",
+        faq_q3: "历史会议的转写和纪要是否支持关键词快速检索？",
+        faq_a3: "完全支持。智能搜索涵盖会议标题、参会人员、日期、逐字转写及结论摘要，数秒内即可精准检索历史记录。",
+        faq_q4: "会议进行中网络突然中断怎么办？",
+        faq_a4: "应用采用离线优先架构（Offline-First）。音频会安全保存在本地存储中，待网络恢复后自动上传并完成 AI 转写与纪要生成。",
+        faq_q5: "如何为企业团队预约定制化专属产品演示？",
+        faq_a5_p1: '只需点击“预约演示”按钮或联系我们的 ',
+        faq_a5_link: "官方 WhatsApp",
+        faq_a5_p2: "。我们的专员将根据您的时间安排演示体验。",
+
+        // Feedback
+        fb_kicker: "意见反馈与建议",
+        fb_head: "帮助我们完善 Cardi Agent MoM。",
+        fb_sub: "在使用过程中遇到问题或有新功能需求？请通过官方 WhatsApp 直接向我们的技术团队反馈。",
+        fb_card_title: "通过 WhatsApp 提交反馈",
+        fb_card_desc: "直接向产品研发团队报告问题、不足或提出功能改进建议。",
+        fb_cat_label: "反馈类别：",
+        cat_feature: "新功能建议",
+        cat_bug: "问题/Bug反馈",
+        cat_ai: "转写与AI质量",
+        cat_ux: "界面与使用体验",
+        cat_other: "其他反馈",
+        fb_name_label: "您的姓名",
+        fb_name_ph: "例如：张明 / Rian",
+        fb_role_label: "职业 / 部门（选填）",
+        fb_role_ph: "例如：产品经理 / 人力总监",
+        fb_msg_label: "您的评论、缺点与建议",
+        fb_msg_ph: "请描述您遇到的问题、发现的 Bug，或希望在 Cardi Agent MoM 中增加的新功能...",
+        fb_btn_submit: "通过 WhatsApp 发送反馈",
+        fb_direct_note: "您的反馈将直接同步至 Cardi Nusantara 官方产品与技术开发团队 WhatsApp。",
+
+        // Bottom CTA
+        cta_title: "准备好提升团队的会议效率了吗？",
+        cta_desc: "立即开始使用 Cardi Agent MoM，体验全自动会议纪要，全面赋能企业快速增长。",
+        cta_btn: "立即通过 WhatsApp 咨询",
+
+        // Footer
+        ft_desc: "Cardi Nusantara 生态领先的 AI 会议智能系统，用于实时录音、智能提炼与即时生成专业会议纪要。",
+        ft_badge: "企业 IPO 战略伙伴 • PT Digital Cardi Nusantara",
+        ft_col_prod: "MoM 产品",
+        ft_link_trans: "实时语音转写",
+        ft_link_sum: "AI 智能总结",
+        ft_link_action: "待办清单生成",
+        ft_link_wf: "AI 工作流程",
+        ft_link_feedback: "意见与建议",
+        ft_col_eco: "Cardi 商业生态",
+        ft_link_main: "Cardi 集团官网",
+        ft_col_contact: "帮助与联系",
+        ft_link_faq: "帮助中心 / 常见问题",
+        ft_link_about: "关于 Cardi",
+        ft_link_solutions: "企业解决方案",
+        ft_copy: "© 2026 PT Cardi Nusantara. 保留所有权利。",
+        ft_tagline: "Cardi Business Power Ecosystem™ • Scale to IPO",
+        wa_tooltip: "通过 WhatsApp 咨询 Cardi Agent"
+      }
     };
 
+    const waMessagesByLang = {
+      id: {
+        demo: "Halo Cardi Agent MoM, saya tertarik untuk melihat demo langsung produk AI Meeting Intelligence. Bisa bantu jadwalkan sesi demo?",
+        extension: "Halo Cardi Agent MoM, saya tertarik untuk mencoba Ekstensi Google Chrome Cardi untuk transkrip rapat virtual (Zoom/Meet/YouTube). Bagaimana cara pemasangannya?",
+        quick: "Halo Cardi Agent MoM, saya tertarik untuk berlangganan paket Quick (Rp 90.000/bulan - 500 coin). Bagaimana cara memulainya?",
+        standard: "Halo Cardi Agent MoM, saya tertarik untuk berlangganan paket Standard (Rp 179.000/bulan - 1.000 coin). Bagaimana cara memulainya?",
+        bulk: "Halo Cardi Agent MoM, saya tertarik untuk berlangganan paket Bulk (Rp 399.000/bulan - 2.500 coin). Bagaimana cara memulainya?",
+        enterprise: "Halo Cardi Agent MoM, kami ingin berdiskusi mengenai paket khusus skala perusahaan dan opsi integrasi kustom.",
+        general: "Halo Cardi Agent MoM, saya ingin mengetahui informasi lebih lanjut mengenai solusi AI Meeting Intelligence."
+      },
+      en: {
+        demo: "Hello Cardi Agent MoM team, I would like to request a live demo of the AI Meeting Intelligence platform. Could you help schedule a session?",
+        extension: "Hello Cardi Agent MoM team, I am interested in using the Cardi Google Chrome Extension to transcribe web meetings (Zoom/Meet/YouTube). How can I get started?",
+        quick: "Hello Cardi Agent MoM, I am interested in subscribing to the Quick plan (Rp 90,000/month - 500 coins). How can I get started?",
+        standard: "Hello Cardi Agent MoM, I am interested in subscribing to the Standard plan (Rp 179,000/month - 1,000 coins). How can I get started?",
+        bulk: "Hello Cardi Agent MoM, I am interested in subscribing to the Bulk plan (Rp 399,000/month - 2,500 coins). How can I get started?",
+        enterprise: "Hello Cardi Agent MoM, we would like to discuss custom enterprise packages and API integrations.",
+        general: "Hello Cardi Agent MoM, I would like more information about your AI Meeting Intelligence solution."
+      },
+      zh: {
+        demo: "您好 Cardi Agent MoM 团队，我对 AI 智能会议纪要产品非常感兴趣，希望能预约一次产品演示。请问可以协助安排吗？",
+        extension: "您好 Cardi Agent MoM 团队，我对用于浏览器在线会议转写的 Cardi Google Chrome 扩展插件非常感兴趣，请问如何获取并开始使用？",
+        quick: "您好 Cardi Agent MoM，我想了解并订阅 Quick 套餐（Rp 90.000/月 - 500币）。请问如何开始使用？",
+        standard: "您好 Cardi Agent MoM，我想了解并订阅 Standard 标准套餐（Rp 179.000/月 - 1.000币）。请问如何开始使用？",
+        bulk: "您好 Cardi Agent MoM，我想了解并订阅 Bulk 大额套餐（Rp 399.000/月 - 2.500币）。请问如何开始使用？",
+        enterprise: "您好 Cardi Agent MoM，我们希望探讨企业级定制方案及 API 深度集成合作。",
+        general: "您好 Cardi Agent MoM，我想了解更多关于 AI 智能会议纪要系统的信息。"
+      }
+    };
+
+    function closeAllNavDropdowns() {
+      closeLangDropdown();
+    }
+
+    function toggleLangDropdown(event) {
+      if (event) event.stopPropagation();
+      const wrap = document.getElementById("langDropdownWrap");
+      if (!wrap) return;
+      const isOpen = wrap.classList.contains("open");
+      
+      if (isOpen) {
+        closeLangDropdown();
+      } else {
+        wrap.classList.add("open");
+      }
+    }
+
+    function closeLangDropdown() {
+      const wrap = document.getElementById("langDropdownWrap");
+      if (wrap) wrap.classList.remove("open");
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".lang-dropdown-wrapper")) {
+        closeLangDropdown();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeAllNavDropdowns();
+      }
+    });
+
+    function setLanguage(lang) {
+      if (!translations[lang]) lang = "id";
+      currentLang = lang;
+      try {
+        localStorage.setItem("cardi_lang", lang);
+      } catch (err) {}
+
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : (lang === "en" ? "en" : "id");
+
+      // Update all elements with data-i18n
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Update all inputs with data-i18n-ph
+      document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-ph");
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.setAttribute("placeholder", translations[lang][key]);
+        }
+      });
+
+      // Update Switcher UI labels & active items
+      const flagSrcs = { id: "/flags/id.svg", en: "/flags/en.svg", zh: "/flags/zh.svg" };
+      const codes = { id: "ID", en: "EN", zh: "ZH" };
+
+      document.querySelectorAll(".lang-toggle-btn .lang-flag-img").forEach((el) => {
+        el.src = flagSrcs[lang] || "/flags/id.svg";
+        el.alt = codes[lang] || "ID";
+      });
+      document.querySelectorAll(".lang-toggle-btn .lang-code").forEach((el) => {
+        el.textContent = codes[lang] || "ID";
+      });
+
+      document.querySelectorAll(".lang-select-item").forEach((item) => {
+        if (item.getAttribute("data-lang") === lang) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+
+      closeLangDropdown();
+    }
+
     function openWhatsApp(topic = "general") {
-      const message = waMessages[topic] || waMessages.general;
+      const messages = waMessagesByLang[currentLang] || waMessagesByLang.id;
+      const message = messages[topic] || messages.general;
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     }
@@ -1864,6 +4812,92 @@
         item.classList.toggle("open");
       });
     });
+
+    // Feedback & User Comments System
+    function selectFeedbackCategory(btn) {
+      document.querySelectorAll(".category-chip").forEach((chip) => chip.classList.remove("active"));
+      btn.classList.add("active");
+      const cat = btn.getAttribute("data-cat") || "Saran Fitur Baru";
+      const input = document.getElementById("selectedCategory");
+      if (input) input.value = cat;
+    }
+
+    function handleFeedbackSubmit(e) {
+      e.preventDefault();
+      const name = (document.getElementById("feedbackName")?.value || "").trim() || (currentLang === "zh" ? "用户" : (currentLang === "en" ? "User" : "Pengguna"));
+      const role = (document.getElementById("feedbackRole")?.value || "").trim();
+      const category = document.getElementById("selectedCategory")?.value || "Saran Fitur Baru";
+      const message = (document.getElementById("feedbackMessage")?.value || "").trim();
+
+      if (!message) return;
+
+      let waText = "";
+      if (currentLang === "zh") {
+        waText = `您好 Cardi Agent MoM 开发团队，\n\n我想提交关于应用的意见与功能建议：\n• *分类：* ${category}\n• *姓名：* ${name}${role ? ` (${role})` : ""}\n`;
+        waText += `\n*评论 / 缺点 / 建议：*\n"${message}"\n`;
+      } else if (currentLang === "en") {
+        waText = `Hello Cardi Agent MoM Dev Team,\n\nI would like to share feedback/feature suggestions for the app:\n• *Category:* ${category}\n• *Name:* ${name}${role ? ` (${role})` : ""}\n`;
+        waText += `\n*Comments / Issues / Suggestions:*\n"${message}"\n`;
+      } else {
+        waText = `Halo Tim Pengembang Cardi Agent MoM,\n\nSaya ingin menyampaikan masukan dan evaluasi terkait kekurangan/fitur aplikasi:\n• *Kategori:* ${category}\n• *Nama:* ${name}${role ? ` (${role})` : ""}\n`;
+        waText += `\n*Komentar / Kekurangan / Saran:*\n"${message}"\n`;
+      }
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    // Precise Smooth Scroll Navigation for all Internal Links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+        if (!targetId || targetId === "#") return;
+
+        if (targetId === "#top") {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          if (history.pushState) history.pushState(null, null, "#top");
+          return;
+        }
+
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const navOffset = window.innerWidth <= 768 ? 86 : 98;
+          const elementPos = targetEl.getBoundingClientRect().top;
+          const targetOffset = elementPos + window.pageYOffset - navOffset;
+
+          window.scrollTo({
+            top: targetOffset,
+            behavior: "smooth"
+          });
+          if (history.pushState) history.pushState(null, null, targetId);
+        }
+      });
+    });
+
+    // Initialize Language from Storage
+    function initLanguage() {
+      try {
+        const savedLang = localStorage.getItem("cardi_lang") || "id";
+        setLanguage(savedLang);
+      } catch (e) {
+        setLanguage("id");
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initLanguage);
+    } else {
+      initLanguage();
+    }
+
+    window.toggleLangDropdown = toggleLangDropdown;
+    window.setLanguage = setLanguage;
+    window.openWhatsApp = openWhatsApp;
+    window.selectFeedbackCategory = selectFeedbackCategory;
+    window.handleFeedbackSubmit = handleFeedbackSubmit;
+    window.closeAllNavDropdowns = closeAllNavDropdowns;
   </script>
 </body>
 </html>
