@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = 'cardi agent. — AI Agent untuk Operasional Bisnis Indonesia',
-  description = 'Cardi Agent membangun tim agen AI yang menangani penjualan, layanan pelanggan, penagihan, dan operasional harian — lintas WhatsApp, email, dan sistem internal Anda.',
+  title = 'Cardi Agent AI — AI Agent untuk Operasional Bisnis Indonesia',
+  description = 'Cardi Agent AI membangun tim agen AI yang menangani penjualan, layanan pelanggan, penagihan, dan operasional harian — lintas WhatsApp, email, dan sistem internal Anda.',
   image = '/og-banner.png',
 } = Astro.props;
 
@@ -18,14 +18,14 @@ const canonicalURL = Astro.url.href;
 const schemaData = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Cardi Agent',
+  name: 'Cardi Agent AI',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   url: 'https://aiagent.cardi.co.id',
   description,
   brand: {
     '@type': 'Brand',
-    name: 'Cardi',
+    name: 'Cardi Agent AI',
     url: 'https://cardi.co.id',
   },
   offers: {
@@ -54,7 +54,7 @@ const schemaData = {
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#1E4FFF" />
 
-  <meta property="og:site_name" content="Cardi Agent" />
+  <meta property="og:site_name" content="Cardi Agent AI" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
