@@ -265,7 +265,13 @@
       final_cta_2: "Tapi menambah orang bukan satu-satunya cara menanganinya.",
       final_cta_3: "Cardi Agent mengerjakannya sendiri, 24 jam nonstop.",
       final_cta_btn: "Jadwalkan Demo Gratis →",
-      final_meta: "6 dari 15 slot onboarding tersisa bulan ini<br />Live dalam 7–14 hari kerja · garansi setup berhasil 14 hari"
+      final_meta: "6 dari 15 slot onboarding tersisa bulan ini<br />Live dalam 7–14 hari kerja · garansi setup berhasil 14 hari",
+      ft_brand_desc: "Agen AI yang menjalankan penjualan, layanan pelanggan, dan operasional harian untuk bisnis Indonesia — bagian dari ekosistem Cardi.",
+      ft_produk_title: "Produk",
+      ft_mom_link: "Cardi MoM (Minutes of Meeting)",
+      ft_copy_1: "&copy; 2026 Cardi Agent — bagian dari Cardi Business Growth Ecosystem.",
+      ft_copy_2: "Dibangun di atas cardi-agent-os., sistem yang didemokan di halaman ini.",
+      mob_seats_left: "6 slot tersisa"
     },
     en: {
       nav_eco: "Ecosystem",
@@ -532,7 +538,13 @@
       final_cta_2: "But hiring more people is not the only way to solve it.",
       final_cta_3: "Cardi Agent handles it autonomously, 24/7 nonstop.",
       final_cta_btn: "Schedule Free Demo →",
-      final_meta: "6 of 15 onboarding slots remaining this month<br />Live in 7–14 business days · 14-day setup guarantee"
+      final_meta: "6 of 15 onboarding slots remaining this month<br />Live in 7–14 business days · 14-day setup guarantee",
+      ft_brand_desc: "AI agents running sales, customer service, and daily operations for high-growth businesses — part of the Cardi ecosystem.",
+      ft_produk_title: "Products",
+      ft_mom_link: "Cardi MoM (Minutes of Meeting)",
+      ft_copy_1: "&copy; 2026 Cardi Agent — part of the Cardi Business Growth Ecosystem.",
+      ft_copy_2: "Built on top of cardi-agent-os., the system demonstrated on this page.",
+      mob_seats_left: "6 slots left"
     },
     zh: {
       nav_eco: "生态系统",
@@ -799,7 +811,13 @@
       final_cta_2: "但无休止地扩招员工绝非唯一解法。",
       final_cta_3: "Cardi Agent 全天候24小时不间断为您自主运行。",
       final_cta_btn: "预约免费演示 →",
-      final_meta: "本月仅剩 6 / 15 个入驻名额<br />7–14个工作日极速上线 · 14天交付保障"
+      final_meta: "本月仅剩 6 / 15 个入驻名额<br />7–14个工作日极速上线 · 14天交付保障",
+      ft_brand_desc: "驱动企业销售拓客、客户服务与日常运营的专业AI智能体团队——Cardi商业增长生态系统核心成员。",
+      ft_produk_title: "核心产品",
+      ft_mom_link: "Cardi MoM (AI会议纪要与智能决策)",
+      ft_copy_1: "&copy; 2026 Cardi Agent — Cardi商业增长生态系统成员。",
+      ft_copy_2: "基于 cardi-agent-os. 构建，即本页面演示的企业级AI操作系统。",
+      mob_seats_left: "仅余 6 个名额"
     }
   };
 
