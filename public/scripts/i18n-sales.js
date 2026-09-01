@@ -2,6 +2,7 @@
   const translations = {
     id: {
       nav_eco: "Ekosistem",
+      lang_select_title: "PILIH BAHASA / LANGUAGE",
       eco_badge: "Ekosistem Cardi",
       eco_agent_title: "Cardi Agent",
       eco_agent_sub: "AI Workforce & Sistem Operasi Bisnis",
@@ -268,6 +269,7 @@
     },
     en: {
       nav_eco: "Ecosystem",
+      lang_select_title: "SELECT LANGUAGE",
       eco_badge: "Cardi Ecosystem",
       eco_agent_title: "Cardi Agent",
       eco_agent_sub: "AI Workforce & Business Operating System",
@@ -534,6 +536,7 @@
     },
     zh: {
       nav_eco: "生态系统",
+      lang_select_title: "选择语言 / SELECT LANGUAGE",
       eco_badge: "Cardi 生态系统",
       eco_agent_title: "Cardi Agent",
       eco_agent_sub: "企业级AI智能体团队与业务操作系统",
@@ -819,13 +822,18 @@
     currentLang = lang;
     localStorage.setItem("cardi_lang", lang);
 
-    // Update Flag & Code in desktop nav
+    // Update Flag & Code in desktop & mobile nav
     const flagImg = document.getElementById("currentLangFlag");
     const codeSpan = document.getElementById("currentLangCode");
     if (flagImg) flagImg.src = LANG_FLAGS[lang];
     if (codeSpan) codeSpan.textContent = LANG_CODES[lang];
 
-    // Update active class in desktop dropdown options
+    const mobFlagImg = document.getElementById("mobLangFlag");
+    const mobCodeSpan = document.getElementById("mobLangCode");
+    if (mobFlagImg) mobFlagImg.src = LANG_FLAGS[lang];
+    if (mobCodeSpan) mobCodeSpan.textContent = LANG_CODES[lang];
+
+    // Update active class in desktop & mobile dropdown options
     document.querySelectorAll(".lang-option").forEach((btn) => {
       btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
     });
@@ -840,6 +848,11 @@
     if (langWrap) langWrap.classList.remove("open");
     const langBtn = document.getElementById("langToggleBtn");
     if (langBtn) langBtn.setAttribute("aria-expanded", "false");
+
+    const mobLangWrap = document.getElementById("mobLangDropdownWrap");
+    if (mobLangWrap) mobLangWrap.classList.remove("open");
+    const mobLangBtn = document.getElementById("mobLangToggleBtn");
+    if (mobLangBtn) mobLangBtn.setAttribute("aria-expanded", "false");
 
     // Apply translations to all [data-i18n] elements
     const dict = translations[lang] || translations.id;

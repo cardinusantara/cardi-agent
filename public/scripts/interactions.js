@@ -12,7 +12,9 @@
   const execEls = Array.from(document.querySelectorAll('[data-exec]'));
 
   let lastExec = '';
-  function onScroll() {
+  let scrollTicking = false;
+
+  function updateScrollHUD() {
     const y = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const pct = max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0;
@@ -23,10 +25,10 @@
     if (hudProgress) hudProgress.style.width = pct + '%';
     if (hudPct) hudPct.textContent = String(Math.round(pct)).padStart(3, '0') + '%';
 
-    if (hudExec) {
+    if (hudExec && execEls.length) {
       let current = execEls[0];
-      for (const el of execEls) {
-        if (el.offsetTop <= y + 120) current = el;
+      for (let i = 0; i < execEls.length; i++) {
+        if (execEls[i].offsetTop <= y + 120) current = execEls[i];
       }
       const name = current ? current.getAttribute('data-exec') : '';
       if (name && name !== lastExec) {
@@ -34,10 +36,19 @@
         hudExec.textContent = name;
       }
     }
+    scrollTicking = false;
   }
+
+  function onScroll() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(updateScrollHUD);
+    }
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
-  onScroll();
+  updateScrollHUD();
 
   /* ============ 2. SCROLL REVEAL ============ */
   const revealEls = document.querySelectorAll('.reveal');
