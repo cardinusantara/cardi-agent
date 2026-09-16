@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/11.jpg"
 ---
 
-# Modernisasi Penyusunan Risalah Rapat Menggunakan Aplikasi Terpadu ( Cardi AI Agent )
-
-**Focus Keyword:** aplikasi risalah rapat
-
-**SEO Title:** Modernisasi Penyusunan Risalah Rapat Menggunakan Aplikasi Terpadu ( Cardi AI Agent )
-
-**Meta Description:** Panduan modernisasi penyusunan risalah rapat menggunakan aplikasi terpadu bersama Cardi AI Agent. Dokumentasi rapat korporat rapi, cepat, dan terstruktur.
-
-**URL Slug:** modernisasi-penyusunan-risalah-rapat-terpadu
-
 **Search Link:** [Pencarian Google: aplikasi risalah rapat](https://www.google.com/search?q=aplikasi+risalah+rapat) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
