@@ -1,3 +1,4 @@
+cover: "/covers/8.png"
 ---
 title: "Mengapa Perusahaan Pre IPO Membutuhkan Konsultan Implementasi Teknologi AI"
 description: "Melakukan penawaran umum perdana saham (*Initial Public Offering* / IPO) di bursa efek merupakan tonggak pencapaian tertinggi bagi perjalanan ekspansi sebuah pe"
