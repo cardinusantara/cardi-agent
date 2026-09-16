@@ -4,6 +4,7 @@ description: "Sektor industri pelayanan kesehatan di Indonesia mengalami transfo
 pubDate: "2026-09-16"
 slug: "automasi-marketing-rumah-sakit"
 author: "Cardi IPO"
+cover: "/covers/25.png"
 ---
 
 # Implementasi Sistem Automasi Marketing Guna Meningkatkan Kunjungan Rumah Sakit dan Klinik ( Cardi IPO SEO Article )
