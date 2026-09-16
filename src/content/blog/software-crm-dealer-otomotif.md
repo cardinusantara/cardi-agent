@@ -1,21 +1,11 @@
-cover: "/covers/2.png"
 ---
 title: "Rekomendasi Software CRM Terbaik untuk Tingkatkan Penjualan Dealer Otomotif"
 description: "Industri otomotif modern bergerak dalam dinamika pasar yang sangat kompetitif."
 pubDate: "2026-09-16"
 slug: "software-crm-dealer-otomotif"
 author: "Cardi IPO"
+cover: "/covers/2.png"
 ---
-
-# Rekomendasi Software CRM Terbaik untuk Tingkatkan Penjualan Dealer Otomotif ( Cardi IPO SEO Article )
-
-**Focus Keyword:** software crm dealer otomotif
-
-**SEO Title:** Rekomendasi Software CRM Terbaik untuk Tingkatkan Penjualan Dealer Otomotif ( Cardi IPO SEO Article )
-
-**Meta Description:** Temukan rekomendasi software crm dealer otomotif terbaik bersama Cardi untuk melipatgandakan konversi penjualan, kelola prospek, dan purnajual kendaraan.
-
-**URL Slug:** rekomendasi-software-crm-dealer-otomotif-terbaik
 
 **Search Link:** [Pencarian Google: software crm dealer otomotif](https://www.google.com/search?q=software+crm+dealer+otomotif) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
