@@ -7,16 +7,6 @@ author: "Cardi IPO"
 cover: "/covers/24.png"
 ---
 
-# Transformasi Layanan dengan Platform Omnichannel Customer Service untuk Brand Lokal ( Cardi IPO SEO Article )
-
-**Focus Keyword:** omnichannel customer service lokal
-
-**SEO Title:** Transformasi Layanan dengan Platform Omnichannel Customer Service untuk Brand Lokal ( Cardi IPO SEO Article )
-
-**Meta Description:** Pelajari transformasi layanan dengan platform omnichannel customer service lokal bersama Cardi. Satukan WhatsApp, media sosial, dan tingkatkan CSAT brand Anda.
-
-**URL Slug:** transformasi-omnichannel-customer-service-brand-lokal
-
 **Search Link:** [Pencarian Google: omnichannel customer service lokal](https://www.google.com/search?q=omnichannel+customer+service+lokal) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
 ---
