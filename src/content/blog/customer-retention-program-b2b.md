@@ -4,6 +4,7 @@ description: "Dalam lanskap perdagangan antarperusahaan (*Business-to-Business* 
 pubDate: "2026-09-16"
 slug: "customer-retention-program-b2b"
 author: "Cardi IPO"
+cover: "/covers/21.png"
 ---
 
 # Merancang Strategi Customer Retention Program yang Efektif untuk Ekosistem Bisnis B2B ( Cardi IPO SEO Article )
