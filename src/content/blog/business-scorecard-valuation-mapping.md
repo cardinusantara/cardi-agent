@@ -4,6 +4,7 @@ description: "Dalam lanskap bisnis modern yang sarat kompetisi, memimpin perusah
 pubDate: "2026-09-16"
 slug: "business-scorecard-valuation-mapping"
 author: "Cardi IPO"
+cover: "/covers/18.png"
 ---
 
 # Peran Konsultan Business Scorecard dan Valuation Mapping dalam Pertumbuhan Bisnis ( Cardi IPO SEO Article )
