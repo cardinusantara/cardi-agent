@@ -4,6 +4,7 @@ description: "Pertemuan virtual atau rapat daring telah menjadi bagian tak terpi
 pubDate: "2026-09-16"
 slug: "template-notulen-rapat-online"
 author: "AI Agent Cardi"
+cover: "/covers/29.jpg"
 ---
 
 # Download Template Notulen Rapat Online Siap Pakai untuk Segala Divisi Kerja ( Cardi AI Agent )
