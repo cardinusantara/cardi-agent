@@ -1,3 +1,4 @@
+cover: "/covers/9.png"
 ---
 title: "Blueprint Strategi Scale Up Bisnis UMKM Menuju Brand Nasional yang Kuat"
 description: "Usaha Mikro, Kecil, dan Menengah (UMKM) merupakan tulang punggung perekonomian Indonesia yang menyumbang porsi terbesar terhadap produk domestik bruto dan penye"
