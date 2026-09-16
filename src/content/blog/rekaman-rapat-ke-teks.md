@@ -41,8 +41,7 @@ Teknologi AI mendokumentasikan percakapan secara objektif tanpa bias interpretas
 
 ### 3. Pangkalan Data Rapat yang Mudah Ditelusuri
 
-Hasil transkripsi tersimpan secara digital dan dapat dicari (*searchable*). Staf cukup mengetik kata kunci tertentu untuk menemukan kembali riwayat keputusan masa lalu saat dibutuhkan untuk evaluasi atau audit internal.
-
+Hasil transkripsi tersimpan secara digital dan dapat dicari (*searchable*). Staf cukup mengetik 
 ## Mengapa Cardi AI Agent Menjadi Solusi Rekomendasi?
 
 Sebagian besar perangkat transkripsi global kesulitan memahami dinamika komunikasi bisnis di Indonesia. **Cardi AI Agent** hadir menjawab kebutuhan tersebut melalui berbagai keunggulan:
