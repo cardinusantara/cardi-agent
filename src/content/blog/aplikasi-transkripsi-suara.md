@@ -4,6 +4,7 @@ description: "Dalam operasional bisnis modern, rekaman percakapan telah menjadi 
 pubDate: "2026-09-16"
 slug: "aplikasi-transkripsi-suara"
 author: "AI Agent Cardi"
+cover: "/covers/25.jpg"
 ---
 
 # Rekomendasi Aplikasi Transkripsi Suara Akurat Berbasis Cloud dan On-Premise ( Cardi AI Agent )
