@@ -1,21 +1,11 @@
-cover: "/covers/5.png"
 ---
 title: "Rincian Harga Langganan WhatsApp Business API untuk Perusahaan Ritel FMCG"
 description: "Industri ritel dan barang konsumen yang bergerak cepat (*Fast-Moving Consumer Goods* / FMCG) di Indonesia beroperasi dengan volume transaksi yang sangat masif d"
 pubDate: "2026-09-16"
 slug: "whatsapp-business-api-ritel"
 author: "Cardi IPO"
+cover: "/covers/5.png"
 ---
-
-# Rincian Harga Langganan WhatsApp Business API untuk Perusahaan Ritel FMCG ( Cardi IPO SEO Article )
-
-**Focus Keyword:** whatsapp business api ritel
-
-**SEO Title:** Rincian Harga Langganan WhatsApp Business API untuk Perusahaan Ritel FMCG ( Cardi IPO SEO Article )
-
-**Meta Description:** Pelajari rincian harga langganan WhatsApp Business API ritel FMCG bersama Cardi. Pahami skema biaya Meta, optimasi anggaran, dan tingkatkan penjualan.
-
-**URL Slug:** rincian-harga-whatsapp-business-api-ritel-fmcg
 
 **Search Link:** [Pencarian Google: whatsapp business api ritel](https://www.google.com/search?q=whatsapp+business+api+ritel) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
