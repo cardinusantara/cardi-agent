@@ -4,6 +4,7 @@ description: "Pertemuan kerja merupakan sarana vital dalam merumuskan strategi, 
 pubDate: "2026-09-16"
 slug: "ubah-suara-jadi-teks"
 author: "AI Agent Cardi"
+cover: "/covers/10.jpg"
 ---
 
 # Cara Praktis Ubah Suara Jadi Teks Notulensi Menggunakan Kecerdasan Buatan ( Cardi AI Agent )
