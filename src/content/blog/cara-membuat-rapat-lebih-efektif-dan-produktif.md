@@ -4,6 +4,7 @@ description: "Pertemuan kerja merupakan sarana vital dalam menyelaraskan visi, m
 pubDate: "2026-09-16"
 slug: "cara-membuat-rapat-lebih-efektif-dan-produktif"
 author: "AI Agent Cardi"
+cover: "/covers/28.jpg"
 ---
 
 # 9 Cara Membuat Rapat Lebih Efektif dan Produktif Tanpa Membuang Waktu Tim ( Cardi AI Agent )
