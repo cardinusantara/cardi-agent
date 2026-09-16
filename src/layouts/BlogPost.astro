@@ -1,5 +1,7 @@
 ---
 import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
@@ -9,106 +11,343 @@ interface Props {
   cover?: string;
 }
 
-const { title, description, pubDate, author, cover } = Astro.props;
+const { title, description, pubDate, author = 'Cardi Business Advisory', cover } = Astro.props;
 const formattedDate = new Date(pubDate).toLocaleDateString('id-ID', {
   year: 'numeric', month: 'long', day: 'numeric'
 });
 ---
 
-<Layout title={title} description={description}>
-  <main class="blog-post">
-    <article>
-      <div class="post-header">
-        {cover && <img src={cover} alt={title} class="cover-image" />}
-        <h1>{title}</h1>
-        <div class="post-meta">
-          <time datetime={pubDate}>{formattedDate}</time>
-          {author && <span class="author">oleh {author}</span>}
+<Layout title={`${title} | Cardi`} description={description}>
+  <Navbar />
+  
+  <main class="article-page">
+    <!-- Breadcrumb & Header Hero -->
+    <header class="article-hero">
+      <div class="wrap">
+        <nav class="breadcrumb">
+          <a href="/">Beranda</a>
+          <span class="sep">/</span>
+          <a href="/blog/">Blog</a>
+          <span class="sep">/</span>
+          <span class="current">Artikel</span>
+        </nav>
+        
+        <div class="badge-tag">Wawasan Bisnis & IPO</div>
+        <h1 class="article-title">{title}</h1>
+        
+        <div class="article-meta">
+          <div class="author-info">
+            <div class="author-avatar">C</div>
+            <div>
+              <div class="author-name">{author}</div>
+              <div class="meta-sub">
+                <time datetime={pubDate}>{formattedDate}</time>
+                <span class="dot">•</span>
+                <span>5 menit membaca</span>
+              </div>
+            </div>
+          </div>
+          
+          <a href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi!%20Saya%20tertarik%20konsultasi%20setelah%20membaca%20artikel%20ini" target="_blank" class="share-btn">
+            Konsultasi Gratis
+          </a>
         </div>
       </div>
-      <div class="post-content">
-        <slot />
-      </div>
-    </article>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="wrap content-wrap">
+      <article class="article-body">
+        {cover && (
+          <div class="cover-wrapper">
+            <img src={cover} alt={title} class="article-cover" />
+          </div>
+        )}
+
+        <div class="lead-paragraph">
+          {description}
+        </div>
+
+        <div class="rich-text">
+          <slot />
+        </div>
+
+        <!-- Author / CTA Box -->
+        <div class="cta-box">
+          <div class="cta-content">
+            <h3>Siapkan Bisnis Anda untuk Scale-Up & IPO</h3>
+            <p>Konsultasikan pembenahan tata kelola, audit hygiene finansial, dan automasi proses bersama Cardi Ecosystem.</p>
+          </div>
+          <a href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi!%20Saya%20ingin%20konsultasi%20IPO%20Scaleup" target="_blank" class="cta-button">
+            Hubungi Advisor Cardi &rarr;
+          </a>
+        </div>
+      </article>
+    </div>
   </main>
+
+  <Footer />
 </Layout>
 
 <style>
-  .blog-post {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
+  .article-page {
+    padding-top: 100px;
+    background: #FAFCFF;
+    min-height: 100vh;
   }
-  .post-header {
-    margin-bottom: 2rem;
-    text-align: center;
+
+  .article-hero {
+    padding: 48px 0 36px;
+    background: linear-gradient(180deg, rgba(2, 88, 164, 0.04) 0%, transparent 100%);
+    border-bottom: 1px solid var(--line, #E6ECF7);
   }
-  .cover-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-  }
-  .blog-post h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
-    color: var(--text-primary, #1a1a2e);
-  }
-  .post-meta {
-    color: var(--text-secondary, #666);
-    font-size: 0.9rem;
+
+  .breadcrumb {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
     align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted, #6B7A9C);
+    margin-bottom: 20px;
   }
-  .post-content {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-primary, #333);
+  .breadcrumb a {
+    color: var(--muted, #6B7A9C);
+    transition: color 0.2s;
   }
-  .post-content :global(h2) {
-    font-size: 1.5rem;
+  .breadcrumb a:hover {
+    color: var(--blue, #0258a4);
+  }
+  .breadcrumb .sep {
+    opacity: 0.5;
+  }
+  .breadcrumb .current {
+    color: var(--ink, #0A1633);
+    font-weight: 500;
+  }
+
+  .badge-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(2, 88, 164, 0.08);
+    color: var(--blue, #0258a4);
+    font-size: 12px;
     font-weight: 700;
-    margin: 2rem 0 0.75rem;
-    color: var(--text-primary, #1a1a2e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 99px;
+    margin-bottom: 16px;
   }
-  .post-content :global(h3) {
-    font-size: 1.25rem;
+
+  .article-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--ink, #0A1633);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+    max-width: 900px;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(230, 236, 247, 0.8);
+  }
+
+  .author-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--blue, #0258a4) 0%, #1e4fff 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(2, 88, 164, 0.2);
+  }
+
+  .author-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink, #0A1633);
+  }
+
+  .meta-sub {
+    font-size: 13px;
+    color: var(--muted, #6B7A9C);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .share-btn {
+    background: var(--blue, #0258a4);
+    color: #fff;
     font-weight: 600;
-    margin: 1.5rem 0 0.5rem;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(2, 88, 164, 0.2);
   }
-  .post-content :global(p) {
-    margin-bottom: 1rem;
+  .share-btn:hover {
+    background: var(--blue-d, #01417a);
+    transform: translateY(-2px);
   }
-  .post-content :global(ul), .post-content :global(ol) {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
+
+  .content-wrap {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    max-width: 860px;
   }
-  .post-content :global(li) {
-    margin-bottom: 0.5rem;
+
+  .article-body {
+    background: #fff;
+    border: 1px solid var(--line, #E6ECF7);
+    border-radius: 20px;
+    padding: 48px;
+    box-shadow: 0 10px 30px rgba(10, 22, 51, 0.03);
   }
-  .post-content :global(a) {
-    color: var(--accent, #6366f1);
+
+  .cover-wrapper {
+    margin: -48px -48px 36px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+  }
+
+  .article-cover {
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+  }
+
+  .lead-paragraph {
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--body, #3D4B6B);
+    font-weight: 500;
+    padding-bottom: 28px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--line, #E6ECF7);
+  }
+
+  .rich-text {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: #2D3748;
+  }
+
+  .rich-text :global(h2) {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink, #0A1633);
+    margin: 40px 0 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .rich-text :global(h3) {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink, #0A1633);
+    margin: 28px 0 12px;
+  }
+
+  .rich-text :global(p) {
+    margin-bottom: 20px;
+  }
+
+  .rich-text :global(ul), .rich-text :global(ol) {
+    margin: 16px 0 24px 20px;
+    padding-left: 12px;
+  }
+
+  .rich-text :global(li) {
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+
+  .rich-text :global(strong) {
+    color: var(--ink, #0A1633);
+    font-weight: 700;
+  }
+
+  .rich-text :global(blockquote) {
+    border-left: 4px solid var(--blue, #0258a4);
+    background: var(--soft, #F5F8FE);
+    padding: 18px 24px;
+    margin: 28px 0;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: var(--ink, #0A1633);
+  }
+
+  .rich-text :global(a) {
+    color: var(--blue, #0258a4);
     text-decoration: underline;
+    font-weight: 600;
   }
-  .post-content :global(blockquote) {
-    border-left: 4px solid var(--accent, #6366f1);
-    padding: 0.75rem 1rem;
-    margin: 1.5rem 0;
-    background: var(--bg-secondary, #f8f8fc);
-    border-radius: 0 8px 8px 0;
+
+  .cta-box {
+    margin-top: 48px;
+    background: linear-gradient(135deg, #0A1633 0%, #01417a 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
   }
-  .post-content :global(img) {
-    max-width: 100%;
-    border-radius: 8px;
-    margin: 1rem 0;
+
+  .cta-content h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: #fff;
   }
+
+  .cta-content p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .cta-button {
+    background: #00C2D1;
+    color: #0A1633;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .cta-button:hover {
+    background: #fff;
+    transform: translateY(-2px);
+  }
+
   @media (max-width: 768px) {
-    .blog-post h1 { font-size: 1.5rem; }
-    .blog-post { padding: 1.5rem 1rem 3rem; }
+    .article-body {
+      padding: 24px;
+    }
+    .cover-wrapper {
+      margin: -24px -24px 24px;
+    }
   }
 </style>
