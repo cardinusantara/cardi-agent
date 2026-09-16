@@ -1,3 +1,4 @@
+cover: "/covers/1.png"
 ---
 title: "Panduan Lengkap Integrasi WhatsApp API untuk Klinik Kecantikan dan Estetika"
 description: "Di era digital yang serba dinamis saat ini, industri kecantikan dan estetika berkembang dengan sangat pesat."
