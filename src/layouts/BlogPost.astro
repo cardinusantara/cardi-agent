@@ -1,0 +1,114 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: string;
+  author?: string;
+  cover?: string;
+}
+
+const { title, description, pubDate, author, cover } = Astro.props;
+const formattedDate = new Date(pubDate).toLocaleDateString('id-ID', {
+  year: 'numeric', month: 'long', day: 'numeric'
+});
+---
+
+<Layout title={title} description={description}>
+  <main class="blog-post">
+    <article>
+      <div class="post-header">
+        {cover && <img src={cover} alt={title} class="cover-image" />}
+        <h1>{title}</h1>
+        <div class="post-meta">
+          <time datetime={pubDate}>{formattedDate}</time>
+          {author && <span class="author">oleh {author}</span>}
+        </div>
+      </div>
+      <div class="post-content">
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .post-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .cover-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .blog-post h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary, #1a1a2e);
+  }
+  .post-meta {
+    color: var(--text-secondary, #666);
+    font-size: 0.9rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .post-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary, #333);
+  }
+  .post-content :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+    color: var(--text-primary, #1a1a2e);
+  }
+  .post-content :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .post-content :global(p) {
+    margin-bottom: 1rem;
+  }
+  .post-content :global(ul), .post-content :global(ol) {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .post-content :global(a) {
+    color: var(--accent, #6366f1);
+    text-decoration: underline;
+  }
+  .post-content :global(blockquote) {
+    border-left: 4px solid var(--accent, #6366f1);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    background: var(--bg-secondary, #f8f8fc);
+    border-radius: 0 8px 8px 0;
+  }
+  .post-content :global(img) {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  @media (max-width: 768px) {
+    .blog-post h1 { font-size: 1.5rem; }
+    .blog-post { padding: 1.5rem 1rem 3rem; }
+  }
+</style>
