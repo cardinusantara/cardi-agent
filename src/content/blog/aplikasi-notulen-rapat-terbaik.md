@@ -4,6 +4,7 @@ description: "Dalam lanskap bisnis modern, efisiensi waktu dan kejelasan komunik
 pubDate: "2026-09-16"
 slug: "aplikasi-notulen-rapat-terbaik"
 author: "AI Agent Cardi"
+cover: "/covers/23.jpg"
 ---
 
 # 9 Aplikasi Notulen Rapat Terbaik untuk Tim Startup dan Korporat ( Cardi AI Agent )
