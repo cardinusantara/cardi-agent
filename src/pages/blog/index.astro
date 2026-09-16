@@ -1,89 +1,225 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TerminalHUD from '../../components/TerminalHUD.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import MobileBar from '../../components/MobileBar.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 ---
 
-<Layout title="Blog" description="Artikel dan insight terbaru">
-  <main class="blog-listing">
-    <h1>Blog</h1>
-    <div class="posts-grid">
-      {posts.map((post) => {
-        const cleanSlug = (post.data.slug || post.id).replace(/\.mdx?$/, '');
-        return (
-          <a href={`/${cleanSlug}/`} class="post-card">
-            {post.data.cover && <img src={post.data.cover} alt={post.data.title} class="post-cover" />}
-            <div class="post-info">
-              <time datetime={post.data.pubDate.toISOString()}>
-                {post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </time>
-              <h2>{post.data.title}</h2>
-              <p>{post.data.description}</p>
-            </div>
-          </a>
-        );
-      })}
-    </div>
+<Layout title="Knowledge Hub & AI Insights | Cardi Agent AI" description="Panduan praktis, riset automasi bisnis, integrasi speech-to-text, notulensi rapat cerdas, dan AI Agent operasional.">
+  <TerminalHUD />
+  <Nav />
+
+  <main class="ai-hub-page">
+    <section class="hub-hero">
+      <div class="wrap">
+        <div class="tech-tag mono">
+          <span class="dot"></span> CARDI_AGENT // RESEARCH_INDEX
+        </div>
+
+        <h1>Pusat Pengetahuan & Dokumentasi AI Bisnis</h1>
+        <p class="subtitle">Pelajari cara kerja automasi cerdas, notulen rapat berbasis AI, dan sistem agen otomatis untuk efisiensi bisnis Anda.</p>
+      </div>
+    </section>
+
+    <section class="posts-section">
+      <div class="wrap">
+        <div class="grid">
+          {posts.map((post) => {
+            const cleanSlug = (post.data.slug || post.id).replace(/\.mdx?$/, '');
+            return (
+              <article class="tech-card">
+                <a href={`/${cleanSlug}/`} class="card-link">
+                  <div class="card-header mono">
+                    <span class="sys-code">DOCS://{cleanSlug.slice(0, 18)}</span>
+                    <span class="pulse"></span>
+                  </div>
+
+                  <div class="card-body">
+                    <time class="mono" datetime={post.data.pubDate.toISOString()}>
+                      {post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' })}
+                    </time>
+                    <h2 class="card-title">{post.data.title}</h2>
+                    <p class="card-desc">{post.data.description}</p>
+                  </div>
+
+                  <div class="card-footer mono">
+                    <span>READ_DOCS</span>
+                    <span>&rarr;</span>
+                  </div>
+                </a>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   </main>
+
+  <Footer />
+  <MobileBar />
 </Layout>
 
 <style>
-  .blog-listing {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
+  .ai-hub-page {
+    padding-top: calc(var(--hud-h, 38px) + 72px);
+    background: #FAFCFF;
+    min-height: 100vh;
   }
-  .blog-listing h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
+
+  .hub-hero {
+    padding: 56px 0 40px;
     text-align: center;
+    background: linear-gradient(180deg, rgba(30, 79, 255, 0.04) 0%, transparent 100%);
+    border-bottom: 1px solid var(--line, #E6ECF7);
   }
-  .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .post-card {
-    text-decoration: none;
-    color: inherit;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border, #e5e7eb);
-    transition: transform 0.2s, box-shadow 0.2s;
-    background: var(--bg-card, #fff);
-  }
-  .post-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-  }
-  .post-cover {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  .post-info {
-    padding: 1.25rem;
-  }
-  .post-info time {
-    font-size: 0.8rem;
-    color: var(--text-secondary, #888);
-  }
-  .post-info h2 {
-    font-size: 1.15rem;
+
+  .tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #EEF3FF;
+    color: #1e4fff;
+    font-size: 11px;
     font-weight: 700;
-    margin: 0.5rem 0;
-    line-height: 1.3;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(30, 79, 255, 0.15);
+    margin-bottom: 18px;
   }
-  .post-info p {
-    font-size: 0.9rem;
-    color: var(--text-secondary, #666);
-    line-height: 1.5;
+  .tech-tag .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 6px #10B981;
+  }
+
+  .hub-hero h1 {
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 800;
+    color: var(--ink, #0A1633);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    color: var(--body, #3D4B6B);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .posts-section {
+    padding: 48px 0 96px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .tech-card {
+    background: #fff;
+    border: 1px solid var(--line, #E6ECF7);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 16px rgba(10, 22, 51, 0.03);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tech-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(30, 79, 255, 0.4);
+    box-shadow: 0 16px 32px rgba(30, 79, 255, 0.08);
+  }
+
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card-header {
+    padding: 12px 18px;
+    background: #F8FAFC;
+    border-bottom: 1px solid var(--line, #E6ECF7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted, #6B7A9C);
+  }
+
+  .pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+  }
+
+  .card-body {
+    padding: 22px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body time {
+    font-size: 11px;
+    color: #1e4fff;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--ink, #0A1633);
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-desc {
+    font-size: 14px;
+    color: var(--body, #3D4B6B);
+    line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .card-footer {
+    padding: 14px 22px;
+    border-top: 1px solid var(--line, #E6ECF7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e4fff;
+    background: #fff;
+    transition: background 0.2s;
+  }
+  .tech-card:hover .card-footer {
+    background: #EEF3FF;
+  }
+
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
   }
 </style>
