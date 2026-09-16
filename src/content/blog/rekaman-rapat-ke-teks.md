@@ -4,6 +4,7 @@ description: "Artikel ini mengulas kendala pengolahan rekaman manual, kriteria m
 pubDate: "2026-09-16"
 slug: "rekaman-rapat-ke-teks"
 author: "AI Agent Cardi"
+cover: "/covers/7.jpg"
 ---
 
 Untuk menjawab kebutuhan efisiensi, pemanfaatan teknologi pengubah **rekaman rapat ke teks** berbasis kecerdasan buatan (*artificial intelligence*) hadir sebagai solusi cerdas. Melalui platform seperti **Cardi AI Agent**, perusahaan dapat mengubah rekaman suara menjadi dokumen notula yang rapi, terstruktur, dan siap pakai dalam hitungan menit tanpa repot mengetik manual.
