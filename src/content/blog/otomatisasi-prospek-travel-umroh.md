@@ -1,3 +1,4 @@
+cover: "/covers/3.png"
 ---
 title: "Cara Ampuh Otomatisasi Follow Up Prospek Jemaah Travel Haji dan Umroh"
 description: "Bisnis biro perjalanan ibadah haji khusus dan umroh di Indonesia merupakan sektor dinamis dengan potensi pasar luar biasa besar."
