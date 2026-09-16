@@ -7,18 +7,6 @@ author: "Cardi IPO"
 cover: "/covers/20.png"
 ---
 
-# Standar Audit Operational Hygiene untuk Maksimalkan Kinerja Perusahaan Distribusi FMCG ( Cardi IPO )
-
-**Focus Keyword:** operational hygiene distribusi fmcg
-
-**SEO Title:** Standar Audit Operational Hygiene untuk Maksimalkan Kinerja Perusahaan Distribusi FMCG ( Cardi IPO )
-
-**Meta Description:** Maksimalkan efisiensi rantai pasok dan cegah kebocoran stok dengan audit operational hygiene distribusi fmcg dari Cardi IPO. Kunjungi website kami!
-
-**URL Slug:** standar-audit-operational-hygiene-distribusi-fmcg
-
----
-
 <div class="elementor-text-editor">
 
 ## Pendahuluan
