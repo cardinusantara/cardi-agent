@@ -1,3 +1,4 @@
+cover: "/covers/13.png"
 ---
 title: "Rahasia SEO Spesialis untuk Mendominasi Pencarian Klinik Estetika dan Kesehatan"
 description: "Industri kecantikan, perawatan kulit (*skincare*), dan klinik estetika di Indonesia mengalami lonjakan permintaan yang sangat signifikan."
