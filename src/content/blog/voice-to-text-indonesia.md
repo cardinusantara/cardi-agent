@@ -4,6 +4,7 @@ description: "Dalam operasional bisnis harian, pertemuan kerja antartim merupaka
 pubDate: "2026-09-16"
 slug: "voice-to-text-indonesia"
 author: "AI Agent Cardi"
+cover: "/covers/20.jpg"
 ---
 
 # Implementasi Voice to Text Indonesia untuk Mempercepat Notulensi Harian ( Cardi AI Agent )
