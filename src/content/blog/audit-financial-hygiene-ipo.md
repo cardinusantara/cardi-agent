@@ -4,6 +4,7 @@ description: "Melakukan penawaran umum perdana saham (*Initial Public Offering* 
 pubDate: "2026-09-16"
 slug: "audit-financial-hygiene-ipo"
 author: "Cardi IPO"
+cover: "/covers/17.png"
 ---
 
 # Mengenal Pentingnya Audit Financial Hygiene Sebagai Persiapan Menuju IPO ( Cardi IPO SEO Article )
