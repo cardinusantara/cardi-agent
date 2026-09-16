@@ -4,6 +4,7 @@ description: "Dalam tata kelola perusahaan modern, rapat merupakan forum utama p
 pubDate: "2026-09-16"
 slug: "software-notulensi-rapat"
 author: "AI Agent Cardi"
+cover: "/covers/14.jpg"
 ---
 
 # Evaluasi Software Notulensi Rapat Terbaik untuk Standar Perusahaan ( Cardi AI Agent )
