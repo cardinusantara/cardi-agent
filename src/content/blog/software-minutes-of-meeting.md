@@ -4,6 +4,7 @@ description: "Di era kerja jarak jauh (*remote working*), kolaborasi lintas nega
 pubDate: "2026-09-16"
 slug: "software-minutes-of-meeting"
 author: "AI Agent Cardi"
+cover: "/covers/12.jpg"
 ---
 
 # Standar Memilih Software Minutes of Meeting untuk Kolaborasi Tim Global ( Cardi AI Agent )
