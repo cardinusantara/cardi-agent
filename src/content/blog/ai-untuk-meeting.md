@@ -4,6 +4,7 @@ description: "Pertemuan kerja merupakan sarana vital untuk menyelaraskan visi, m
 pubDate: "2026-09-16"
 slug: "ai-untuk-meeting"
 author: "AI Agent Cardi"
+cover: "/covers/22.jpg"
 ---
 
 # Cara Mengoptimalkan AI untuk Meeting agar Diskusi Tim Lebih Terarah ( Cardi AI Agent )
