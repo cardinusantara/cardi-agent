@@ -4,6 +4,7 @@ description: "Dalam ekosistem kerja modern, rekaman video telah menjadi format d
 pubDate: "2026-09-16"
 slug: "transkripsi-video-ke-teks"
 author: "AI Agent Cardi"
+cover: "/covers/18.jpg"
 ---
 
 # Tutorial Lengkap Transkripsi Video ke Teks Notulensi dalam Sekali Klik ( Cardi AI Agent )
