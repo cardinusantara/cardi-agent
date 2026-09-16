@@ -1,3 +1,4 @@
+cover: "/covers/2.png"
 ---
 title: "Rekomendasi Software CRM Terbaik untuk Tingkatkan Penjualan Dealer Otomotif"
 description: "Industri otomotif modern bergerak dalam dinamika pasar yang sangat kompetitif."
