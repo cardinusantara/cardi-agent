@@ -4,6 +4,7 @@ description: "Dalam operasional bisnis saat ini, rekaman suara menjadi media dok
 pubDate: "2026-09-16"
 slug: "transkripsi-audio-ke-teks"
 author: "AI Agent Cardi"
+cover: "/covers/4.jpg"
 ---
 
 # Cara Cepat Transkripsi Audio ke Teks Secara Akurat Tanpa Mengetik Manual ( Cardi AI Agent )
