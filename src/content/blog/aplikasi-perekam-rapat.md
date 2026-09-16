@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/8.jpg"
 ---
 
-# 7 Pilihan Aplikasi Perekam Rapat Online dan Tatap Muka Terbaik ( Cardi AI Agent )
-
-**Focus Keyword:** aplikasi perekam rapat
-
-**SEO Title:** 7 Pilihan Aplikasi Perekam Rapat Online dan Tatap Muka Terbaik ( Cardi AI Agent )
-
-**Meta Description:** Temukan 7 pilihan aplikasi perekam rapat online dan tatap muka terbaik untuk efisiensi bisnis bersama Cardi AI Agent. Rekam dan rangkum rapat instan.
-
-**URL Slug:** 7-pilihan-aplikasi-perekam-rapat-terbaik
-
 **Search Link:** [Pencarian Google: aplikasi perekam rapat](https://www.google.com/search?q=aplikasi+perekam+rapat) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
