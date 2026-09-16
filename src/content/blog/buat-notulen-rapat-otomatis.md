@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/24.jpg"
 ---
 
-# Step-by-Step Buat Notulen Rapat Otomatis Tanpa Perlu Edit Berulang Kali ( Cardi AI Agent )
-
-**Focus Keyword:** buat notulen rapat otomatis
-
-**SEO Title:** Step-by-Step Buat Notulen Rapat Otomatis Tanpa Perlu Edit Berulang Kali ( Cardi AI Agent )
-
-**Meta Description:** Panduan step-by-step buat notulen rapat otomatis tanpa edit berulang kali bersama Cardi AI Agent. Rangkum hasil pertemuan bisnis cepat, rapi, dan instan.
-
-**URL Slug:** step-by-step-buat-notulen-rapat-otomatis
-
 **Search Link:** [Pencarian Google: buat notulen rapat otomatis](https://www.google.com/search?q=buat+notulen+rapat+otomatis) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
