@@ -1,21 +1,11 @@
-cover: "/covers/6.png"
 ---
 title: "Solusi Forward Deployed AI Engineering untuk Efisiensi Operasional Bisnis Anda"
 description: "Di tengah gelombang percepatan transformasi digital dan persaingan pasar global, kecerdasan buatan (*artificial intelligence*) bukan lagi sekadar topik eksperim"
 pubDate: "2026-09-16"
 slug: "solusi-ai-engineering-bisnis"
 author: "Cardi IPO"
+cover: "/covers/6.png"
 ---
-
-# Solusi Forward Deployed AI Engineering untuk Efisiensi Operasional Bisnis Anda ( Cardi IPO SEO Article )
-
-**Focus Keyword:** solusi ai engineering bisnis
-
-**SEO Title:** Solusi Forward Deployed AI Engineering untuk Efisiensi Operasional Bisnis Anda ( Cardi IPO SEO Article )
-
-**Meta Description:** Pelajari bagaimana solusi AI engineering bisnis berbasis Forward Deployed dari Cardi mampu mengakselerasi efisiensi operasional dan automasi cerdas perusahaan.
-
-**URL Slug:** solusi-ai-engineering-bisnis-efisiensi-operasional
 
 **Search Link:** [Pencarian Google: solusi ai engineering bisnis](https://www.google.com/search?q=solusi+ai+engineering+bisnis) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
