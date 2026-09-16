@@ -4,6 +4,7 @@ description: "Industri perdagangan kendaraan bermotor di Indonesia terus bertran
 pubDate: "2026-09-16"
 slug: "aplikasi-manajemen-lead-otomotif"
 author: "Cardi IPO"
+cover: "/covers/22.png"
 ---
 
 # Memilih Aplikasi Manajemen Lead Sales Paling Efektif untuk Showroom Otomotif ( Cardi IPO SEO Article )
