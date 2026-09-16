@@ -1,3 +1,4 @@
+cover: "/covers/12.png"
 ---
 title: "Panduan Eksekusi Growth Marketing Berbasis Data untuk Tingkatkan Profit FMCG"
 description: "Sektor industri barang konsumen yang bergerak cepat (*Fast-Moving Consumer Goods* / FMCG) merupakan salah satu pilar bisnis dengan perputaran persediaan tercepa"
