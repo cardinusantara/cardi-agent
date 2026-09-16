@@ -1,21 +1,11 @@
-cover: "/covers/9.png"
 ---
 title: "Blueprint Strategi Scale Up Bisnis UMKM Menuju Brand Nasional yang Kuat"
 description: "Usaha Mikro, Kecil, dan Menengah (UMKM) merupakan tulang punggung perekonomian Indonesia yang menyumbang porsi terbesar terhadap produk domestik bruto dan penye"
 pubDate: "2026-09-16"
 slug: "strategi-scale-up-umkm"
 author: "Cardi IPO"
+cover: "/covers/9.png"
 ---
-
-# Blueprint Strategi Scale Up Bisnis UMKM Menuju Brand Nasional yang Kuat ( Cardi IPO SEO Article )
-
-**Focus Keyword:** strategi scale up umkm
-
-**SEO Title:** Blueprint Strategi Scale Up Bisnis UMKM Menuju Brand Nasional yang Kuat ( Cardi IPO SEO Article )
-
-**Meta Description:** Pelajari blueprint strategi scale up bisnis UMKM menuju brand nasional yang kuat bersama Cardi. Standarisasi operasional, kelola data, dan raih pertumbuhan eksponensial.
-
-**URL Slug:** blueprint-strategi-scale-up-bisnis-umkm-brand-nasional
 
 **Search Link:** [Pencarian Google: strategi scale up umkm](https://www.google.com/search?q=strategi+scale+up+umkm) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
