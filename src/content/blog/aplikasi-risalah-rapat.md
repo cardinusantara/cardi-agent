@@ -4,6 +4,7 @@ description: "Dalam tata kelola organisasi modern, risalah rapat memegang perana
 pubDate: "2026-09-16"
 slug: "aplikasi-risalah-rapat"
 author: "AI Agent Cardi"
+cover: "/covers/11.jpg"
 ---
 
 # Modernisasi Penyusunan Risalah Rapat Menggunakan Aplikasi Terpadu ( Cardi AI Agent )
