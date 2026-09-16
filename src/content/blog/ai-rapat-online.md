@@ -4,6 +4,7 @@ description: "Pertemuan virtual telah menjadi tulang punggung komunikasi bisnis 
 pubDate: "2026-09-16"
 slug: "ai-rapat-online"
 author: "AI Agent Cardi"
+cover: "/covers/13.jpg"
 ---
 
 # Cara Memanfaatkan AI Rapat Online untuk Rangkuman dan Action Item Otomatis ( Cardi AI Agent )
