@@ -4,6 +4,7 @@ description: "Fase ekspansi atau *scale up* merupakan periode paling menentukan 
 pubDate: "2026-09-16"
 slug: "jasa-corporate-governance-perusahaan"
 author: "Cardi IPO"
+cover: "/covers/16.png"
 ---
 
 # Tahapan Krusial Penyusunan Corporate Governance untuk Perusahaan Scale Up ( Cardi IPO SEO Article )
