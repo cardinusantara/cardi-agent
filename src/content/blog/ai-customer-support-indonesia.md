@@ -1,3 +1,4 @@
+cover: "/covers/7.png"
 ---
 title: "Strategi Penerapan Kecerdasan Buatan pada Sistem Customer Support Perusahaan"
 description: "Di tengah perkembangan ekosistem perdagangan digital yang pesat, ekspektasi konsumen terhadap kualitas layanan pelanggan (*customer support*) mengalami lonjakan"
