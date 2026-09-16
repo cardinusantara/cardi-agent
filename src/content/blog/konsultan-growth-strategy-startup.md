@@ -4,6 +4,7 @@ description: "Memimpin sebuah perusahaan rintisan (*startup*) dari fase awal pen
 pubDate: "2026-09-16"
 slug: "konsultan-growth-strategy-startup"
 author: "Cardi IPO"
+cover: "/covers/29.png"
 ---
 
 # Keuntungan Menggunakan Jasa Konsultan Growth Strategy Khusus Bagi Founder dan CEO ( Cardi IPO SEO Article )
