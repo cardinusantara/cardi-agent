@@ -4,6 +4,7 @@ description: "Rapat kerja merupakan sarana vital dalam merumuskan arah kebijakan
 pubDate: "2026-09-16"
 slug: "ai-generator-notulen-rapat"
 author: "AI Agent Cardi"
+cover: "/covers/27.jpg"
 ---
 
 # Mengenal AI Generator Notulen Rapat dan Fitur Penting yang Wajib Dimiliki ( Cardi AI Agent )
