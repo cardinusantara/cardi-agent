@@ -4,6 +4,7 @@ description: "Pertumbuhan ekonomi digital di Indonesia membuka babak baru persai
 pubDate: "2026-09-16"
 slug: "partner-akselerator-pertumbuhan-bisnis"
 author: "Cardi IPO"
+cover: "/covers/30.png"
 ---
 
 # Cardi ID Sebagai Partner Teknologi Akselerator Pertumbuhan Bisnis Terdepan di Indonesia ( Cardi IPO SEO Article )
