@@ -4,6 +4,7 @@ description: "Bisnis biro perjalanan ibadah haji khusus dan umroh di Indonesia m
 pubDate: "2026-09-16"
 slug: "software-lead-generation-travel"
 author: "Cardi IPO"
+cover: "/covers/26.png"
 ---
 
 # Perbandingan Software Lead Generation Terbaik untuk Menjaring Calon Agen Travel Umroh ( Cardi IPO SEO Article )
