@@ -1,5 +1,9 @@
 ---
 import Layout from './Layout.astro';
+import TerminalHUD from '../components/TerminalHUD.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import MobileBar from '../components/MobileBar.astro';
 
 interface Props {
   title: string;
@@ -9,106 +13,304 @@ interface Props {
   cover?: string;
 }
 
-const { title, description, pubDate, author, cover } = Astro.props;
+const { title, description, pubDate, author = 'Cardi AI Agent Lab', cover } = Astro.props;
 const formattedDate = new Date(pubDate).toLocaleDateString('id-ID', {
   year: 'numeric', month: 'long', day: 'numeric'
 });
 ---
 
-<Layout title={title} description={description}>
-  <main class="blog-post">
-    <article>
-      <div class="post-header">
-        {cover && <img src={cover} alt={title} class="cover-image" />}
-        <h1>{title}</h1>
-        <div class="post-meta">
-          <time datetime={pubDate}>{formattedDate}</time>
-          {author && <span class="author">oleh {author}</span>}
+<Layout title={`${title} | Cardi Agent AI`} description={description}>
+  <TerminalHUD />
+  <Nav />
+
+  <main class="ai-article-page">
+    <header class="article-hero">
+      <div class="wrap">
+        <div class="tech-tag mono">
+          <span class="dot"></span> CARDI_AGENT_KNOWLEDGE // DOCS
+        </div>
+
+        <h1 class="article-title">{title}</h1>
+
+        <div class="tech-meta mono">
+          <span class="meta-item">PUB: <time datetime={pubDate}>{formattedDate}</time></span>
+          <span class="divider">/</span>
+          <span class="meta-item">AUTHOR: {author}</span>
+          <span class="divider">/</span>
+          <span class="meta-item status-badge">SYSTEM_STATUS: LIVE</span>
         </div>
       </div>
-      <div class="post-content">
-        <slot />
-      </div>
-    </article>
+    </header>
+
+    <div class="wrap content-grid">
+      <article class="main-card">
+        {cover && (
+          <div class="cover-wrapper">
+            <img src={cover} alt={title} class="article-cover" />
+          </div>
+        )}
+
+        <div class="lead-box">
+          <div class="lead-tag mono">EXEC SUMMARY</div>
+          <p>{description}</p>
+        </div>
+
+        <div class="article-content">
+          <slot />
+        </div>
+
+        <!-- Tech Terminal CTA -->
+        <div class="terminal-cta">
+          <div class="term-header mono">
+            <span class="term-dot red"></span>
+            <span class="term-dot yellow"></span>
+            <span class="term-dot green"></span>
+            <span class="term-title">ai_agent_deploy.sh</span>
+          </div>
+          <div class="term-body">
+            <p class="term-text mono">> Ingin mengotomatiskan notulensi rapat, customer support, atau integrasi WhatsApp API untuk tim bisnis Anda?</p>
+            <a href="https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%20Agent!%20Saya%20ingin%20jadwalkan%20demo%20setelah%20membaca%20artikel" target="_blank" class="term-btn mono">
+              EXECUTE_DEMO &rarr;
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
   </main>
+
+  <Footer />
+  <MobileBar />
 </Layout>
 
 <style>
-  .blog-post {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
+  .ai-article-page {
+    padding-top: calc(var(--hud-h, 38px) + 72px);
+    background: #FAFCFF;
+    min-height: 100vh;
   }
-  .post-header {
-    margin-bottom: 2rem;
-    text-align: center;
+
+  .article-hero {
+    padding: 48px 0 36px;
+    background: linear-gradient(180deg, rgba(30, 79, 255, 0.05) 0%, transparent 100%);
+    border-bottom: 1px solid var(--line, #E6ECF7);
   }
-  .cover-image {
+
+  .tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #EEF3FF;
+    color: #1e4fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(30, 79, 255, 0.15);
+    margin-bottom: 20px;
+  }
+
+  .tech-tag .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 6px #10B981;
+  }
+
+  .article-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--ink, #0A1633);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    max-width: 920px;
+  }
+
+  .tech-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--muted, #6B7A9C);
+  }
+
+  .divider {
+    opacity: 0.4;
+  }
+
+  .status-badge {
+    color: #10B981;
+    font-weight: 700;
+  }
+
+  .content-grid {
+    padding-top: 36px;
+    padding-bottom: 80px;
+    max-width: 880px;
+  }
+
+  .main-card {
+    background: #fff;
+    border: 1px solid var(--line, #E6ECF7);
+    border-radius: 16px;
+    padding: 44px;
+    box-shadow: 0 8px 30px rgba(10, 22, 51, 0.04);
+  }
+
+  .cover-wrapper {
+    margin: -44px -44px 32px;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+  }
+  .article-cover {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
   }
-  .blog-post h1 {
-    font-size: 2rem;
+
+  .lead-box {
+    background: #F8FAFC;
+    border-left: 3px solid #1e4fff;
+    padding: 20px 24px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 36px;
+  }
+
+  .lead-tag {
+    font-size: 10px;
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
-    color: var(--text-primary, #1a1a2e);
+    color: #1e4fff;
+    margin-bottom: 6px;
   }
-  .post-meta {
-    color: var(--text-secondary, #666);
-    font-size: 0.9rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+
+  .lead-box p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink, #0A1633);
+    font-weight: 500;
+    margin: 0;
   }
-  .post-content {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-primary, #333);
+
+  .article-content {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: #2D3748;
   }
-  .post-content :global(h2) {
-    font-size: 1.5rem;
+
+  .article-content :global(h2) {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--ink, #0A1633);
+    margin: 36px 0 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .article-content :global(h3) {
+    font-size: 18px;
     font-weight: 700;
-    margin: 2rem 0 0.75rem;
-    color: var(--text-primary, #1a1a2e);
+    color: var(--ink, #0A1633);
+    margin: 24px 0 12px;
   }
-  .post-content :global(h3) {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 1.5rem 0 0.5rem;
+
+  .article-content :global(p) {
+    margin-bottom: 20px;
   }
-  .post-content :global(p) {
-    margin-bottom: 1rem;
+
+  .article-content :global(ul), .article-content :global(ol) {
+    margin: 16px 0 24px 20px;
   }
-  .post-content :global(ul), .post-content :global(ol) {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
+
+  .article-content :global(li) {
+    margin-bottom: 8px;
   }
-  .post-content :global(li) {
-    margin-bottom: 0.5rem;
+
+  .article-content :global(strong) {
+    color: var(--ink, #0A1633);
+    font-weight: 700;
   }
-  .post-content :global(a) {
-    color: var(--accent, #6366f1);
-    text-decoration: underline;
-  }
-  .post-content :global(blockquote) {
-    border-left: 4px solid var(--accent, #6366f1);
-    padding: 0.75rem 1rem;
-    margin: 1.5rem 0;
-    background: var(--bg-secondary, #f8f8fc);
+
+  .article-content :global(blockquote) {
+    border-left: 3px solid #10B981;
+    background: #F0FDF4;
+    padding: 16px 20px;
+    margin: 24px 0;
     border-radius: 0 8px 8px 0;
+    font-style: italic;
   }
-  .post-content :global(img) {
-    max-width: 100%;
+
+  .article-content :global(a) {
+    color: #1e4fff;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .terminal-cta {
+    margin-top: 48px;
+    background: #0A1633;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(10, 22, 51, 0.15);
+  }
+
+  .term-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .term-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .term-dot.red { background: #EF4444; }
+  .term-dot.yellow { background: #F59E0B; }
+  .term-dot.green { background: #10B981; }
+
+  .term-title {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 4px;
+  }
+
+  .term-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .term-text {
+    font-size: 14px;
+    color: #E2E8F0;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .term-btn {
+    align-self: flex-start;
+    background: #1e4fff;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
     border-radius: 8px;
-    margin: 1rem 0;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(30, 79, 255, 0.3);
   }
+  .term-btn:hover {
+    background: #3b66ff;
+    transform: translateY(-2px);
+  }
+
   @media (max-width: 768px) {
-    .blog-post h1 { font-size: 1.5rem; }
-    .blog-post { padding: 1.5rem 1rem 3rem; }
+    .main-card { padding: 24px; }
+    .cover-wrapper { margin: -24px -24px 20px; }
   }
 </style>
