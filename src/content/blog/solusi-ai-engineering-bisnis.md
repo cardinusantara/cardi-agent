@@ -1,3 +1,4 @@
+cover: "/covers/6.png"
 ---
 title: "Solusi Forward Deployed AI Engineering untuk Efisiensi Operasional Bisnis Anda"
 description: "Di tengah gelombang percepatan transformasi digital dan persaingan pasar global, kecerdasan buatan (*artificial intelligence*) bukan lagi sekadar topik eksperim"
