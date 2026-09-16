@@ -4,6 +4,7 @@ description: "Pertumbuhan jenama lokal (*local brand*) di Indonesia dalam lima t
 pubDate: "2026-09-16"
 slug: "omnichannel-customer-service-lokal"
 author: "Cardi IPO"
+cover: "/covers/24.png"
 ---
 
 # Transformasi Layanan dengan Platform Omnichannel Customer Service untuk Brand Lokal ( Cardi IPO SEO Article )
