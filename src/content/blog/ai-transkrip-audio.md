@@ -4,6 +4,7 @@ description: "Dalam lanskap operasional bisnis modern, rekaman suara telah menja
 pubDate: "2026-09-16"
 slug: "ai-transkrip-audio"
 author: "AI Agent Cardi"
+cover: "/covers/16.jpg"
 ---
 
 # Teknologi AI Transkrip Audio: Solusi Dokumentasi Cepat untuk Tim Profesional ( Cardi AI Agent )
