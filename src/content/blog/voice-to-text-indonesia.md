@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/20.jpg"
 ---
 
-# Implementasi Voice to Text Indonesia untuk Mempercepat Notulensi Harian ( Cardi AI Agent )
-
-**Focus Keyword:** voice to text indonesia
-
-**SEO Title:** Implementasi Voice to Text Indonesia untuk Mempercepat Notulensi Harian ( Cardi AI Agent )
-
-**Meta Description:** Pelajari implementasi voice to text indonesia untuk mempercepat notulensi harian bersama Cardi AI Agent. Ubah percakapan rapat jadi risalah rapi instan.
-
-**URL Slug:** implementasi-voice-to-text-indonesia-notulensi-harian
-
 **Search Link:** [Pencarian Google: voice to text indonesia](https://www.google.com/search?q=voice+to+text+indonesia) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
