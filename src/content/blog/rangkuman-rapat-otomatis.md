@@ -4,6 +4,7 @@ description: "Rapat kerja adalah sarana utama kolaborasi tim, tempat ide digagas
 pubDate: "2026-09-16"
 slug: "rangkuman-rapat-otomatis"
 author: "AI Agent Cardi"
+cover: "/covers/15.jpg"
 ---
 
 # Cara Menghasilkan Rangkuman Rapat Otomatis yang Padat, Rapi, dan Terstruktur ( Cardi AI Agent )
