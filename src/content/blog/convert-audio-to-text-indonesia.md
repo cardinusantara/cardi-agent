@@ -4,6 +4,7 @@ description: "Dalam ritme operasional bisnis modern, koordinasi antartim sering 
 pubDate: "2026-09-16"
 slug: "convert-audio-to-text-indonesia"
 author: "AI Agent Cardi"
+cover: "/covers/9.jpg"
 ---
 
 # Panduan Convert Audio to Text Indonesia untuk Dokumentasi Pertemuan Cepat ( Cardi AI Agent )
