@@ -4,6 +4,7 @@ description: "Ruang rapat kantor merupakan pusat pengambilan keputusan strategis
 pubDate: "2026-09-16"
 slug: "alat-rekam-rapat-otomatis"
 author: "AI Agent Cardi"
+cover: "/covers/19.jpg"
 ---
 
 # Panduan Memilih Alat Rekam Rapat Otomatis untuk Ruang Pertemuan Kantor ( Cardi AI Agent )
