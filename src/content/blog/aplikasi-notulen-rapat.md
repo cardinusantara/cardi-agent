@@ -4,6 +4,7 @@ description: "Pertemuan kerja merupakan sarana vital dalam pengambilan keputusan
 pubDate: "2026-09-16"
 slug: "aplikasi-notulen-rapat"
 author: "AI Agent Cardi"
+cover: "/covers/3.jpg"
 ---
 
 # Panduan Memilih Aplikasi Notulen Rapat Terbaik untuk Berbagai Kebutuhan Kerja ( Cardi AI Agent )
