@@ -4,6 +4,7 @@ description: "Dalam bisnis modern yang bergerak cepat, waktu adalah aset berharg
 pubDate: "2026-09-16"
 slug: "software-pencatat-rapat"
 author: "AI Agent Cardi"
+cover: "/covers/26.jpg"
 ---
 
 # Mengapa Perusahaan Modern Beralih Menggunakan Software Pencatat Rapat Otomatis ( Cardi AI Agent )
