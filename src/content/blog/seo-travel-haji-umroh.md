@@ -1,3 +1,4 @@
+cover: "/covers/15.png"
 ---
 title: "Alasan Biro Travel Haji Umroh Wajib Menggunakan Konsultan SEO Terpercaya"
 description: "Industri perjalanan ibadah haji khusus dan umroh di Indonesia merupakan sektor bisnis bernilai tinggi dengan pertumbuhan pasar yang pesat."
