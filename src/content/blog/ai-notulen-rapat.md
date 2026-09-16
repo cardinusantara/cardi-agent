@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/2.jpg"
 ---
 
-# Mengenal AI Notulen Rapat: Cara Kerja, Manfaat, dan Alasan Bisnis Anda Membutuhkannya ( Cardi AI Agent )
-
-**Focus Keyword:** AI notulen rapat
-
-**SEO Title:** Mengenal AI Notulen Rapat: Cara Kerja, Manfaat, dan Alasan Bisnis Anda Membutuhkannya ( Cardi AI Agent )
-
-**Meta Description:** Pelajari apa itu AI notulen rapat, cara kerja canggihnya, manfaat nyata bagi produktivitas tim, dan alasan bisnis Anda membutuhkan solusi Cardi AI Agent.
-
-**URL Slug:** mengenal-ai-notulen-rapat-cara-kerja-manfaat
-
 **Search Link:** [Pencarian Google: AI notulen rapat](https://www.google.com/search?q=AI+notulen+rapat) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
@@ -85,8 +75,7 @@ Pencatatan manual sering dipengaruhi sudut pandang subjektif notulis. Sistem AI 
 
 ### 4. Pangkalan Data Rapat yang Mudah Ditelusuri
 
-Notula digital tersimpan dalam arsip terpusat. Ketika perusahaan membutuhkan referensi keputusan terdahulu, pencarian dokumen dapat dilakukan secara instan lewat kata kunci relevan.
-
+Notula digital tersimpan dalam arsip terpusat. Ketika perusahaan membutuhkan referensi keputusan terdahulu, pencarian dokumen dapat dilakukan secara instan lewat 
 ## Alasan Bisnis Anda Membutuhkan Cardi AI Agent
 
 Banyak platform transkripsi global beredar di pasaran, namun sering kali kurang optimal dalam menangkap dinamika komunikasi di Indonesia. **Cardi AI Agent** hadir memberikan solusi terarah:
