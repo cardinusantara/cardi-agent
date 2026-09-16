@@ -1,3 +1,4 @@
+cover: "/covers/5.png"
 ---
 title: "Rincian Harga Langganan WhatsApp Business API untuk Perusahaan Ritel FMCG"
 description: "Industri ritel dan barang konsumen yang bergerak cepat (*Fast-Moving Consumer Goods* / FMCG) di Indonesia beroperasi dengan volume transaksi yang sangat masif d"
