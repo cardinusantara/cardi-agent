@@ -1,22 +1,10 @@
-cover: "/covers/1.png"
 ---
 title: "Panduan Lengkap Integrasi WhatsApp API untuk Klinik Kecantikan dan Estetika"
 description: "Di era digital yang serba dinamis saat ini, industri kecantikan dan estetika berkembang dengan sangat pesat."
 pubDate: "2026-09-16"
 slug: "whatsapp-api-klinik-kecantikan"
 author: "Cardi IPO"
----
-
-# Panduan WhatsApp API Klinik Kecantikan: Integrasi Mudah 2026
-
-**Focus Keyword:** whatsapp api klinik kecantikan
-
-**SEO Title:** Panduan WhatsApp API Klinik Kecantikan: Integrasi Mudah 2026
-
-**Meta Description:** Pelajari panduan lengkap integrasi WhatsApp API klinik kecantikan untuk tingkatkan pelayanan, otomatisasi reservasi, dan kepuasan pasien Anda di tahun 2026.
-
-**URL Slug:** panduan-whatsapp-api-klinik-kecantikan
-
+cover: "/covers/1.png"
 ---
 
 ## Pendahuluan
