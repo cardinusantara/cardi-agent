@@ -1,3 +1,4 @@
+cover: "/covers/10.png"
 ---
 title: "Langkah Tepat Ekspansi Bisnis Ritel Melalui Sistem Partnership dan Franchise"
 description: "Industri ritel di Indonesia menunjukkan dinamika pertumbuhan yang sangat kuat seiring meningkatnya daya beli masyarakat dan pergeseran pola belanja konsumen."
