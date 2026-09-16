@@ -4,6 +4,7 @@ description: "Dalam ritme kerja modern yang dinamis, rapat menjadi agenda harian
 pubDate: "2026-09-16"
 slug: "transkripsi-otomatis"
 author: "AI Agent Cardi"
+cover: "/covers/5.jpg"
 ---
 
 # Solusi Transkripsi Otomatis untuk Menghemat Waktu Dokumentasi Kerja ( Cardi AI Agent )
