@@ -4,6 +4,7 @@ description: "Dalam era transformasi digital dan fleksibilitas kerja saat ini, p
 pubDate: "2026-09-16"
 slug: "aplikasi-meeting-kantor"
 author: "AI Agent Cardi"
+cover: "/covers/30.jpg"
 ---
 
 # Pilihan Aplikasi Meeting Kantor Terintegrasi untuk Dokumentasi dan Kolaborasi ( Cardi AI Agent )
