@@ -1,21 +1,11 @@
-cover: "/covers/7.png"
 ---
 title: "Strategi Penerapan Kecerdasan Buatan pada Sistem Customer Support Perusahaan"
 description: "Di tengah perkembangan ekosistem perdagangan digital yang pesat, ekspektasi konsumen terhadap kualitas layanan pelanggan (*customer support*) mengalami lonjakan"
 pubDate: "2026-09-16"
 slug: "ai-customer-support-indonesia"
 author: "Cardi IPO"
+cover: "/covers/7.png"
 ---
-
-# Strategi Penerapan Kecerdasan Buatan pada Sistem Customer Support Perusahaan ( Cardi IPO SEO Article )
-
-**Focus Keyword:** ai customer support indonesia
-
-**SEO Title:** Strategi Penerapan Kecerdasan Buatan pada Sistem Customer Support Perusahaan ( Cardi IPO SEO Article )
-
-**Meta Description:** Pelajari strategi penerapan kecerdasan buatan pada sistem customer support perusahaan di Indonesia bersama Cardi. Tingkatkan CSAT dan efisiensi biaya.
-
-**URL Slug:** strategi-penerapan-ai-customer-support-perusahaan
 
 **Search Link:** [Pencarian Google: ai customer support indonesia](https://www.google.com/search?q=ai+customer+support+indonesia) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
