@@ -4,6 +4,7 @@ description: "Musim Penerimaan Mahasiswa Baru (PMB) merupakan momentum paling kr
 pubDate: "2026-09-16"
 slug: "ai-chatbot-kampus-indonesia"
 author: "Cardi IPO"
+cover: "/covers/28.png"
 ---
 
 # Memaksimalkan AI Chatbot Integration untuk Kelancaran Penerimaan Mahasiswa Baru ( Cardi IPO SEO Article )
