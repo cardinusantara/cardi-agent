@@ -1,3 +1,4 @@
+cover: "/covers/14.png"
 ---
 title: "Strategi Jitu Optimasi Digital Presence bagi Institusi Pendidikan di Era Modern"
 description: "Lanskap sektor pendidikan di Indonesia mengalami pergeseran fundamental seiring meluasnya adopsi teknologi informasi di kalangan masyarakat."
