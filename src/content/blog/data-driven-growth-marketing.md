@@ -1,21 +1,11 @@
-cover: "/covers/12.png"
 ---
 title: "Panduan Eksekusi Growth Marketing Berbasis Data untuk Tingkatkan Profit FMCG"
 description: "Sektor industri barang konsumen yang bergerak cepat (*Fast-Moving Consumer Goods* / FMCG) merupakan salah satu pilar bisnis dengan perputaran persediaan tercepa"
 pubDate: "2026-09-16"
 slug: "data-driven-growth-marketing"
 author: "Cardi IPO"
+cover: "/covers/12.png"
 ---
-
-# Panduan Eksekusi Growth Marketing Berbasis Data untuk Tingkatkan Profit FMCG ( Cardi IPO SEO Article )
-
-**Focus Keyword:** data driven growth marketing
-
-**SEO Title:** Panduan Eksekusi Growth Marketing Berbasis Data untuk Tingkatkan Profit FMCG ( Cardi IPO SEO Article )
-
-**Meta Description:** Panduan eksekusi data driven growth marketing untuk meningkatkan profit FMCG bersama Cardi. Analisis perilaku konsumen, optimasi kanal, dan maksimalkan ROI.
-
-**URL Slug:** panduan-eksekusi-growth-marketing-data-driven-fmcg
 
 **Search Link:** [Pencarian Google: data driven growth marketing](https://www.google.com/search?q=data+driven+growth+marketing) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
