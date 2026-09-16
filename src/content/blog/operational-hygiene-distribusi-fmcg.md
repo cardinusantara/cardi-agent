@@ -4,6 +4,7 @@ description: "Kelancaran rantai pasok dalam industri *Fast-Moving Consumer Goods
 pubDate: "2026-09-16"
 slug: "operational-hygiene-distribusi-fmcg"
 author: "Cardi IPO"
+cover: "/covers/20.png"
 ---
 
 # Standar Audit Operational Hygiene untuk Maksimalkan Kinerja Perusahaan Distribusi FMCG ( Cardi IPO )
