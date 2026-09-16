@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/18.jpg"
 ---
 
-# Tutorial Lengkap Transkripsi Video ke Teks Notulensi dalam Sekali Klik ( Cardi AI Agent )
-
-**Focus Keyword:** transkripsi video ke teks
-
-**SEO Title:** Tutorial Lengkap Transkripsi Video ke Teks Notulensi dalam Sekali Klik ( Cardi AI Agent )
-
-**Meta Description:** Tutorial lengkap transkripsi video ke teks notulensi dalam sekali klik bersama Cardi AI Agent. Ubah rekaman video rapat jadi dokumen rapi instan.
-
-**URL Slug:** tutorial-lengkap-transkripsi-video-ke-teks
-
 **Search Link:** [Pencarian Google: transkripsi video ke teks](https://www.google.com/search?q=transkripsi+video+ke+teks) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
@@ -61,8 +51,7 @@ Sistem secara cerdas mengenali pergantian suara peserta rapat, memetakan naskah 
 
 ### 3. Pangkalan Data Teks yang Mudah Dicari
 
-Hasil transkripsi otomatis langsung tersimpan dalam format digital terpusat (*searchable archive*), memudahkan penelusuran riwayat pembahasan kapan saja lewat pencarian kata kunci.
-
+Hasil transkripsi otomatis langsung tersimpan dalam format digital terpusat (*searchable archive*), memudahkan penelusuran riwayat pembahasan kapan saja lewat pencarian 
 ## Tutorial Lengkap Transkripsi Video Bersama Cardi AI Agent
 
 Mengubah berkas video pertemuan kerja menjadi notulensi siap pakai bersama **Cardi AI Agent** sangat praktis melalui langkah berikut:
