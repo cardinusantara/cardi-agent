@@ -4,6 +4,7 @@ description: "Konektivitas jaringan internet dan infrastruktur telekomunikasi te
 pubDate: "2026-09-16"
 slug: "sistem-manajemen-komplain-pelanggan"
 author: "Cardi IPO"
+cover: "/covers/27.png"
 ---
 
 # Solusi Efektif Sistem Manajemen Komplain Pelanggan pada Industri Telekomunikasi ( Cardi IPO SEO Article )
