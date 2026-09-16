@@ -4,6 +4,7 @@ description: "Dalam lanskap bisnis modern yang bergerak serba cepat, mengukur ke
 pubDate: "2026-09-16"
 slug: "cara-menurunkan-churn-rate"
 author: "Cardi IPO"
+cover: "/covers/23.png"
 ---
 
 # Taktik Ampuh Menurunkan Customer Churn Rate Menggunakan Sistem Automasi CRM ( Cardi IPO SEO Article )
