@@ -1,3 +1,4 @@
+cover: "/covers/11.png"
 ---
 title: "Pentingnya Memilih Konsultan Akselerasi Bisnis untuk Merancang Strategi Partnership"
 description: "Lanskap perekonomian Indonesia yang dinamis menyuguhkan peluang pertumbuhan yang masif bagi perusahaan rintisan dan entitas bisnis berkembang."
