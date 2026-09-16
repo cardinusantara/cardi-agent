@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/26.jpg"
 ---
 
-# Mengapa Perusahaan Modern Beralih Menggunakan Software Pencatat Rapat Otomatis ( Cardi AI Agent )
-
-**Focus Keyword:** software pencatat rapat
-
-**SEO Title:** Mengapa Perusahaan Modern Beralih Menggunakan Software Pencatat Rapat Otomatis ( Cardi AI Agent )
-
-**Meta Description:** Pelajari alasan mengapa perusahaan modern beralih menggunakan software pencatat rapat otomatis bersama Cardi AI Agent. Rangkum rapat cepat, rapi, dan terstruktur.
-
-**URL Slug:** mengapa-perusahaan-beralih-software-pencatat-rapat
-
 **Search Link:** [Pencarian Google: software pencatat rapat](https://www.google.com/search?q=software+pencatat+rapat) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
