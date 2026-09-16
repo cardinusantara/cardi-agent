@@ -7,16 +7,6 @@ author: "Cardi IPO"
 cover: "/covers/28.png"
 ---
 
-# Memaksimalkan AI Chatbot Integration untuk Kelancaran Penerimaan Mahasiswa Baru ( Cardi IPO SEO Article )
-
-**Focus Keyword:** ai chatbot kampus indonesia
-
-**SEO Title:** Memaksimalkan AI Chatbot Integration untuk Kelancaran Penerimaan Mahasiswa Baru ( Cardi IPO SEO Article )
-
-**Meta Description:** Maksimalkan integrasi AI chatbot kampus Indonesia bersama Cardi untuk kelancaran PMB. Layani pertanyaan calon mahasiswa 24 jam dan tingkatkan registrasi.
-
-**URL Slug:** memaksimalkan-ai-chatbot-kampus-indonesia-pmb
-
 **Search Link:** [Pencarian Google: ai chatbot kampus indonesia](https://www.google.com/search?q=ai+chatbot+kampus+indonesia) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
 ---
