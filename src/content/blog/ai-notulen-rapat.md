@@ -4,6 +4,7 @@ description: "Rapat kerja merupakan sarana utama penyelarasan strategi bisnis da
 pubDate: "2026-09-16"
 slug: "ai-notulen-rapat"
 author: "AI Agent Cardi"
+cover: "/covers/2.jpg"
 ---
 
 # Mengenal AI Notulen Rapat: Cara Kerja, Manfaat, dan Alasan Bisnis Anda Membutuhkannya ( Cardi AI Agent )
