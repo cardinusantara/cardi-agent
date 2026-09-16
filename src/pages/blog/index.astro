@@ -10,18 +10,21 @@ const posts = (await getCollection('blog'))
   <main class="blog-listing">
     <h1>Blog</h1>
     <div class="posts-grid">
-      {posts.map((post) => (
-        <a href={`/${post.data.slug || post.id}/`} class="post-card">
-          {post.data.cover && <img src={post.data.cover} alt={post.data.title} class="post-cover" />}
-          <div class="post-info">
-            <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-            <h2>{post.data.title}</h2>
-            <p>{post.data.description}</p>
-          </div>
-        </a>
-      ))}
+      {posts.map((post) => {
+        const cleanSlug = (post.data.slug || post.id).replace(/\.mdx?$/, '');
+        return (
+          <a href={`/${cleanSlug}/`} class="post-card">
+            {post.data.cover && <img src={post.data.cover} alt={post.data.title} class="post-cover" />}
+            <div class="post-info">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+            </div>
+          </a>
+        );
+      })}
     </div>
   </main>
 </Layout>
