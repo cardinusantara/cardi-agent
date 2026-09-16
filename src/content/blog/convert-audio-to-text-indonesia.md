@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/9.jpg"
 ---
 
-# Panduan Convert Audio to Text Indonesia untuk Dokumentasi Pertemuan Cepat ( Cardi AI Agent )
-
-**Focus Keyword:** convert audio to text indonesia
-
-**SEO Title:** Panduan Convert Audio to Text Indonesia untuk Dokumentasi Pertemuan Cepat ( Cardi AI Agent )
-
-**Meta Description:** Panduan lengkap convert audio to text indonesia untuk dokumentasi pertemuan cepat bersama Cardi AI Agent. Ubah rekaman suara rapat jadi notula rapi instan.
-
-**URL Slug:** panduan-convert-audio-to-text-indonesia
-
 **Search Link:** [Pencarian Google: convert audio to text indonesia](https://www.google.com/search?q=convert+audio+to+text+indonesia) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
