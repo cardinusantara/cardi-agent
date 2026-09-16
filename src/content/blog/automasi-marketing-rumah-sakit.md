@@ -7,16 +7,6 @@ author: "Cardi IPO"
 cover: "/covers/25.png"
 ---
 
-# Implementasi Sistem Automasi Marketing Guna Meningkatkan Kunjungan Rumah Sakit dan Klinik ( Cardi IPO SEO Article )
-
-**Focus Keyword:** automasi marketing rumah sakit
-
-**SEO Title:** Implementasi Sistem Automasi Marketing Guna Meningkatkan Kunjungan Rumah Sakit dan Klinik ( Cardi IPO SEO Article )
-
-**Meta Description:** Pelajari implementasi automasi marketing rumah sakit dan klinik bersama Cardi. Jadwalkan temu dokter kilat, pengingat kontrol otomatis, dan tingkatkan BOR.
-
-**URL Slug:** implementasi-automasi-marketing-rumah-sakit-klinik
-
 **Search Link:** [Pencarian Google: automasi marketing rumah sakit](https://www.google.com/search?q=automasi+marketing+rumah+sakit) | [Pencarian Google: Cardi](https://www.google.com/search?q=Cardi)
 
 ---
