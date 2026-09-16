@@ -4,6 +4,7 @@ description: "Melangkah menuju penawaran umum perdana saham (*Initial Public Off
 pubDate: "2026-09-16"
 slug: "strategi-tingkatkan-valuasi-perusahaan"
 author: "Cardi IPO"
+cover: "/covers/19.png"
 ---
 
 # Taktik Teruji Cara Meningkatkan Valuasi Perusahaan Sebelum Memasuki Fase Pre IPO ( Cardi IPO SEO Article )
