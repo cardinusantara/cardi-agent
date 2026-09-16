@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/15.jpg"
 ---
 
-# Cara Menghasilkan Rangkuman Rapat Otomatis yang Padat, Rapi, dan Terstruktur ( Cardi AI Agent )
-
-**Focus Keyword:** rangkuman rapat otomatis
-
-**SEO Title:** Cara Menghasilkan Rangkuman Rapat Otomatis yang Padat, Rapi, dan Terstruktur ( Cardi AI Agent )
-
-**Meta Description:** Panduan cara menghasilkan rangkuman rapat otomatis yang padat, rapi, dan terstruktur bersama Cardi AI Agent. Ekstrak inti diskusi secara instan dan akurat.
-
-**URL Slug:** cara-menghasilkan-rangkuman-rapat-otomatis
-
 **Search Link:** [Pencarian Google: rangkuman rapat otomatis](https://www.google.com/search?q=rangkuman+rapat+otomatis) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
