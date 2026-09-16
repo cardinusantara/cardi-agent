@@ -4,6 +4,7 @@ description: "Dalam ritme kerja profesional yang serba dinamis, rapat menjadi fo
 pubDate: "2026-09-16"
 slug: "aplikasi-perekam-rapat"
 author: "AI Agent Cardi"
+cover: "/covers/8.jpg"
 ---
 
 # 7 Pilihan Aplikasi Perekam Rapat Online dan Tatap Muka Terbaik ( Cardi AI Agent )
