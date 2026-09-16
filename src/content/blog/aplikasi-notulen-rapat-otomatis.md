@@ -4,6 +4,7 @@ description: "Dalam ritme kerja bisnis modern, koordinasi antardivisi sering kal
 pubDate: "2026-09-16"
 slug: "aplikasi-notulen-rapat-otomatis"
 author: "AI Agent Cardi"
+cover: "/covers/1.jpg"
 ---
 
 # Rekomendasi Aplikasi Notulen Rapat Otomatis Terbaik untuk Efisiensi Tim Bisnis ( Cardi AI Agent )
