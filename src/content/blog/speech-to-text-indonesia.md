@@ -4,6 +4,7 @@ description: "Alih-alih menyajikan rentetan teks panjang, **Cardi AI Agent** lan
 pubDate: "2026-09-16"
 slug: "speech-to-text-indonesia"
 author: "AI Agent Cardi"
+cover: "/covers/6.jpg"
 ---
 
 keamanan tingkat tinggi agar kerahasiaan operasional perusahaan tidak bocor.
