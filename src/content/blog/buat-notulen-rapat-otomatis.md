@@ -4,6 +4,7 @@ description: "Rapat kerja merupakan sarana vital dalam merumuskan strategi, meny
 pubDate: "2026-09-16"
 slug: "buat-notulen-rapat-otomatis"
 author: "AI Agent Cardi"
+cover: "/covers/24.jpg"
 ---
 
 # Step-by-Step Buat Notulen Rapat Otomatis Tanpa Perlu Edit Berulang Kali ( Cardi AI Agent )
