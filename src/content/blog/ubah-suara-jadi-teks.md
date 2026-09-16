@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/10.jpg"
 ---
 
-# Cara Praktis Ubah Suara Jadi Teks Notulensi Menggunakan Kecerdasan Buatan ( Cardi AI Agent )
-
-**Focus Keyword:** ubah suara jadi teks
-
-**SEO Title:** Cara Praktis Ubah Suara Jadi Teks Notulensi Menggunakan Kecerdasan Buatan ( Cardi AI Agent )
-
-**Meta Description:** Panduan praktis ubah suara jadi teks notulensi menggunakan kecerdasan buatan bersama Cardi AI Agent. Rangkum rapat cepat, akurat, dan rapi instan.
-
-**URL Slug:** cara-praktis-ubah-suara-jadi-teks-notulensi
-
 **Search Link:** [Pencarian Google: ubah suara jadi teks](https://www.google.com/search?q=ubah+suara+jadi+teks) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
