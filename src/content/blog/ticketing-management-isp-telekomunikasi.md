@@ -1,3 +1,4 @@
+cover: "/covers/4.png"
 ---
 title: "Mengoptimalkan Platform Ticketing Management untuk Layanan ISP Telekomunikasi"
 description: "Konektivitas internet dan infrastruktur telekomunikasi telah menjadi kebutuhan primer bagi kehidupan masyarakat modern dan kelangsungan operasional bisnis."
