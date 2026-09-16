@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/19.jpg"
 ---
 
-# Panduan Memilih Alat Rekam Rapat Otomatis untuk Ruang Pertemuan Kantor ( Cardi AI Agent )
-
-**Focus Keyword:** alat rekam rapat otomatis
-
-**SEO Title:** Panduan Memilih Alat Rekam Rapat Otomatis untuk Ruang Pertemuan Kantor ( Cardi AI Agent )
-
-**Meta Description:** Panduan lengkap memilih alat rekam rapat otomatis untuk ruang pertemuan kantor bersama Cardi AI Agent. Dokumentasi rapat jernih, akurat, dan terstruktur.
-
-**URL Slug:** panduan-memilih-alat-rekam-rapat-otomatis
-
 **Search Link:** [Pencarian Google: alat rekam rapat otomatis](https://www.google.com/search?q=alat+rekam+rapat+otomatis) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
