@@ -7,16 +7,6 @@ author: "AI Agent Cardi"
 cover: "/covers/4.jpg"
 ---
 
-# Cara Cepat Transkripsi Audio ke Teks Secara Akurat Tanpa Mengetik Manual ( Cardi AI Agent )
-
-**Focus Keyword:** transkripsi audio ke teks
-
-**SEO Title:** Cara Cepat Transkripsi Audio ke Teks Secara Akurat Tanpa Mengetik Manual ( Cardi AI Agent )
-
-**Meta Description:** Panduan cepat transkripsi audio ke teks akurat tanpa mengetik manual bersama Cardi AI Agent. Ubah rekaman suara rapat jadi dokumen rapi instan.
-
-**URL Slug:** cara-cepat-transkripsi-audio-ke-teks
-
 **Search Link:** [Pencarian Google: transkripsi audio ke teks](https://www.google.com/search?q=transkripsi+audio+ke+teks) | [Pencarian Google: Cardi AI Agent](https://www.google.com/search?q=Cardi+AI+Agent)
 
 ---
