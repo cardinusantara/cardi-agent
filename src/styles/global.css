@@ -314,7 +314,7 @@ nav#mainNav {
   top: calc(100% + 8px);
   right: 0;
   left: auto;
-  width: 330px;
+  width: 340px;
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 16px;
@@ -382,24 +382,37 @@ nav#mainNav {
   border-color: #BAE6FD;
 }
 .eco-card-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #FFFFFF;
+  background: transparent;
+  position: relative;
+}
+.eco-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 9px;
+  filter: drop-shadow(0 2px 5px rgba(10, 22, 51, 0.08));
+  transition: transform 0.18s ease;
+}
+.eco-card-item:hover .eco-card-img,
+.mobile-eco-card:hover .eco-card-img {
+  transform: scale(1.06);
 }
 .eco-card-icon.icon-agent {
-  background: linear-gradient(135deg, #0B0F19 0%, #1E293B 100%);
-  color: #00C2D1;
+  background: transparent;
 }
 .eco-card-icon.icon-mom {
-  background: linear-gradient(135deg, #00C2D1 0%, #0288D1 50%, #0258A4 100%);
+  background: transparent;
 }
-.eco-card-icon.icon-lol {
-  background: linear-gradient(135deg, #8B5CF6, #6366F1);
+.eco-card-icon.icon-loyal {
+  background: transparent;
 }
 .eco-card-text {
   display: flex;
@@ -448,6 +461,11 @@ nav#mainNav {
   background: #EDE9FE;
   color: #6D28D9;
   border: 1px solid #DDD6FE;
+}
+.eco-pill.loyal {
+  background: #FFF7ED;
+  color: #EA580C;
+  border: 1px solid #FFEDD5;
 }
 .eco-panel-footer {
   margin-top: 10px;
