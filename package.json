@@ -1,15 +1,20 @@
 {
-  "name": "cardi-loyal-review-google-maps",
-  "version": "0.1.0",
+  "name": "cardi-agent-landing-page",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "astro:dev": "astro dev",
+    "astro:build": "astro build",
+    "astro:preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
     "@supabase/supabase-js": "^2.116.0",
+    "astro": "^5.1.0",
     "bcryptjs": "^3.0.3",
     "next": "16.3.5",
     "react": "19.2.8",
@@ -22,8 +27,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "clean-css": "^5.3.3",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "html-minifier-terser": "^7.2.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

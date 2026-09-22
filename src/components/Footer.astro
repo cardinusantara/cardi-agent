@@ -1,0 +1,57 @@
+---
+import LanguageSelector from './LanguageSelector.astro';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import type { LangKey } from '../i18n/ui';
+
+interface Props {
+  lang?: LangKey;
+}
+
+const { lang = getLangFromUrl(Astro.url) } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+<footer>
+  <div class="wrap">
+    <div class="fGrid">
+      <div class="fBrand">
+        <div class="brand" style="display:flex; align-items:center;">
+          <img src="/logocardi.png" alt="Cardi" width="110" style="width:110px; height:auto; max-height:38px; display:block; object-fit:contain;" />
+        </div>
+        <p>{t('foot.desc')}</p>
+        <div style="margin-top: 16px;">
+          <LanguageSelector currentLang={lang} />
+        </div>
+      </div>
+      <div class="fCol">
+        <h4>{t('foot.eco')}</h4>
+        <a href="https://aiagent.cardi.co.id/" target="_blank" rel="noopener">Cardi Agent</a>
+        <a href="https://cardinusantara.com/" target="_blank">Cardi Nusantara</a>
+        <a href="https://digital.cardinusantara.com/" target="_blank">Cardi Digital</a>
+        <a href="https://branding.cardinusantara.com/" target="_blank">Cardi Branding</a>
+      </div>
+      <div class="fCol">
+        <h4>{t('foot.comp')}</h4>
+        <a href={translatePath('/tentang-kami')}>{t('foot.about')}</a>
+        <a href="#">{t('foot.careers')}</a>
+        <a href="#">{t('foot.partners')}</a>
+        <a href="mailto:deo@cardinusantara.com">{t('foot.contact')}</a>
+      </div>
+      <div class="fCol">
+        <h4>{t('foot.sol')}</h4>
+        <a href="#solusi">{t('sol.c1Title')}</a>
+        <a href="#solusi">{t('sol.c2Title')}</a>
+        <a href="#solusi">{t('sol.c3Title')}</a>
+        <a href="#solusi">{t('sol.c4Title')}</a>
+      </div>
+    </div>
+    <div class="fBottom">
+      <div>{t('foot.rights')}</div>
+      <div style="display:flex; gap:16px;">
+        <a href="mailto:deo@cardinusantara.com" style="color:var(--blue); font-weight:700;">deo@cardinusantara.com</a>
+        <a href="#">{t('foot.privacy')}</a>
+        <a href="#">{t('foot.terms')}</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,180 @@
+---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import type { LangKey } from '../i18n/ui';
+
+interface Props {
+  lang?: LangKey;
+}
+
+const { lang = getLangFromUrl(Astro.url) } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+<section class="flow-section" id="produk">
+  <div class="wrap flow-header">
+    <span class="flow-badge">{t('eco.tag')}</span>
+    <h2>{t('eco.title')}</h2>
+    <p>{t('eco.sub')}</p>
+  </div>
+
+  <div class="wrap flow-wrap">
+    <!-- STICKY SIDE (Visual morphing canvas + indicators) -->
+    <div class="flow-sticky-side" id="flowStickyContainer" data-stage="0">
+      <div class="flow-sticky-content">
+        <div class="stage-tracker">
+          <span class="stage-num" id="stageCurrent">01</span>
+          <span class="stage-total">/ 04</span>
+        </div>
+
+        <div class="circle-canvas" id="circleCanvas">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <path class="morphing-leaf" d="M60 62 C46 46 47 22 60 14 C73 22 74 46 60 62 Z" fill="#fb3202" />
+            <circle class="morphing-dot" cx="60" cy="60" r="8" fill="#fb3202" opacity="0" />
+          </svg>
+        </div>
+
+        <div class="stage-caption">
+          <span class="stage-eyebrow" id="stageEyebrow">{t('eco.s1Tag')}</span>
+          <span class="stage-title" id="stageTitle">{t('eco.s1Title')}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCROLL SIDE (Cards for each stage) -->
+    <div class="flow-scroll-side">
+      
+      <!-- STAGE 0: BUILD -->
+      <div class="flow-card active" data-stage-index="0">
+        <div class="flow-card-inner">
+          <div class="flow-card-header">
+            <span class="flow-tag" style="background:#FFF0EE;color:#fb3202">{t('eco.s1Tag')}</span>
+            <h3>{t('eco.s1Title')}</h3>
+            <small>{t('eco.s1Sub')}</small>
+          </div>
+          <p>{t('eco.s1Desc')}</p>
+          <ul class="flow-pillars">
+            <li>Brand Strategy &amp; Positioning</li>
+            <li>Visual Identity &amp; Go-To-Market</li>
+            <li>{t('eco.s1Model')} · {t('eco.s1Hook')}</li>
+          </ul>
+          <div class="flow-card-footer">
+            <a href="https://branding.cardinusantara.com/" target="_blank" rel="noopener noreferrer" class="btn wa" style="background:#fb3202">{t('eco.s1Btn')}</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 1: LAUNCH -->
+      <div class="flow-card" data-stage-index="1">
+        <div class="flow-card-inner">
+          <div class="flow-card-header">
+            <span class="flow-tag" style="background:#F0F2F6;color:#0A1633">{t('eco.s2Tag')}</span>
+            <h3>{t('eco.s2Title')}</h3>
+            <small>{t('eco.s2Sub')}</small>
+          </div>
+          <p>{t('eco.s2Desc')}</p>
+          <ul class="flow-pillars">
+            <li>Distribution Strategy &amp; Market Penetration</li>
+            <li>Partnership &amp; Franchise</li>
+            <li>{t('eco.s2Model')} · {t('eco.s2Hook')}</li>
+          </ul>
+          <div class="flow-card-footer">
+            <a href="https://cardinusantara.com/" target="_blank" rel="noopener noreferrer" class="btn wa" style="background:#0A1633">{t('eco.s2Btn')}</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 2: GROW -->
+      <div class="flow-card" data-stage-index="2">
+        <div class="flow-card-inner">
+          <div class="flow-card-header">
+            <span class="flow-tag" style="background:#FCEAEA;color:#c42025">{t('eco.s3Tag')}</span>
+            <h3>{t('eco.s3Title')}</h3>
+            <small>{t('eco.s3Sub')}</small>
+          </div>
+          <p>{t('eco.s3Desc')}</p>
+          <ul class="flow-pillars">
+            <li>AI-Powered Marketing &amp; Automation</li>
+            <li>Performance Growth, SEO &amp; Revenue Optimization</li>
+            <li>{t('eco.s3Model')} · {t('eco.s3Hook')}</li>
+          </ul>
+          <div class="flow-card-footer">
+            <a href="https://digital.cardinusantara.com/" target="_blank" rel="noopener noreferrer" class="btn wa" style="background:#c42025">{t('eco.s3Btn')}</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 3: FORWARD DEPLOYED AI ENGINEER -->
+      <div class="flow-card" data-stage-index="3">
+        <div class="flow-card-inner">
+          <div class="flow-card-header">
+            <span class="flow-tag" style="background:#EEF3FF;color:#1e4fff">{t('eco.s4Tag')}</span>
+            <h3>{t('eco.s4Title')}</h3>
+            <small>{t('eco.s4Sub')}</small>
+          </div>
+          <p>{t('eco.s4Desc')}</p>
+          <ul class="flow-pillars">
+            <li>Not a software house.</li>
+            <li>Not an agency.</li>
+            <li>Not a vendor.</li>
+          </ul>
+          <div class="flow-card-footer">
+            <a href="https://aiagent.cardi.co.id/" target="_blank" rel="noopener" class="btn wa" style="background:#1e4fff">{t('eco.s4Btn')}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ s1Tag: t('eco.s1Tag'), s1Title: t('eco.s1Title'), s2Tag: t('eco.s2Tag'), s2Title: t('eco.s2Title'), s3Tag: t('eco.s3Tag'), s3Title: t('eco.s3Title'), s4Tag: t('eco.s4Tag'), s4Title: t('eco.s4Title') }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const stickyContainer = document.getElementById('flowStickyContainer');
+    const stageCurrent = document.getElementById('stageCurrent');
+    const stageEyebrow = document.getElementById('stageEyebrow');
+    const stageTitle = document.getElementById('stageTitle');
+    const flowCards = document.querySelectorAll('.flow-card');
+
+    if (!stickyContainer || flowCards.length === 0) return;
+
+    const stagesData = [
+      { num: '01', eyebrow: s1Tag, title: s1Title },
+      { num: '02', eyebrow: s2Tag, title: s2Title },
+      { num: '03', eyebrow: s3Tag, title: s3Title },
+      { num: '04', eyebrow: s4Tag, title: s4Title }
+    ];
+
+    function updateActiveStage() {
+      const viewportCenter = window.innerHeight / 2;
+      let activeIndex = 0;
+      let minDistance = Infinity;
+
+      flowCards.forEach((card, idx) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(cardCenter - viewportCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          activeIndex = idx;
+        }
+      });
+
+      flowCards.forEach((card, idx) => {
+        if (idx === activeIndex) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      stickyContainer.setAttribute('data-stage', activeIndex.toString());
+      if (stageCurrent) stageCurrent.textContent = stagesData[activeIndex].num;
+      if (stageEyebrow) stageEyebrow.textContent = stagesData[activeIndex].eyebrow;
+      if (stageTitle) stageTitle.textContent = stagesData[activeIndex].title;
+    }
+
+    window.addEventListener('scroll', updateActiveStage, { passive: true });
+    updateActiveStage();
+  });
+</script>

@@ -1,0 +1,122 @@
+---
+import '../styles/global.css';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import type { LangKey } from '../i18n/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  lang?: LangKey;
+  hasIntro?: boolean;
+}
+
+const {
+  title: pageTitle,
+  description: pageDescription,
+  image = "/og-banner.png",
+  canonicalURL = Astro.url.href,
+  lang = getLangFromUrl(Astro.url),
+  hasIntro = false
+} = Astro.props;
+
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+// Enforce sweet-spot limits (Title < 60 chars, Description ~125-150 chars)
+const title = pageTitle || t('seo.homeTitle');
+const metaDescription = pageDescription || t('seo.homeDesc');
+const htmlLang = lang === 'zh' ? 'zh-CN' : lang;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cardi",
+  "url": "https://cardi.co.id",
+  "logo": "https://cardi.co.id/logocardi.png",
+  "description": metaDescription,
+  "sameAs": [
+    "https://cardinusantara.com/",
+    "https://digital.cardinusantara.com/",
+    "https://branding.cardinusantara.com/"
+  ]
+};
+
+const idUrl = new URL(translatePath(Astro.url.pathname, 'id'), 'https://cardi.co.id').href;
+const enUrl = new URL(translatePath(Astro.url.pathname, 'en'), 'https://cardi.co.id').href;
+const zhUrl = new URL(translatePath(Astro.url.pathname, 'zh'), 'https://cardi.co.id').href;
+---
+
+<!DOCTYPE html>
+<html lang={htmlLang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={metaDescription} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Favicons (RealFaviconGenerator pack) -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Cardi" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Alternate Language SEO Tags -->
+  <link rel="alternate" hreflang="id" href={idUrl} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="zh" href={zhUrl} />
+  <link rel="alternate" hreflang="x-default" href={idUrl} />
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:site_name" content="Cardi Business Growth Ecosystem" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:image" content={new URL(image, Astro.url)} />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalURL} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={metaDescription} />
+  <meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+  {hasIntro && (
+    <script is:inline>
+      // Runs synchronously before <body> paints, so the navbar/WhatsApp float
+      // never flash visible-then-hidden. Decides once, up front, whether the
+      // hero intro should run this load: motion allowed (same sequence on
+      // every viewport width now; it replays on every visit — no session
+      // persistence). HeroStory.astro's own script reads this same
+      // "intro-pending" class as its source of truth.
+      (function () {
+        try {
+          var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (!reduce) {
+            document.documentElement.classList.add('intro-pending');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  )}
+</head>
+<body>
+  <slot />
+  <WhatsAppFloat lang={lang} />
+</body>
+</html>
