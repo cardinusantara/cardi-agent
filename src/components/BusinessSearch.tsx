@@ -34,7 +34,10 @@ export default function BusinessSearch({
     setInputValue(selectedBusinessName || '');
   }
 
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+  const apiKey =
+    import.meta.env.PUBLIC_GOOGLE_PLACES_API_KEY ||
+    process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY ||
+    '';
   const apiKeyError = !apiKey ? 'Google Places API Key belum dikonfigurasi pada .env.local' : null;
   const displayError = apiKeyError || loadError;
 
@@ -214,7 +217,9 @@ export default function BusinessSearch({
       )}
 
       {/* Global CSS helper to ensure Google Places autocomplete dropdown stays on top with modern styling */}
-      <style jsx global>{`
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .pac-container {
           z-index: 99999 !important;
           border-radius: 0.75rem;
@@ -240,7 +245,9 @@ export default function BusinessSearch({
             color: #ffffff;
           }
         }
-      `}</style>
+      `,
+        }}
+      />
     </div>
   );
 }

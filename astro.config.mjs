@@ -1,17 +1,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-  srcDir: './src-astro',
-  site: 'https://cardi.co.id',
-  integrations: [sitemap()],
-  i18n: {
-    defaultLocale: 'id',
-    locales: ['id', 'en', 'zh'],
-    routing: {
-      prefixDefaultLocale: false,
-      redirectToDefaultLocale: true
-    }
-  }
+  site: 'https://aiagent.cardi.co.id',
+  adapter: node({
+    mode: 'standalone',
+  }),
+  integrations: [sitemap(), react()],
 });
