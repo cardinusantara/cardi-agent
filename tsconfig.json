@@ -19,16 +19,24 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*", "./*"]
     }
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "src/app/**/*.ts",
+    "src/app/**/*.tsx",
+    "src/components/**/*.ts",
+    "src/components/**/*.tsx",
+    "src/lib/**/*.ts",
+    "src/lib/**/*.tsx",
+    "next.config.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "src"]
+  "exclude": [
+    "node_modules",
+    "src-astro"
+  ]
 }
