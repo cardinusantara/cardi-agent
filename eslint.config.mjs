@@ -7,10 +7,13 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
-    // Default ignores of eslint-config-next:
+    // Default ignores and build cache ignores:
     ".next/**",
+    ".astro/**",
+    "dist/**",
     "out/**",
     "build/**",
+    "src-astro/**",
     "next-env.d.ts",
   ]),
 ]);
