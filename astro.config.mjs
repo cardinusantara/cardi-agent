@@ -1,13 +1,10 @@
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://aiagent.cardi.co.id',
-  adapter: node({
-    mode: 'standalone',
-  }),
-  integrations: [sitemap(), react()],
+  output: 'server',
+  adapter: vercel(),
+  integrations: [tailwind(), react()],
 });
