@@ -32,8 +32,8 @@ if (card && card.is_active && reviewUrl && !isManage) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{card ? `Aktivasi Kartu #${cardId} | Cardi Loyal Review` : 'Kartu Tidak Ditemukan'}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+    <style is:global>
       /* Fallback style to ensure proper dimensions even before or without external CSS */
       svg {
         max-width: 100%;
