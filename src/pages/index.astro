@@ -45,6 +45,78 @@ const WA = 'https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%
     </div>
   </section>
 
+  <!-- 02.5. SHOWCASE & WORKFORCE -->
+  <section id="showcase" class="grid-bg soft" data-exec="00b_showcase.render">
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="cases_eyebrow">Dunia Nyata</div>
+      <h2 class="h2" data-i18n="cases_h2">Apa yang dikerjakan Cardi Agent <span class="dim">24/7 di bisnis nyata.</span></h2>
+      <p class="sub" data-i18n="cases_sub">Lihat bentuk asli sistem yang sedang berjalan menangani operasional harian.</p>
+
+      <div class="showcase-grid reveal">
+        <!-- Atas: Workforce Animasi -->
+        <div class="showcase-col">
+          <div class="showcase-card">
+            <img src="/cases/preview%20djeonail.jpeg" alt="AI Agent Workspace" style="width: 100%; height: auto; display: block; border-radius: 12px 12px 0 0;">
+            <div class="office-caption mono" style="background: #000; padding: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 11px; color: rgba(255,255,255,0.5); text-align: right;">cardi-agent-os · ai workforce online</div>
+          </div>
+          <p class="showcase-note" style="text-align: center;">
+            <b>Setiap bisnis dikirim sebagai satu tim.</b> Bukan satu bot serba bisa, tapi beberapa agen AI yang bekerja di foldernya masing-masing menangani penjualan, laporan, dan tagihan.
+          </p>
+        </div>
+
+        <!-- Kanan: Real Cases -->
+        <div class="showcase-col">
+          <div class="cases-container showcase-card">
+            <div class="cases-tabs">
+              <button class="case-tab active" data-target="case-surya">
+                <span class="mono">01</span> Surya Painting
+              </button>
+              <button class="case-tab" data-target="case-mbg">
+                <span class="mono">02</span> MBG
+              </button>
+            </div>
+
+            <div class="case-content active" id="case-surya">
+              <div class="case-metrics">
+                <div class="metric"><span class="val">4.9</span>Rating CS</div>
+                <div class="metric"><span class="val">12</span>Antrean Mobil</div>
+                <div class="metric"><span class="val">100%</span>Auto-Follow Up</div>
+              </div>
+              <div class="case-views-nav">
+                <button class="view-btn active" data-view="surya-backend">Backend</button>
+                <button class="view-btn" data-view="surya-wa">WhatsApp</button>
+                <button class="view-btn" data-view="surya-mobile">Mobile</button>
+              </div>
+              <div class="case-view-display">
+                <img src="/cases/surya-dashboard.png" class="case-img active" id="surya-backend" alt="Surya Painting Dashboard" loading="lazy">
+                <img src="/cases/surya-wa.png" class="case-img" id="surya-wa" alt="Surya Painting WhatsApp" loading="lazy">
+                <img src="/cases/surya-mobile.png" class="case-img" id="surya-mobile" alt="Surya Painting Mobile" loading="lazy">
+              </div>
+            </div>
+
+            <div class="case-content" id="case-mbg">
+              <div class="case-metrics">
+                <div class="metric"><span class="val">0%</span>Human Error PO</div>
+                <div class="metric"><span class="val">&lt;10s</span>Waktu Respon</div>
+                <div class="metric"><span class="val">180+</span>Invoice Harian</div>
+              </div>
+              <div class="case-views-nav">
+                <button class="view-btn active" data-view="mbg-backend">Web Dashboard</button>
+                <button class="view-btn" data-view="mbg-operations">MBG Operations</button>
+                <button class="view-btn" data-view="mbg-sync">Alur Sinkronisasi</button>
+              </div>
+              <div class="case-view-display">
+                <img src="/cases/Web%20Dashboard%20MBG.png" class="case-img active" id="mbg-backend" alt="MBG Web Dashboard" loading="lazy">
+                <img src="/cases/MBG%20Operations.png" class="case-img" id="mbg-operations" alt="MBG Operations" loading="lazy">
+                <img src="/cases/Alur%20Sinkronisasi.png" class="case-img" id="mbg-sync" alt="Alur Sinkronisasi MBG" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 03. PIXEL MATRIX BAND -->
   <div class="pixel-band" data-exec="01_engine.render">
     <canvas id="pixelCanvas" aria-hidden="true"></canvas>
@@ -592,4 +664,353 @@ const WA = 'https://api.whatsapp.com/send?phone=6281289895646&text=Halo%20Cardi%
 
   <script is:inline src="/scripts/i18n-sales.js"></script>
   <script is:inline src="/scripts/interactions.js"></script>
+  <script is:inline>
+    // Case Studies Tabs Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const caseTabs = document.querySelectorAll('.case-tab');
+      const caseContents = document.querySelectorAll('.case-content');
+
+      caseTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Reset tabs
+          caseTabs.forEach(t => t.classList.remove('active'));
+          caseContents.forEach(c => c.classList.remove('active'));
+          
+          // Activate clicked
+          tab.classList.add('active');
+          const targetId = tab.getAttribute('data-target');
+          document.getElementById(targetId).classList.add('active');
+        });
+      });
+
+      const caseContentsList = document.querySelectorAll('.case-content');
+      caseContentsList.forEach(content => {
+        const viewBtns = content.querySelectorAll('.view-btn');
+        const viewImgs = content.querySelectorAll('.case-img, .case-html-mockup');
+
+        viewBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            // Reset buttons and elements in this specific case block
+            viewBtns.forEach(b => b.classList.remove('active'));
+            viewImgs.forEach(img => img.classList.remove('active'));
+
+            // Activate clicked
+            btn.classList.add('active');
+            const targetView = btn.getAttribute('data-view');
+            const targetEl = content.querySelector('#' + targetView);
+            if(targetEl) targetEl.classList.add('active');
+          });
+        });
+      });
+    });
+  </script>
+  <style is:global>
+    /* SHOWCASE */
+    .showcase-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      margin-top: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .showcase-card {
+      background: #0E1223;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .showcase-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .showcase-note {
+      margin-top: 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      padding: 0 8px;
+    }
+    .showcase-note b { color: #fff; }
+
+    /* CASE STUDIES */
+    .cases-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cases-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.2);
+    }
+    .case-tab {
+      flex: 1;
+      padding: 16px 20px;
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    @media (max-width: 600px) {
+      .cases-tabs { flex-direction: column; }
+      .case-tab { border-left: 2px solid transparent; border-bottom: none; }
+      .case-tab.active { border-bottom: none; border-left: 2px solid var(--accent, #8FA6FF); }
+    }
+    .case-tab:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.02);
+    }
+    .case-tab.active {
+      color: #fff;
+      border-bottom: 2px solid var(--accent, #8FA6FF);
+      background: rgba(255,255,255,0.05);
+    }
+    .case-tab .mono {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      opacity: 0.6;
+      margin-right: 8px;
+    }
+    .case-content {
+      display: none;
+      padding: 30px;
+    }
+    @media (max-width: 600px) {
+      .case-content { padding: 20px; }
+    }
+    .case-content.active {
+      display: block;
+    }
+    .case-views-nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .view-btn {
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      color: #ccc;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .view-btn:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .view-btn.active {
+      background: var(--accent, #8FA6FF);
+      color: #000;
+      border-color: var(--accent, #8FA6FF);
+      font-weight: 600;
+    }
+    .case-view-display {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    @media (max-width: 600px) {
+      .case-view-display { height: 350px; }
+    }
+    .case-img {
+      display: none;
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      animation: fade-in 0.3s ease;
+    }
+    .case-img.active {
+      display: block;
+    }
+
+    /* Metrics */
+    .case-metrics {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .metric {
+      flex: 1;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: #94A3B8;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .metric .val {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-mono);
+      text-shadow: 0 0 10px rgba(143, 166, 255, 0.3);
+    }
+    @media (max-width: 600px) {
+      .case-metrics { flex-direction: column; gap: 8px; padding-bottom: 16px; margin-bottom: 16px; }
+      .metric { flex-direction: row; align-items: baseline; justify-content: space-between; }
+    }
+
+    /* HTML Mockups */
+    .case-html-mockup {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 24px;
+      overflow-y: auto;
+      background: #0B0F17;
+      animation: fade-in 0.3s ease;
+    }
+    .case-html-mockup.active {
+      display: block;
+    }
+    
+    /* Kanban Mockup */
+    .mock-kanban {
+      display: flex;
+      gap: 16px;
+      height: 100%;
+      overflow-x: auto;
+    }
+    .mock-col {
+      flex: 1;
+      min-width: 200px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mock-col-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #cbd5e1;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .mock-col-title .badge {
+      background: rgba(143,166,255,0.1);
+      color: var(--accent, #8FA6FF);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+    .mock-card {
+      background: #1E293B;
+      border-left: 3px solid #334155;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #f8fafc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .mock-card.active {
+      border-left-color: var(--accent, #8FA6FF);
+      background: #1e293b;
+      box-shadow: 0 0 0 1px rgba(143,166,255,0.2);
+    }
+    .mock-card.done {
+      border-left-color: #22c55e;
+      opacity: 0.7;
+    }
+
+    /* Chat Mockup */
+    .mock-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .mock-msg {
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 85%;
+    }
+    .mock-msg.bot {
+      background: #1E293B;
+      color: #f8fafc;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .mock-msg.user {
+      background: rgba(143, 166, 255, 0.15);
+      color: #8FA6FF;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      border: 1px solid rgba(143, 166, 255, 0.3);
+    }
+
+    /* OFFICE ANIMATION */
+    .office-anim-wrap {
+      border: none;
+      border-radius: 0;
+      background: #000;
+      margin: 0;
+    }
+    .office-scene {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+    }
+    .office-bg, .office-people {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .office-people {
+      animation: float 4s ease-in-out infinite;
+    }
+    .office-caption {
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      text-align: right;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
 </Layout>
