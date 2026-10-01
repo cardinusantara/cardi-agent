@@ -39,3 +39,17 @@ export interface Card {
   created_at?: string;
   updated_at?: string;
 }
+
+export interface OrderLead {
+  id?: string;
+  customer_name: string;
+  customer_phone: string;
+  shipping_address: string;
+  google_maps_url: string;
+  notes?: string | null;
+  product_name?: string;
+  product_price?: number;
+  status?: string;
+  created_at?: string;
+}
+
