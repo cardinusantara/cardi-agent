@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="id" class="w-full max-w-full overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Cardi Loyal Card - Kartu &amp; Plakat Akrilik Google Review NFC Pintar</title>
+    <meta name="description"
+        content="Tingkatkan ulasan bintang 5 Google Maps bisnis Anda dengan Plakat Akrilik dan Kartu Pintar NFC Cardi Loyal Card. Cukup 1 detik tap tanpa aplikasi.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#FF6800',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        obsidian: {
+                            900: '#0B0F19',
+                            800: '#111827',
+                            700: '#1E293B',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="w-full max-w-full overflow-x-hidden selection:bg-brand-100 selection:text-brand-600 bg-[#FAFAFA]">
+
+    <!-- ========================================================
+         1. NAVBAR
+         ======================================================== -->
+    <header
+        class="sticky top-0 z-50 w-full max-w-full bg-white/95 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-200 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="nav-link flex items-center group py-2 select-none cursor-pointer" aria-label="Cardi Loyal Card Homepage">
+                <img src="assets/logo-loyal-official.png" alt="Cardi Agent Loyal Card"
+                    class="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105">
+            </a>
+
+            <!-- Desktop Menu Links -->
+            <nav id="desktopNav" class="hidden md:flex items-center gap-7 lg:gap-9" aria-label="Menu Utama">
+                <a href="#spesifikasi"
+                    class="nav-link text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors py-2 active:scale-95 cursor-pointer select-none">Spesifikasi</a>
+                <a href="#produk"
+                    class="nav-link text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors py-2 active:scale-95 cursor-pointer select-none">Produk</a>
+                <a href="#cara-kerja"
+                    class="nav-link text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors py-2 active:scale-95 cursor-pointer select-none">Cara Kerja</a>
+                <a href="#fitur"
+                    class="nav-link text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors py-2 active:scale-95 cursor-pointer select-none">Keunggulan</a>
+                <a href="#paket"
+                    class="nav-link text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors py-2 active:scale-95 cursor-pointer select-none">Affiliate</a>
+                <a href="#faq"
+                    class="nav-link text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors py-2 active:scale-95 cursor-pointer select-none">FAQ</a>
+            </nav>
+
+            <!-- CTA Button & Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="#produk"
+                    class="nav-link hidden sm:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 active:bg-brand-700 active:scale-95 text-white text-xs lg:text-sm font-bold py-2.5 px-5 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 min-h-[42px] cursor-pointer select-none">
+                    <span>Pesan Sekarang</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobileMenuBtn" type="button"
+                    class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 active:bg-slate-200 active:scale-95 transition min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer select-none"
+                    aria-label="Buka Menu Navigasi">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu"
+            class="hidden md:hidden border-t border-slate-100 bg-white px-5 py-5 space-y-3.5 shadow-xl">
+            <a href="#spesifikasi" class="nav-link block text-sm font-medium text-slate-700 hover:text-brand-500 active:scale-98 active:text-brand-600 py-1.5 cursor-pointer select-none">Spesifikasi</a>
+            <a href="#produk" class="nav-link block text-sm font-medium text-slate-700 hover:text-brand-500 active:scale-98 active:text-brand-600 py-1.5 cursor-pointer select-none">Produk</a>
+            <a href="#cara-kerja" class="nav-link block text-sm font-medium text-slate-700 hover:text-brand-500 active:scale-98 active:text-brand-600 py-1.5 cursor-pointer select-none">Cara Kerja</a>
+            <a href="#fitur" class="nav-link block text-sm font-medium text-slate-700 hover:text-brand-500 active:scale-98 active:text-brand-600 py-1.5 cursor-pointer select-none">Keunggulan</a>
+            <a href="#paket" class="nav-link block text-sm font-medium text-slate-700 hover:text-brand-500 active:scale-98 active:text-brand-600 py-1.5 cursor-pointer select-none">Affiliate</a>
+            <a href="#faq" class="nav-link block text-sm font-medium text-slate-700 hover:text-brand-500 active:scale-98 active:text-brand-600 py-1.5 cursor-pointer select-none">FAQ</a>
+            <a href="#produk"
+                class="nav-link block text-center w-full bg-brand-500 hover:bg-brand-600 active:bg-brand-700 active:scale-98 text-white font-bold text-sm py-3.5 rounded-xl shadow-sm min-h-[44px] cursor-pointer select-none">Pesan
+                Plakat Akrilik</a>
+        </div>
+    </header>
+
+
+    <!-- ========================================================
+         2. HERO SECTION: RADIANT MODERN ORANGE + 3D INTERACTIVE CARD
+         ======================================================== -->
+    <section
+        class="relative pt-14 sm:pt-20 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#FF6800] via-[#F95700] to-[#E04800] text-white overflow-hidden">
+        <!-- Ambient Mesh Overlay -->
+        <div class="absolute inset-0 hero-mesh-overlay pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+            <!-- Left Column: Copywriting & Value Proposition -->
+            <div class="lg:col-span-7 text-center lg:text-left">
+                <h1
+                    class="text-3xl sm:text-5xl lg:text-[56px] font-black text-white tracking-tight uppercase leading-[1.08] mb-6 drop-shadow-sm">
+                    Kumpulkan Ulasan <span class="text-amber-200">Bintang 5</span> Google Maps Lebih Cepat di Meja Kasir
+                </h1>
+
+                <p
+                    class="text-base sm:text-lg text-orange-100/95 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-9 font-medium">
+                    Plakat akrilik meja dengan sensor NFC dan cadangan QR code. Pelanggan cukup menempelkan HP saat transaksi di meja kasir &mdash; formulir ulasan Google Maps langsung terbuka di layar tanpa perlu mencari manual.
+                </p>
+
+                <!-- Action Button Cluster -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-5 sm:mb-6">
+                    <a href="https://xen.to/qUGDHIMl" target="_blank" rel="noopener noreferrer"
+                        class="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-orange-50 text-slate-900 font-extrabold text-sm sm:text-base shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-3 min-h-[48px]">
+                        <span>Pesan Plakat Akrilik</span>
+                        <span class="text-xs bg-brand-100 text-brand-700 px-2.5 py-1 rounded-full font-black">Mulai
+                            69rb</span>
+                    </a>
+
+                    <a href="#cara-kerja"
+                        class="w-full sm:w-auto px-7 py-4 rounded-full bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold text-sm sm:text-base backdrop-blur-md transition inline-flex items-center justify-center gap-2.5 min-h-[48px]">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Pelajari Cara Kerja</span>
+                    </a>
+                </div>
+
+                <!-- Secondary Marketplace & Direct Action Row -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 mb-9">
+                    <a href="https://shopee.co.id" target="_blank" rel="noopener noreferrer"
+                        class="px-5 py-2.5 bg-slate-950/85 hover:bg-slate-950 text-white rounded-full border border-white/15 shadow-md text-xs sm:text-sm font-semibold transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 select-none min-h-[40px]">
+                        <img src="assets/shopee-user-white.png" alt="Shopee" class="w-4 h-4 object-contain">
+                        <span>Beli di Shopee</span>
+                    </a>
+
+                    <a href="https://tokopedia.com" target="_blank" rel="noopener noreferrer"
+                        class="px-5 py-2.5 bg-slate-950/85 hover:bg-slate-950 text-white rounded-full border border-white/15 shadow-md text-xs sm:text-sm font-semibold transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 select-none min-h-[40px]">
+                        <img src="assets/tokopedia-user-white.png" alt="Tokopedia" class="w-4 h-4 object-contain">
+                        <span>Beli di Tokopedia</span>
+                    </a>
+
+                    <a href="https://wa.me/6281289895646" target="_blank" rel="noopener noreferrer"
+                        class="px-5 py-2.5 bg-white/95 hover:bg-white text-slate-900 rounded-full border border-white/40 shadow-md font-bold text-xs sm:text-sm transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 select-none min-h-[40px]">
+                        <img src="assets/whatsapp-official.svg" alt="WhatsApp" class="w-4 h-4 object-contain">
+                        <span>Konsultasi WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Professional Business Metrics (Elevated Glassmorphic Cards) -->
+                <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-xl mx-auto lg:mx-0">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-white/15 shadow-sm text-left">
+                        <span class="block text-xl sm:text-3xl font-black text-white tracking-tight">10.000+</span>
+                        <span class="text-[11px] sm:text-xs text-orange-100/90 font-medium mt-0.5 block">Plakat Terpasang</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-white/15 shadow-sm text-left">
+                        <span class="block text-xl sm:text-3xl font-black text-white tracking-tight">&lt; 1 Detik</span>
+                        <span class="text-[11px] sm:text-xs text-orange-100/90 font-medium mt-0.5 block">Respon Tap NFC</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-white/15 shadow-sm text-left">
+                        <span class="block text-xl sm:text-3xl font-black text-white tracking-tight">100%</span>
+                        <span class="text-[11px] sm:text-xs text-orange-100/90 font-medium mt-0.5 block">iOS &amp; Android Siap</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive 3D Flip Card Showcase (60fps perspective 1000px, subtle 1.02x scale) -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                <div class="flip-container card-floating w-[280px] sm:w-[300px] h-[430px] sm:h-[450px]">
+                    <div id="heroCard3D" class="flip-card" onclick="toggleHeroCard()"
+                        title="Klik untuk membalik kartu (Depan / Belakang)">
+
+                        <!-- SISI DEPAN (Front Face) -->
+                        <div
+                            class="card-face bg-white rounded-[28px] p-6 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] border border-slate-200/90 flex flex-col justify-between items-center text-center select-none text-slate-900">
+                            <div class="flex flex-col items-center pt-2">
+                                <div class="text-3xl sm:text-4xl font-black tracking-tight mb-1 select-none">
+                                    <span class="text-[#4285F4]">G</span><span class="text-[#EA4335]">o</span><span
+                                        class="text-[#FBBC05]">o</span><span class="text-[#4285F4]">g</span><span
+                                        class="text-[#34A853]">l</span><span class="text-[#EA4335]">e</span>
+                                </div>
+                                <p class="text-xs sm:text-sm font-bold text-slate-700 mt-1">Beri Nilai Pengalaman Anda</p>
+                                <div class="flex items-center gap-1.5 mt-1">
+                                    <span class="text-xs font-extrabold text-slate-800">5,0</span>
+                                    <div class="flex items-center gap-0.5 text-[#FBBC05] text-xs">
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="my-auto py-5 w-full">
+                                <div
+                                    class="border border-dashed border-slate-300 rounded-2xl px-6 py-4 bg-slate-50/80 text-center">
+                                    <p class="text-base sm:text-lg font-black text-slate-800">[Logo Bisnis Anda]</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5 font-bold uppercase tracking-wider">
+                                        Cardi Loyal Card Plakat Meja</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-center pb-2">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center text-brand-500 mb-1">
+                                    <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.6" stroke-linecap="round">
+                                        <path d="M8.5 16.5a6 6 0 0 1 0-9"></path>
+                                        <path d="M12 19a10 10 0 0 1 0-14"></path>
+                                        <path d="M15.5 21.5a14 14 0 0 1 0-19"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-black text-slate-900 tracking-wider uppercase">KETUK TELEPON
+                                    DI SINI</span>
+                            </div>
+                        </div>
+
+                        <!-- SISI BELAKANG (Back Face) -->
+                        <div
+                            class="card-face card-face-back rounded-[28px] p-[3.5px] bg-gradient-to-tr from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] select-none">
+                            <div
+                                class="w-full h-full bg-white rounded-[25px] p-5 sm:p-6 flex flex-col justify-between items-center text-center text-slate-900">
+                                <div class="flex flex-col items-center pt-1">
+                                    <p class="text-xs font-bold text-slate-700">Cadangan Pindai QR Code</p>
+                                    <div class="text-2xl sm:text-3xl font-black tracking-tight my-0.5 select-none">
+                                        <span class="text-[#4285F4]">G</span><span class="text-[#EA4335]">o</span><span
+                                            class="text-[#FBBC05]">o</span><span class="text-[#4285F4]">g</span><span
+                                            class="text-[#34A853]">l</span><span class="text-[#EA4335]">e</span>
+                                    </div>
+                                    <div class="flex items-center gap-0.5 text-[#FBBC05] text-[10px]">
+                                        <svg class="w-3 3 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col items-center my-auto py-2">
+                                    <div
+                                        class="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-center">
+                                        <svg class="w-24 h-24 text-slate-900" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.8">
+                                            <rect x="3" y="3" width="7" height="7"></rect>
+                                            <rect x="14" y="3" width="7" height="7"></rect>
+                                            <rect x="3" y="14" width="7" height="7"></rect>
+                                            <path d="M14 14h3v3h-3z"></path>
+                                            <path d="M20 14v3"></path>
+                                            <path d="M14 20h6"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-[11px] font-bold text-slate-800 mt-2">Buka Kamera &amp; Pindai</p>
+                                </div>
+
+                                <div class="pb-1">
+                                    <div
+                                        class="border border-dashed border-slate-300 rounded-lg px-6 py-1.5 bg-slate-50">
+                                        <p class="text-xs font-bold text-slate-700">Perekat 3M VHB Kuat</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="w-52 h-4 bg-orange-950/25 rounded-[100%] blur-md mx-auto mt-4 shadow-floating"></div>
+
+                <button type="button" onclick="toggleHeroCard()"
+                    class="mt-4 text-xs font-bold text-white/90 hover:text-white bg-black/15 hover:bg-black/25 backdrop-blur-md transition inline-flex items-center gap-2 cursor-pointer py-2 px-4 rounded-full min-h-[40px] border border-white/20">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    <span>Klik kartu untuk membalik (360° Preview)</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         3. SPESIFIKASI PLAKAT AKRILIK: ARCHITECTURAL HARDWARE SHOWCASE
+         ======================================================== -->
+    <section id="spesifikasi" class="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-200/80 scroll-mt-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+                    Spesifikasi Material Plakat
+                </h2>
+                <p class="text-slate-500 font-medium mt-3 text-sm sm:text-base leading-relaxed">
+                    Dibuat dari akrilik solid Grade A dengan chip NFC NTAG213 dan perekat asli 3M VHB. Kokoh, rapi, dan siap dipasang di meja kasir usaha Anda.
+                </p>
+            </div>
+
+            <!-- Architectural Layout: Left Specs | Center Pedestal Mockup | Right Specs -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+
+                <!-- Kolom Kiri: 3 Spec Cards -->
+                <div class="order-2 lg:order-1 lg:col-span-4 space-y-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Dimensi Plakat</span>
+                        <div class="text-base font-black text-slate-900">10 cm &times; 10 cm</div>
+                        <p class="text-xs text-slate-500 mt-1">Kompak di meja kasir, tidak menghalangi display menu atau mesin EDC</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Ketebalan &amp; Bobot</span>
+                        <div class="text-base font-black text-slate-900">3 mm &bull; &plusmn; 35 gram</div>
+                        <p class="text-xs text-slate-500 mt-1">Akrilik padat dan kokoh. Berdiri stabil dan tidak mudah patah</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Material Utama</span>
+                        <div class="text-base font-black text-slate-900">Cast Acrylic Grade A</div>
+                        <p class="text-xs text-slate-500 mt-1">Akrilik solid warna putih susu dengan potongan laser rapi</p>
+                    </div>
+                </div>
+
+                <!-- Kolom Tengah: Pedestal Showcase with Auto-Idle Flip Animation & Segmented Pill Switcher -->
+                <div class="order-1 lg:order-2 lg:col-span-4 flex flex-col items-center justify-center">
+                    <!-- Segmented Control (Apple style) -->
+                    <div class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200/80 mb-5 select-none">
+                        <button id="tabSpecFront" type="button" onclick="switchSpecCard('front')"
+                            class="text-xs font-semibold text-slate-900 bg-white shadow-xs rounded-lg cursor-pointer transition-all py-1.5 px-4">
+                            Tampak Depan
+                        </button>
+                        <button id="tabSpecBack" type="button" onclick="switchSpecCard('back')"
+                            class="text-xs font-semibold text-slate-500 hover:text-slate-900 rounded-lg cursor-pointer transition-all py-1.5 px-4">
+                            Tampak Belakang
+                        </button>
+                    </div>
+
+                    <!-- 3D Card Container (Square ratio 1:1, architectural styling with 1px border #E2E8F0) -->
+                    <div id="specContainer" class="spec-container w-[280px] sm:w-[320px] h-[280px] sm:h-[320px] select-none">
+                        <div id="specCard3D" class="flip-card" onclick="switchSpecCard('toggle')" title="Klik untuk membalik tampilan kartu">
+
+                            <!-- SISI DEPAN (Front Face - Gambar Asli Plakat Google Review Crisp & Static) -->
+                            <div class="card-face bg-white border border-[#E2E8F0] rounded-[28px] overflow-hidden shadow-[0_20px_45px_rgba(15,23,42,0.08)] select-none flex items-center justify-center p-0">
+                                <img src="assets/plakat-depan.jpg" alt="Sisi Depan Plakat Akrilik Google Review" class="w-full h-full object-cover rounded-[27px] pointer-events-none select-none crisp-render">
+                            </div>
+
+                            <!-- SISI BELAKANG (Back Face - PEREKAT 3M & CHIP NFC) -->
+                            <div class="card-face card-face-back bg-white border border-[#E2E8F0] rounded-[28px] p-4 sm:p-5 shadow-[0_20px_45px_rgba(15,23,42,0.08)] flex flex-col justify-between items-center text-center">
+                                <!-- Top 3M Tape Strip -->
+                                <div class="tape-3m w-full h-11 rounded-xl flex items-center justify-around px-3 text-white font-black text-sm tracking-widest select-none shadow-xs">
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                </div>
+
+                                <!-- Center NFC Area -->
+                                <div class="my-auto py-2 sm:py-3 flex flex-col items-center justify-center text-center">
+                                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full border border-dashed border-slate-300 bg-slate-50/70 flex items-center justify-center mb-2 text-slate-400">
+                                        <svg class="w-6 h-6 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M8.5 16.5a6 6 0 0 1 0-9"></path>
+                                            <path d="M12 19a10 10 0 0 1 0-14"></path>
+                                            <path d="M15.5 21.5a14 14 0 0 1 0-19"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-black text-slate-800 tracking-wider uppercase mb-1">ZONA CHIP NFC</span>
+                                    <p class="text-[10px] sm:text-[11px] leading-relaxed text-slate-400 font-medium max-w-[210px] mx-auto text-center">
+                                        Perekat 3M VHB Industrial Grade. Menempel kuat di meja kayu, kaca kasir, maupun dinding.
+                                    </p>
+                                </div>
+
+                                <!-- Bottom 3M Tape Strip -->
+                                <div class="tape-3m w-full h-11 rounded-xl flex items-center justify-around px-3 text-white font-black text-sm tracking-widest select-none shadow-xs">
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Subtle Architectural Ambient Plakat Shadow -->
+                    <div class="w-48 h-3.5 bg-slate-300/35 rounded-[100%] blur-md mx-auto mt-4"></div>
+
+                    <!-- Pagination Indicator Dots -->
+                    <div class="flex items-center justify-center gap-2 mt-4 select-none">
+                        <button id="dotSpecFront" type="button" onclick="switchSpecCard('front')" aria-label="Lihat Sisi Depan"
+                            class="h-1.5 rounded-full transition-all duration-300 cursor-pointer w-5 bg-brand-500"></button>
+                        <button id="dotSpecBack" type="button" onclick="switchSpecCard('back')" aria-label="Lihat Sisi Belakang"
+                            class="h-1.5 rounded-full transition-all duration-300 cursor-pointer w-1.5 bg-slate-300 hover:bg-slate-400"></button>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: 3 Spec Cards -->
+                <div class="order-3 lg:order-3 lg:col-span-4 space-y-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Sistem Perekat</span>
+                        <div class="text-base font-black text-red-600">3M VHB Industrial Tape</div>
+                        <p class="text-xs text-slate-500 mt-1">Daya rekat kuat untuk permukaan kayu kasir, kaca, keramik, maupun marmer</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Teknik Cetak</span>
+                        <div class="text-base font-black text-slate-900">Direct UV Flatbed Print</div>
+                        <p class="text-xs text-slate-500 mt-1">Tinta menyatu dengan akrilik, anti pudar, tahan goresan, dan tahan air</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Kemudahan Akses</span>
+                        <h3 class="text-base font-black text-slate-900">Satu Sentuhan atau Pindai Kamera</h3>
+                        <p class="text-xs text-slate-500 mt-1">Pelanggan cukup menempelkan bagian belakang ponsel atau memindai barcode menggunakan kamera biasa. Bekerja otomatis selamanya tanpa baterai, bebas isi daya, dan langsung aktif untuk semua smartphone.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-14 sm:mt-16">
+                <a href="https://shopee.co.id" target="_blank"
+                    class="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm rounded-full transition-all shadow-xs hover:shadow-md hover:-translate-y-0.5 select-none min-h-[44px] flex items-center justify-center">
+                    Beli di Shopee
+                </a>
+                <a href="https://tokopedia.com" target="_blank"
+                    class="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm rounded-full transition-all shadow-xs hover:shadow-md hover:-translate-y-0.5 select-none min-h-[44px] flex items-center justify-center">
+                    Beli di Tokopedia
+                </a>
+                <a href="https://wa.me/6281289895646" target="_blank"
+                    class="px-8 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm rounded-full transition-all hover:-translate-y-0.5 select-none min-h-[44px] flex items-center justify-center border border-slate-200">
+                    Konsultasi WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         4. PILIHAN PRODUK
+         ======================================================== -->
+    <section id="produk" class="py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100 scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-3 pb-6 border-b border-slate-100">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                        Pilihan Produk
+                    </h2>
+                </div>
+                <p class="text-slate-500 text-xs sm:text-sm font-semibold">
+                    Tersedia untuk pesanan satuan UMKM maupun partai besar reseller resmi.
+                </p>
+            </div>
+
+            <!-- Single Featured Card: Cardiloyal NFC & QR Google Review Card -->
+            <div class="max-w-sm sm:max-w-md mx-auto">
+                <div
+                    class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <!-- Visual Top Area -->
+                    <div class="relative bg-gradient-to-b from-amber-50/50 via-orange-50/30 to-slate-50/70 p-5 sm:p-6 flex flex-col justify-between min-h-[290px] sm:min-h-[310px]">
+                        <!-- Google Review Pill Badge -->
+                        <div class="flex items-center justify-end w-full mb-3 sm:mb-4">
+                            <div
+                                class="bg-white/95 backdrop-blur-xs border border-orange-200 text-slate-800 text-[11px] font-black px-3 py-1 rounded-full shadow-2xs flex items-center gap-1.5 select-none">
+                                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.27 21.42 7.33 24 12 24z"/>
+                                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.17 0 9.99 0 12s.45 3.83 1.25 5.42l4.03-3.15z"/>
+                                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.27 2.58 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                                </svg>
+                                <span>Google Review</span>
+                            </div>
+                        </div>
+
+                        <!-- Product Image -->
+                        <div class="flex items-center justify-center my-auto pb-2">
+                            <img src="assets/google-review-card.jpg"
+                                alt="Plakat Akrilik Google Review Standar"
+                                class="w-40 h-40 sm:w-44 sm:h-44 object-cover rounded-2xl shadow-md border border-orange-100/80 transform transition-transform duration-300 group-hover:scale-105"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Body Content -->
+                    <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-lg font-black text-slate-900 mb-1.5 leading-snug">
+                                Plakat Akrilik Google Review Standar
+                            </h3>
+                            <p class="text-xs text-slate-500 mb-6 leading-relaxed">
+                                Cara termudah mengajak pelanggan puas memberikan ulasan bintang 5 sebelum beranjak dari meja kasir. Langsung terhubung otomatis ke profil Google Maps toko Anda, praktis dan siap pakai tanpa setting teknis.
+                            </p>
+
+                            <div class="flex items-baseline gap-2 mb-6">
+                                <span class="text-3xl font-black text-brand-600">Rp69.000</span>
+                                <span class="text-sm line-through text-slate-400 font-semibold">Rp138.000</span>
+                            </div>
+                        </div>
+
+                        <a href="https://xen.to/qUGDHIMl" target="_blank" rel="noopener noreferrer"
+                            class="block w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-center font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition duration-200 select-none min-h-[44px] flex items-center justify-center">
+                            Beli Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         5. CARA KERJA (HOW IT WORKS - 3 KARTU ANIMASI INTERAKTIF)
+         ======================================================== -->
+    <section id="cara-kerja" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200/80 scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    Tiga Langkah Mudah
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+                    Semua unit sudah kami program dan siap pakai langsung dari kotak. Tanpa perlu pemahaman teknis.
+                </p>
+            </div>
+
+            <!-- 3 Columns Step Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+                <!-- KARTU 01: Pilih & Pesan Unit -->
+                <div
+                    class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <!-- Visual Area -->
+                        <div
+                            class="relative w-full h-64 bg-gradient-to-b from-slate-50 to-slate-100/90 rounded-2xl overflow-hidden border border-slate-200 flex items-center justify-center mb-6 select-none">
+                            <!-- Dashed Track with Down Arrow: tepat di antara kartu akrilik dan keranjang -->
+                            <svg class="anim-track-1 absolute top-[94px] left-1/2 -translate-x-1/2 w-5 h-12 z-1 pointer-events-none text-slate-900"
+                                viewBox="0 0 20 48" fill="none">
+                                <line x1="10" y1="2" x2="10" y2="38" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round" />
+                                <path d="M4 36L10 44L16 36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                            <!-- Plakat Akrilik Persegi descending from top -->
+                            <div
+                                class="anim-card-01 absolute left-1/2 w-16 h-16 rounded-xl overflow-hidden shadow-lg border border-slate-200 bg-white z-10 pointer-events-none select-none">
+                                <img src="assets/plakat-depan.jpg" alt="Plakat Akrilik Google Review" class="w-full h-full object-cover pointer-events-none select-none">
+                            </div>
+
+                            <!-- Cart Rising & Bouncing on Impact -->
+                            <div
+                                class="anim-cart-01 absolute left-1/2 z-2 flex items-center justify-center pointer-events-none">
+                                <svg class="w-16 h-16 stroke-slate-900 fill-none stroke-[2.3] stroke-linecap-round stroke-linejoin-round drop-shadow-xs"
+                                    viewBox="0 0 24 24">
+                                    <circle cx="9" cy="21" r="1.5"></circle>
+                                    <circle cx="20" cy="21" r="1.5"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+
+                                <!-- Checklist Pop-Up Badge -->
+                                <div
+                                    class="anim-check-01 absolute -top-3 -right-3 w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center border-2 border-white shadow-lg shadow-emerald-500/40">
+                                    <svg class="w-4 h-4 stroke-white stroke-[3.2] fill-none stroke-linecap-round stroke-linejoin-round"
+                                        viewBox="0 0 24 24">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+
+                                <!-- Sparkles -->
+                                <svg class="anim-sparkle-01 absolute -top-4 -right-4 w-10 h-10 pointer-events-none"
+                                    viewBox="0 0 40 40">
+                                    <circle cx="20" cy="5" r="2" fill="#10b981"></circle>
+                                    <circle cx="35" cy="18" r="1.5" fill="#f59e0b"></circle>
+                                    <circle cx="8" cy="16" r="1.5" fill="#38bdf8"></circle>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Step Description -->
+                        <span class="text-xs font-black text-brand-600 uppercase tracking-widest block mb-1">01. Langkah
+                            Pertama</span>
+                        <h3 class="text-xl font-black text-slate-900 mb-2">Pesan Sesuai Jumlah Kasir</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Tentukan berapa titik kasir atau cabang usaha yang ingin dipasangi plakat akrilik ulasan Google Maps.
+                        </p>
+                    </div>
+
+                    <div
+                        class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-bold">
+                        <span>Pesan Praktis</span>
+                        <span class="text-brand-600">Garansi Seumur Hidup</span>
+                    </div>
+                </div>
+
+                <!-- KARTU 02: Kirim Tautan Usaha -->
+                <div
+                    class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <!-- Visual Area -->
+                        <div
+                            class="relative w-full h-64 bg-gradient-to-b from-slate-50 to-slate-100/90 rounded-2xl overflow-hidden border border-slate-200 flex items-center justify-center mb-6 select-none">
+                            <!-- Dashed Track with Down Arrow (5 Dashes + Arrow) -->
+                            <svg class="anim-track-2 absolute top-6 left-1/2 -translate-x-1/2 w-5 h-20 z-1 pointer-events-none text-slate-900"
+                                viewBox="0 0 20 80" fill="none">
+                                <line x1="10" y1="4" x2="10" y2="68" stroke="currentColor" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round" />
+                                <path d="M4 65L10 74L16 65" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                            <!-- Database Multi-Layer Cylinder SVG -->
+                            <div class="anim-db-02 absolute left-1/2 z-2 pointer-events-none">
+                                <svg class="w-14 h-14 drop-shadow-xs" viewBox="0 0 64 64" fill="none">
+                                    <ellipse cx="32" cy="16" rx="22" ry="7" fill="#e0f2fe" stroke="#0284c7"
+                                        stroke-width="2.5"></ellipse>
+                                    <ellipse cx="32" cy="16" rx="16" ry="4.5" fill="#bae6fd"></ellipse>
+                                    <path d="M10 16v14c0 3.86 9.85 7 22 7s22-3.14 22-7V16" fill="#f8fafc"
+                                        stroke="#0284c7" stroke-width="2.5"></path>
+                                    <circle cx="46" cy="23" r="2.2" fill="#10b981"></circle>
+                                    <circle cx="40" cy="23" r="2.2" fill="#38bdf8"></circle>
+                                    <path d="M10 30v14c0 3.86 9.85 7 22 7s22-3.14 22-7V30" fill="#f1f5f9"
+                                        stroke="#0284c7" stroke-width="2.5"></path>
+                                    <circle cx="46" cy="37" r="2.2" fill="#10b981"></circle>
+                                    <circle cx="40" cy="37" r="2.2" fill="#fbbf24"></circle>
+                                </svg>
+                            </div>
+
+                            <!-- Moving URL Capsule with clean SVG link icon -->
+                            <div
+                                class="anim-url-02 absolute left-1/2 bg-white border border-blue-200 px-3 py-1.5 rounded-full shadow-md text-[10px] text-blue-600 font-bold whitespace-nowrap z-4 flex items-center gap-1.5 pointer-events-none">
+                                <svg class="w-3 h-3 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                                </svg>
+                                <span>https://your-review-link.com</span>
+                            </div>
+
+                            <!-- Logo Cardi Loyal Card Enlarging at Center -->
+                            <div
+                                class="anim-logo-02 absolute left-1/2 z-5 bg-white px-4 py-2.5 rounded-2xl border border-slate-200/80 shadow-xl flex items-center justify-center pointer-events-none">
+                                <img src="assets/logo-loyal-official.png" alt="Cardi Agent Loyal" class="h-5 sm:h-6 w-auto object-contain">
+                            </div>
+                        </div>
+
+                        <!-- Step Description -->
+                        <span class="text-xs font-black text-brand-600 uppercase tracking-widest block mb-1">02. Langkah Kedua</span>
+                        <h3 class="text-xl font-black text-slate-900 mb-2">Kirim Link Google Maps &amp; Logo</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Kirimkan link profil bisnis dan file logo usaha via WhatsApp. Tim kami memprogram chip NFC dan mencetak plakat dengan mesin UV flatbed.
+                        </p>
+                    </div>
+
+                    <div
+                        class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-bold">
+                        <span>Setting Siap Pakai</span>
+                        <span class="text-blue-600">Garansi Chip Aktif</span>
+                    </div>
+                </div>
+
+                <!-- KARTU 03: Siap Digunakan di Lokasi -->
+                <div id="cardStep3"
+                    class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 cursor-pointer"
+                    title="Klik kartu ini untuk mencoba suara notifikasi tap NFC">
+                    <div>
+                        <!-- Visual Area -->
+                        <div
+                            class="relative w-full h-64 bg-gradient-to-b from-slate-50 to-slate-100/90 rounded-2xl overflow-hidden border border-slate-200 flex items-center justify-center mb-6 select-none">
+                            <!-- Centered Interactive Stage -->
+                            <div class="relative w-[300px] h-[220px] pointer-events-none select-none">
+
+                                <!-- Contact Ripple Wave 1 -->
+                                <div
+                                    class="anim-ripple-03 absolute left-[196px] top-[46px] w-9 h-9 rounded-full border-2 border-brand-500 pointer-events-none z-30">
+                                </div>
+                                <!-- Contact Ripple Wave 2 -->
+                                <div
+                                    class="anim-ripple-03-delayed absolute left-[196px] top-[46px] w-9 h-9 rounded-full border-2 border-amber-400 pointer-events-none z-30">
+                                </div>
+
+                                <!-- Contact Sparkle -->
+                                <div
+                                    class="anim-sparkle-03 absolute left-[196px] top-[46px] w-9 h-9 pointer-events-none z-30 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-amber-400 drop-shadow-md" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z" />
+                                    </svg>
+                                </div>
+
+                                <!-- Stand Akrilik Google Review Persegi -->
+                                <div class="anim-plakat-03 absolute left-[196px] top-[42px] z-10 pointer-events-none select-none flex flex-col items-center">
+                                    <div class="w-[84px] h-[84px] bg-white border border-slate-200/90 rounded-2xl shadow-xl overflow-hidden relative">
+                                        <img src="assets/plakat-depan.jpg" alt="Plakat Akrilik Google Review" class="w-full h-full object-cover pointer-events-none select-none">
+                                    </div>
+                                    <div class="w-16 h-2 bg-slate-300/80 rounded-full blur-[0.4px] mt-1.5 shadow-xs"></div>
+                                </div>
+
+                                <!-- Smartphone Bergerak Tap Miring Pas Menempel ke Akrilik -->
+                                <div
+                                    class="anim-phone-03 absolute left-[14px] top-[26px] w-[104px] h-[174px] bg-white rounded-[26px] border-[2.8px] border-slate-800 shadow-2xl p-1.5 flex flex-col items-center z-20 pointer-events-none">
+                                    <!-- Speaker Notch -->
+                                    <div class="w-8 h-1.5 bg-slate-900 rounded-full mb-1.5"></div>
+
+                                    <!-- Screen Container -->
+                                    <div
+                                        class="w-full flex-1 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col items-center justify-between p-1.5 relative overflow-hidden">
+
+                                        <!-- Mini Status Bar -->
+                                        <div class="w-full flex items-center justify-between px-1 text-[7px] font-black text-slate-400 select-none">
+                                            <span>12:45</span>
+                                            <div class="flex items-center gap-1">
+                                                <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path d="M10 3c-4.4 0-8.2 2.5-10 6.2 1.8 3.7 5.6 6.2 10 6.2s8.2-2.5 10-6.2c-1.8-3.7-5.6-6.2-10-6.2zm0 10.4c-2.3 0-4.2-1.9-4.2-4.2s1.9-4.2 4.2-4.2 4.2 1.9 4.2 4.2-1.9 4.2-4.2 4.2z"/></svg>
+                                                <span>100%</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- STATE A: Prompt Layar Sebelum Nempel -->
+                                        <div class="anim-screen-idle flex flex-col items-center justify-center text-center my-auto">
+                                            <div class="w-8 h-8 rounded-full bg-brand-50 border border-brand-200 flex items-center justify-center text-brand-600 mb-1 shadow-xs">
+                                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                                    <path d="M8.5 16.5a6 6 0 0 1 0-9"></path>
+                                                    <path d="M12 19a10 10 0 0 1 0-14"></path>
+                                                    <path d="M15.5 21.5a14 14 0 0 1 0-19"></path>
+                                                </svg>
+                                            </div>
+                                            <span class="text-[8px] font-black text-slate-800 leading-tight">Dekatkan HP</span>
+                                            <span class="text-[6.5px] font-bold text-brand-500 mt-0.5">Ke Plakat Akrilik</span>
+                                        </div>
+
+                                        <!-- STATE B: Modal 5 Bintang Ulasan Berhasil Pop-Up -->
+                                        <div class="anim-modal-03 absolute inset-x-1.5 inset-y-5 bg-white/95 backdrop-blur-sm rounded-xl border border-slate-200 shadow-md p-1.5 flex flex-col items-center justify-center text-center">
+                                            <div class="flex items-center justify-center gap-0.5 text-amber-400 text-[11px] font-black drop-shadow mb-1">
+                                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                            </div>
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30 mb-1">
+                                                <svg class="w-3.5 h-3.5 stroke-white stroke-[3] fill-none stroke-linecap-round"
+                                                    viewBox="0 0 24 24">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </div>
+                                            <span class="text-[8.5px] font-black text-slate-900 leading-tight">Ulasan Berhasil!</span>
+                                            <span class="text-[7px] font-extrabold text-amber-500 mt-0.5">5 Bintang Terkirim</span>
+                                            <div class="mt-1 px-1.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-[6px] font-bold text-amber-700">
+                                                Google Review +1
+                                            </div>
+                                        </div>
+
+                                        <!-- Home Indicator -->
+                                        <div class="w-8 h-1 bg-slate-300 rounded-full mt-auto mb-0.5"></div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Step Description -->
+                        <span class="text-xs font-black text-brand-600 uppercase tracking-widest block mb-1">03. Langkah Ketiga</span>
+                        <h3 class="text-xl font-black text-slate-900 mb-2">Pasang &amp; Terima Ulasan</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Buka pelindung perekat 3M VHB dan tempelkan di meja kasir. Pelanggan tinggal menempelkan HP untuk memberikan bintang 5.
+                        </p>
+                    </div>
+
+                    <div
+                        class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-bold">
+                        <span>Perekat 3M VHB</span>
+                        <span class="text-emerald-600 flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Klik Kartu untuk Coba Suara
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         6. FITUR: SMART NFC GOOGLE REVIEW
+         ======================================================== -->
+    <section id="fitur" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100 scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+                <!-- Kolom Kiri: Copywriting & Value -->
+                <div class="lg:col-span-6 space-y-6">
+                    <!-- Judul (h2) -->
+                    <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-black text-slate-900 tracking-tight leading-[1.18]">
+                        Ubah Pelanggan Puas Menjadi Ulasan Bintang 5 di Google Maps Cukup Sekali Tempel HP
+                    </h2>
+
+                    <!-- Paragraf 1 -->
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Banyak pelanggan sebenarnya sangat puas dengan layanan Anda dan rela memberi rating tinggi, tetapi alur manual sering kali membuat mereka urung: harus membuka peramban, mengetik nama toko, mencari cabang lokasi yang tepat, baru bisa masuk ke kolom ulasan.
+                    </p>
+
+                    <!-- Paragraf 2 -->
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Plakat akrilik pintar <span class="font-bold text-slate-900">Cardi Loyal Card</span> memangkas seluruh hambatan tersebut hanya dalam 1 detik. Cukup letakkan plakat di meja kasir atau meja santap, pelanggan hanya perlu mendekatkan smartphone mereka, dan formulir rating Google Maps bisnis Anda akan langsung terbuka seketika di layar.
+                    </p>
+
+                    <!-- Paragraf 3 (tebal) -->
+                    <p class="text-slate-900 font-bold text-sm sm:text-base leading-relaxed">
+                        Tanpa mengetik alamat toko, tanpa pencarian manual, dan tanpa instalasi aplikasi apa pun. Cukup sekali tempel, beri bintang 5, dan ulasan positif langsung terbit.
+                    </p>
+
+                    <!-- 4 Checkmarks -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 text-xs font-black">
+                                ✓
+                            </div>
+                            <span class="text-xs sm:text-sm font-bold text-slate-800">Langsung ke Formulir Bintang 5</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 text-xs font-black">
+                                ✓
+                            </div>
+                            <span class="text-xs sm:text-sm font-bold text-slate-800">Support iPhone &amp; Semua Android</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 text-xs font-black">
+                                ✓
+                            </div>
+                            <span class="text-xs sm:text-sm font-bold text-slate-800">Sekali Beli, Tanpa Iuran Bulanan</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 text-xs font-black">
+                                ✓
+                            </div>
+                            <span class="text-xs sm:text-sm font-bold text-slate-800">Dilengkapi Cadangan QR Code Laser</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Proof Rating -->
+                    <div class="flex items-center gap-2 pt-4 border-t border-slate-100">
+                        <div class="flex text-amber-400 text-sm tracking-tight">★★★★★</div>
+                        <span class="text-xs font-bold text-slate-700">Terbukti Meningkatkan Ulasan Toko Hingga 3x Lipat</span>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Mockup Gambar -->
+                <div class="lg:col-span-6 flex items-center justify-center">
+                    <div class="relative w-full max-w-[360px] sm:max-w-[420px] flex items-center justify-center group">
+                        <img src="assets/mockup-google-review.png" alt="Mockup Google Review Smartphone dan Kartu Cardi Loyal" class="w-full max-w-[360px] sm:max-w-[420px] h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         7. SOLUSI LAYANAN PELANGGAN
+         ======================================================== -->
+    <section id="solusi" class="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200/80 scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+                <!-- Kolom Kiri: Mockup Gambar -->
+                <div class="lg:col-span-6 flex items-center justify-center order-2 lg:order-1">
+                    <div class="relative w-full max-w-[360px] sm:max-w-[420px] flex items-center justify-center group">
+                        <img src="assets/fitur-phone-cards.png" alt="Fitur Utama Kartu dan Plakat Ulasan Google Review" class="w-full max-w-[360px] sm:max-w-[420px] h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]">
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: 3 Poin Keunggulan -->
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
+                    <!-- Judul (h2) -->
+                    <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-black text-slate-900 tracking-tight leading-[1.18]">
+                        Cara Paling Praktis Mengajak Pelanggan Memberi Ulasan Positif
+                    </h2>
+
+                    <!-- 3 Poin Checklist -->
+                    <div class="space-y-4 pt-1">
+                        <!-- Poin 1 -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-600 flex items-center justify-center shrink-0 font-black text-sm">
+                                01
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-sm sm:text-base text-slate-900">Akses Instan Tanpa Repot Cari Manual</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                                    Pelanggan tidak perlu lagi membuka browser atau mengetik nama toko Anda di peta. Cukup dekatkan ponsel ke plakat, formulir ulasan Google Maps bintang 5 langsung terbuka di layar siap diisi dalam 1 detik.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Poin 2 -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-600 flex items-center justify-center shrink-0 font-black text-sm">
+                                02
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-sm sm:text-base text-slate-900">Mendukung Semua Jenis Smartphone</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                                    Berfungsi otomatis di seluruh smartphone iPhone dan Android yang memiliki fitur NFC tanpa perlu install aplikasi tambahan. Tersedia juga QR code presisi di bagian belakang untuk perangkat lainnya.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Poin 3 -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-600 flex items-center justify-center shrink-0 font-black text-sm">
+                                03
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-sm sm:text-base text-slate-900">Tampilan Rapi &amp; Menjaga Citra Profesional</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                                    Dibuat dari akrilik bening berkualitas tinggi yang mempercantik meja kasir, meja resepsionis, atau meja santap, membantu staf Anda mengajak pelanggan memberi rating secara natural tanpa canggung.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paragraf Penutup -->
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200 pt-4">
+                        Bagi bisnis lokal, ulasan positif di Google Maps adalah penentu utama apakah calon pelanggan akan memilih datang ke tempat Anda atau melangkah ke kompetitor. Jangan biarkan kepuasan mereka menguap begitu saja. Jadikan proses memberi ulasan semudah menyentuhkan layar tepat saat mereka merasakan pelayanan terbaik di tempat Anda.
+                    </p>
+
+                    <!-- Jaminan Garansi -->
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 pt-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span>Garansi chip aktif selamanya tanpa iuran bulanan</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         8. PROGRAM KEMITRAAN AFILIASI
+         ======================================================== -->
+    <section id="paket" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-100/70 border-b border-slate-200/80 scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+                    Program Kemitraan Afiliasi
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                    Raih penghasilan tambahan tanpa modal dan tanpa simpan stok. Rekomendasikan plakat akrilik Google Maps kepada pemilik bisnis dan nikmati komisi di setiap transaksi.
+                </p>
+            </div>
+
+            <!-- Single Centered Affiliate Card (max-w-xl mx-auto) -->
+            <div class="max-w-xl mx-auto">
+                <div
+                    class="bg-white rounded-3xl p-8 sm:p-10 border-2 border-brand-500 shadow-xl relative flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-500 text-white font-bold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md shadow-brand-500/20 whitespace-nowrap flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <span>Pilihan Rekomendasi</span>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4 mt-2">
+                            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Kemitraan Resmi</span>
+                            <span class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 rounded-full font-bold">100% Gratis</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Official Affiliate Partner</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 mb-6 leading-relaxed">
+                            Cocok untuk kreator, agensi, maupun individu yang ingin menghasilkan passive income dengan merekomendasikan plakat akrilik ulasan Google Maps.
+                        </p>
+
+                        <!-- Highlight Box: Komisi 50% Per Closing Unit -->
+                        <div class="mb-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50/60 border border-orange-200/80 shadow-xs">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-black uppercase tracking-wider text-brand-700">Skema Bagi Hasil</span>
+                                <span class="text-[11px] font-bold bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full">0 Modal &bull; 0 Stok</span>
+                            </div>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Komisi 50%</span>
+                                <span class="text-sm sm:text-base font-extrabold text-brand-600">Per Closing Unit</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed font-medium">
+                                Dapatkan bagi hasil hingga 50% di setiap penjualan plakat akrilik atau kartu melalui link referral Anda. Pencairan transparan langsung ke rekening bank.
+                            </p>
+                        </div>
+
+                        <!-- Professional Feature Checklist -->
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600 mb-8">
+                            <li class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</div>
+                                <span><strong>Tanpa modal awal (0 Rupiah)</strong> &ndash; Bebas biaya pendaftaran dan tanpa biaya perpanjangan akun selamanya.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</div>
+                                <span><strong>Tanpa simpan stok barang</strong> &ndash; Tidak perlu modal stok produk, 0 risiko barang menumpuk atau rusak.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</div>
+                                <span><strong>Produksi plakat akrilik &amp; pengiriman diurus 100%</strong> oleh tim Cardi Loyal Card langsung ke alamat pelanggan.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</div>
+                                <span><strong>Katalog foto &amp; video promosi siap pakai</strong> tanpa watermark untuk diposting di media sosial dan marketplace.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</div>
+                                <span><strong>Bimbingan &amp; konsultasi prioritas</strong> langsung via WhatsApp tim Cardi Loyal Card.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="affiliate.html"
+                        class="block w-full py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-center font-extrabold text-sm sm:text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 active:translate-y-0 transition select-none min-h-[48px] flex items-center justify-center gap-2">
+                        <span>Daftar Jadi Affiliate Sekarang</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Catatan Jaminan Transparansi Margin -->
+            <div class="mt-12 text-center max-w-xl mx-auto">
+                <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white border border-slate-200/90 text-slate-700 text-xs font-semibold shadow-xs">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>100% Gratis &bull; Tanpa iuran bulanan &bull; Tanpa target penjualan wajib</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         9. FAQ (FREQUENTLY ASKED QUESTIONS)
+         ======================================================== -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200/80 scroll-mt-20 overflow-hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    Pertanyaan yang Sering Diajukan
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                    Semua yang perlu Anda ketahui mengenai plakat akrilik dan kartu NFC Cardi Loyal Card.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="rounded-2xl bg-white border border-slate-200 p-5 cursor-pointer select-none transition shadow-2xs hover:border-brand-400 faq-accordion">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-extrabold text-sm sm:text-base text-slate-900">Apakah plakat ini butuh baterai atau colokan listrik?</h4>
+                        <span class="text-brand-500 font-black text-lg faq-icon">+</span>
+                    </div>
+                    <div
+                        class="faq-content hidden mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Sama sekali tidak. Chip NFC bekerja secara pasif dari induksi smartphone saat didekatkan. Plakat ini berfungsi selamanya tanpa perlu colokan listrik, kabel charger, ataupun penggantian baterai.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div
+                    class="rounded-2xl bg-white border border-slate-200 p-5 cursor-pointer select-none transition shadow-2xs hover:border-brand-400 faq-accordion">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-extrabold text-sm sm:text-base text-slate-900">Bagaimana jika HP pelanggan belum memiliki fitur NFC?</h4>
+                        <span class="text-brand-500 font-black text-lg faq-icon">+</span>
+                    </div>
+                    <div
+                        class="faq-content hidden mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Setiap unit plakat sudah dilengkapi cadangan QR Code di sisi belakang. Pelanggan cukup membuka kamera ponsel bawaan untuk langsung memindai tautan ulasan tanpa kendala.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div
+                    class="rounded-2xl bg-white border border-slate-200 p-5 cursor-pointer select-none transition shadow-2xs hover:border-brand-400 faq-accordion">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-extrabold text-sm sm:text-base text-slate-900">Apakah bisa custom dengan logo dan nama tempat usaha saya?</h4>
+                        <span class="text-brand-500 font-black text-lg faq-icon">+</span>
+                    </div>
+                    <div
+                        class="faq-content hidden mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Bisa. Kirimkan file logo usaha Anda (format PNG, JPG, PDF, atau vektor) via WhatsApp saat pemesanan. Kami cetak menggunakan mesin UV Flatbed beresolusi tinggi yang tahan gores dan tahan air.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div
+                    class="rounded-2xl bg-white border border-slate-200 p-5 cursor-pointer select-none transition shadow-2xs hover:border-brand-400 faq-accordion">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-extrabold text-sm sm:text-base text-slate-900">Apakah tautan Google Maps di chip bisa diganti di kemudian hari?</h4>
+                        <span class="text-brand-500 font-black text-lg faq-icon">+</span>
+                    </div>
+                    <div
+                        class="faq-content hidden mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Bisa. Standarnya chip kami proteksi agar aman dari modifikasi pihak lain di meja kasir. Namun jika usaha Anda pindah lokasi atau ganti nama, tim kami siap memandu cara update tautan tersebut.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 (Kemitraan) -->
+                <div
+                    class="rounded-2xl bg-white border border-slate-200 p-5 cursor-pointer select-none transition shadow-2xs hover:border-brand-400 faq-accordion">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-extrabold text-sm sm:text-base text-slate-900">Berapa perkiraan keuntungan bagi mitra reseller?</h4>
+                        <span class="text-brand-500 font-black text-lg faq-icon">+</span>
+                    </div>
+                    <div
+                        class="faq-content hidden mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Keuntungan penjualan fisik 100% menjadi hak Anda. Biaya cetak modal vendor tangan pertama dari kami adalah Rp15.000/pcs, dan harga jual pasaran ke pemilik usaha berkisar antara Rp75.000 hingga Rp120.000/pcs tanpa potongan komisi royalti.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 (Kemitraan) -->
+                <div
+                    class="rounded-2xl bg-white border border-slate-200 p-5 cursor-pointer select-none transition shadow-2xs hover:border-brand-400 faq-accordion">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-extrabold text-sm sm:text-base text-slate-900">Apakah ada target omzet penjualan atau biaya perpanjangan bulanan?</h4>
+                        <span class="text-brand-500 font-black text-lg faq-icon">+</span>
+                    </div>
+                    <div
+                        class="faq-content hidden mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Tidak ada sama sekali. Biaya pendaftaran paket kemitraan bersifat sekali bayar untuk akses seumur hidup. Anda bebas berjualan kapan saja tanpa target omzet maupun potongan bulanan.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+         10. FOOTER MODERN ENTERPRISE (#E86100)
+         ======================================================== -->
+    <footer class="bg-[#e86100] text-white pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t border-orange-700/20 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+            <!-- Col 1: Brand Profile (4 cols) -->
+            <div class="lg:col-span-4 space-y-4">
+                <a href="#" class="inline-flex items-center group select-none py-1 cursor-pointer" aria-label="Cardi Loyal Homepage">
+                    <img src="assets/logo-loyal-footer.png" alt="Cardi Agent Loyal Card"
+                        class="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105">
+                </a>
+                <p class="text-xs text-white/95 leading-relaxed max-w-sm">
+                    Spesialis plakat akrilik meja dan kartu pintar NFC terdepan di Indonesia. Membantu ribuan UMKM dan pelaku bisnis meraih ulasan bintang 5 Google Maps secara instan.
+                </p>
+
+                <!-- Keunggulan Fisik Nyata Badges -->
+                <div class="flex flex-wrap items-center gap-2 pt-1">
+                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/20 border border-white/20 text-[11px] font-semibold text-white shadow-sm">
+                        <svg class="w-3.5 h-3.5 text-emerald-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Chip NTAG Aktif Selamanya</span>
+                    </div>
+                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/20 border border-white/20 text-[11px] font-semibold text-white shadow-sm">
+                        <svg class="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span>Cetak UV Flatbed Tahan Air</span>
+                    </div>
+                </div>
+
+                <!-- Social Media Channels -->
+                <div class="pt-2 flex items-center gap-2.5 text-white">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-black/20 hover:bg-black/40 text-white flex items-center justify-center transition border border-white/20 hover:border-white/50" aria-label="Instagram">
+                        <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-black/20 hover:bg-black/40 text-white flex items-center justify-center transition border border-white/20 hover:border-white/50" aria-label="TikTok">
+                        <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 2: Navigasi Halaman (2 cols) -->
+            <div class="lg:col-span-2 space-y-4">
+                <h4 class="text-xs font-black uppercase tracking-wider text-white">Navigasi Halaman</h4>
+                <ul class="space-y-2.5 text-xs text-orange-100">
+                    <li><a href="#spesifikasi" class="hover:text-white transition-colors flex items-center gap-1.5 py-0.5"><span>Spesifikasi Plakat</span></a></li>
+                    <li><a href="#produk" class="hover:text-white transition-colors flex items-center gap-1.5 py-0.5"><span>Pilihan Produk</span></a></li>
+                    <li><a href="#cara-kerja" class="hover:text-white transition-colors flex items-center gap-1.5 py-0.5"><span>Cara Kerja 3 Langkah</span></a></li>
+                    <li><a href="#fitur" class="hover:text-white transition-colors flex items-center gap-1.5 py-0.5"><span>Keunggulan Smart NFC</span></a></li>
+                    <li><a href="#paket" class="hover:text-white transition-colors flex items-center gap-1.5 py-0.5"><span>Kemitraan Afiliasi</span></a></li>
+                    <li><a href="#faq" class="hover:text-white transition-colors flex items-center gap-1.5 py-0.5"><span>Tanya Jawab (FAQ)</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Toko Resmi Online (3 cols) -->
+            <div class="lg:col-span-3 space-y-4">
+                <h4 class="text-xs font-black uppercase tracking-wider text-white">Toko Resmi Online</h4>
+                <div class="space-y-3.5 text-xs">
+                    <!-- Shopee Official -->
+                    <a href="https://shopee.co.id" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-between group py-1 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <img src="assets/shopee-user.png" alt="Shopee Official Store" class="w-7 h-7 object-contain shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-sm">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-slate-950 transition-colors block leading-tight">Shopee Official Store</span>
+                                <span class="text-[11px] text-orange-100">Toko Resmi Terverifikasi</span>
+                            </div>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-orange-200 group-hover:text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+
+                    <!-- Tokopedia Official -->
+                    <a href="https://tokopedia.com" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-between group py-1 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <img src="assets/tokopedia-user.png" alt="Tokopedia Official Store" class="w-7 h-7 object-contain shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-sm">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-slate-950 transition-colors block leading-tight">Tokopedia Official Store</span>
+                                <span class="text-[11px] text-orange-100">Power Merchant Pro</span>
+                            </div>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-orange-200 group-hover:text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+
+                    <!-- TikTok Shop Official -->
+                    <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-between group py-1 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <img src="assets/tiktok-shop.png" alt="TikTok Shop Official" class="w-7 h-7 object-contain shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-sm">
+                            <div>
+                                <span class="font-bold text-white group-hover:text-slate-950 transition-colors block leading-tight">TikTok Shop Official</span>
+                                <span class="text-[11px] text-orange-100">Toko Resmi Terverifikasi</span>
+                            </div>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-orange-200 group-hover:text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+
+                    <!-- WhatsApp CS Resmi -->
+                    <a href="https://wa.me/6281289895646?text=Halo%20Cardi%20Loyal%20Card%2C%20saya%20tertarik%20dengan%20Plakat%20Akrilik%20Google%20Review" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-between group py-1 transition-colors">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-7 h-7 text-white shrink-0 fill-current transition-transform duration-200 group-hover:scale-110 drop-shadow-sm" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                            </svg>
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-bold text-white group-hover:text-slate-950 transition-colors block leading-tight">WhatsApp CS Resmi</span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                                </div>
+                                <span class="text-[11px] text-orange-100">Chat Langsung Customer Service</span>
+                            </div>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-orange-200 group-hover:text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 4: Kontak & FAQ (3 cols) -->
+            <div class="lg:col-span-3 space-y-4">
+                <h4 class="text-xs font-black uppercase tracking-wider text-white">Kontak &amp; FAQ</h4>
+
+                <div class="space-y-4 text-xs text-orange-100">
+                    <!-- Layanan Kontak Resmi -->
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-white block">Layanan Kontak Resmi</span>
+                        <ul class="space-y-2.5 text-xs">
+                            <li>
+                                <a href="https://wa.me/6281289895646?text=Halo%20Cardi%20Loyal%20Card%2C%20saya%20ingin%20tanya%20seputar%20plakat%20NFC" target="_blank" rel="noopener noreferrer"
+                                    class="text-orange-100 hover:text-white transition-colors flex items-center gap-2 py-0.5">
+                                    <svg class="w-4 h-4 text-white shrink-0 fill-current" viewBox="0 0 24 24">
+                                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                                    </svg>
+                                    <span>Konsultasi Cepat via WhatsApp</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:halo@cardiloyal.id"
+                                    class="text-orange-100 hover:text-white transition-colors flex items-center gap-2 py-0.5">
+                                    <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Email: <span class="text-white font-semibold underline decoration-white/40">halo@cardiloyal.id</span></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Pusat Bantuan & FAQ -->
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-white block">Pusat Bantuan</span>
+                        <ul class="space-y-2.5 text-xs">
+                            <li>
+                                <a href="#faq"
+                                    class="text-orange-100 hover:text-white transition-colors flex items-center gap-2 group py-0.5">
+                                    <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Pusat Bantuan &amp; FAQ</span>
+                                    <svg class="w-3.5 h-3.5 text-orange-200 group-hover:text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between text-xs text-orange-100/90 gap-4">
+            <p>&copy; 2026 Cardi Loyal Card Indonesia. All rights reserved.</p>
+            <p>Google Maps &amp; Google Review adalah merek dagang dari Google LLC.</p>
+        </div>
+    </footer>
+
+
+    <!-- ========================================================
+         11. FLOATING WHATSAPP BUTTON (CALL TO ACTION)
+         ======================================================== -->
+    <a href="https://wa.me/6281289895646?text=Halo%20Cardi%20Loyal%20Card%2C%20saya%20tertarik%20dengan%20Plakat%20Akrilik%20Google%20Review"
+        target="_blank"
+        class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center group min-h-[48px] min-w-[48px]"
+        aria-label="Chat WhatsApp">
+        <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+        <span
+            class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 font-bold text-xs pl-0 group-hover:pl-2">
+            Konsultasi Plakat
+        </span>
+    </a>
+
+    <!-- SCRIPT LOADER & LOGIC -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

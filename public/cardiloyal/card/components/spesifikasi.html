@@ -1,0 +1,152 @@
+<!-- ========================================================
+         3. SPESIFIKASI PLAKAT AKRILIK: ARCHITECTURAL HARDWARE SHOWCASE
+         ======================================================== -->
+    <section id="spesifikasi" class="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-200/80 scroll-mt-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+                    Spesifikasi Material Plakat
+                </h2>
+                <p class="text-slate-500 font-medium mt-3 text-sm sm:text-base leading-relaxed">
+                    Akrilik Grade A dengan chip NFC NTAG213 dan perekat 3M VHB asli, kokoh dan tahan lama di meja kasir.
+                </p>
+            </div>
+
+            <!-- Architectural Layout: Left Specs | Center Pedestal Mockup | Right Specs -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+
+                <!-- Kolom Kiri: 3 Spec Cards -->
+                <div class="order-2 lg:order-1 lg:col-span-4 space-y-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Dimensi Plakat</span>
+                        <div class="text-base font-black text-slate-900">10 cm &times; 10 cm</div>
+                        <p class="text-xs text-slate-500 mt-1">Ukuran ideal dan proporsional untuk meja kasir</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Ketebalan &amp; Bobot</span>
+                        <div class="text-base font-black text-slate-900">3 mm &bull; &plusmn; 35 gram</div>
+                        <p class="text-xs text-slate-500 mt-1">Struktur kokoh, rigid, dan tidak mudah patah</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Material Utama</span>
+                        <div class="text-base font-black text-slate-900">Cast Acrylic Grade A</div>
+                        <p class="text-xs text-slate-500 mt-1">Akrilik putih susu dengan sudut melengkung halus</p>
+                    </div>
+                </div>
+
+                <!-- Kolom Tengah: Pedestal Showcase with Auto-Idle Flip Animation & Segmented Pill Switcher -->
+                <div class="order-1 lg:order-2 lg:col-span-4 flex flex-col items-center justify-center">
+                    <!-- Segmented Control (Apple style) -->
+                    <div class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200/80 mb-5 select-none">
+                        <button id="tabSpecFront" type="button" onclick="switchSpecCard('front')"
+                            class="text-xs font-semibold text-slate-900 bg-white shadow-xs rounded-lg cursor-pointer transition-all py-1.5 px-4">
+                            Tampak Depan
+                        </button>
+                        <button id="tabSpecBack" type="button" onclick="switchSpecCard('back')"
+                            class="text-xs font-semibold text-slate-500 hover:text-slate-900 rounded-lg cursor-pointer transition-all py-1.5 px-4">
+                            Tampak Belakang
+                        </button>
+                    </div>
+
+                    <!-- 3D Card Container (Square ratio 1:1, architectural styling with 1px border #E2E8F0) -->
+                    <div id="specContainer" class="spec-container w-[280px] sm:w-[320px] h-[280px] sm:h-[320px] select-none">
+                        <div id="specCard3D" class="flip-card" onclick="switchSpecCard('toggle')" title="Klik untuk membalik tampilan kartu">
+
+                            <!-- SISI DEPAN (Front Face - Gambar Asli Plakat Google Review Crisp & Static) -->
+                            <div class="card-face bg-white border border-[#E2E8F0] rounded-[28px] overflow-hidden shadow-[0_20px_45px_rgba(15,23,42,0.08)] select-none flex items-center justify-center p-0">
+                                <img src="assets/plakat-depan.jpg" alt="Sisi Depan Plakat Akrilik Google Review" class="w-full h-full object-cover rounded-[27px] pointer-events-none select-none crisp-render">
+                            </div>
+
+                            <!-- SISI BELAKANG (Back Face - PEREKAT 3M & CHIP NFC) -->
+                            <div class="card-face card-face-back bg-white border border-[#E2E8F0] rounded-[28px] p-4 sm:p-5 shadow-[0_20px_45px_rgba(15,23,42,0.08)] flex flex-col justify-between items-center text-center">
+                                <!-- Top 3M Tape Strip -->
+                                <div class="tape-3m w-full h-11 rounded-xl flex items-center justify-around px-3 text-white font-black text-sm tracking-widest select-none shadow-xs">
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                </div>
+
+                                <!-- Center NFC Area -->
+                                <div class="my-auto py-2 sm:py-3 flex flex-col items-center justify-center text-center">
+                                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full border border-dashed border-slate-300 bg-slate-50/70 flex items-center justify-center mb-2 text-slate-400">
+                                        <svg class="w-6 h-6 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M8.5 16.5a6 6 0 0 1 0-9"></path>
+                                            <path d="M12 19a10 10 0 0 1 0-14"></path>
+                                            <path d="M15.5 21.5a14 14 0 0 1 0-19"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-black text-slate-800 tracking-wider uppercase mb-1">ZONA CHIP NFC</span>
+                                    <p class="text-[10px] sm:text-[11px] leading-relaxed text-slate-400 font-medium max-w-[210px] mx-auto text-center">
+                                        Perekat 3M VHB Industrial Grade. Menempel kuat di meja kayu, kaca kasir, maupun dinding.
+                                    </p>
+                                </div>
+
+                                <!-- Bottom 3M Tape Strip -->
+                                <div class="tape-3m w-full h-11 rounded-xl flex items-center justify-around px-3 text-white font-black text-sm tracking-widest select-none shadow-xs">
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                    <span>3M</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Subtle Architectural Ambient Plakat Shadow -->
+                    <div class="w-48 h-3.5 bg-slate-300/35 rounded-[100%] blur-md mx-auto mt-4"></div>
+
+                    <!-- Pagination Indicator Dots -->
+                    <div class="flex items-center justify-center gap-2 mt-4 select-none">
+                        <button id="dotSpecFront" type="button" onclick="switchSpecCard('front')" aria-label="Lihat Sisi Depan"
+                            class="h-1.5 rounded-full transition-all duration-300 cursor-pointer w-5 bg-brand-500"></button>
+                        <button id="dotSpecBack" type="button" onclick="switchSpecCard('back')" aria-label="Lihat Sisi Belakang"
+                            class="h-1.5 rounded-full transition-all duration-300 cursor-pointer w-1.5 bg-slate-300 hover:bg-slate-400"></button>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: 3 Spec Cards -->
+                <div class="order-3 lg:order-3 lg:col-span-4 space-y-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Sistem Perekat</span>
+                        <div class="text-base font-black text-red-600">3M VHB Double Tape</div>
+                        <p class="text-xs text-slate-500 mt-1">Daya rekat industrial untuk kaca kasir, kayu, dan keramik</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Teknik Cetak</span>
+                        <div class="text-base font-black text-slate-900">UV Flatbed Direct Print</div>
+                        <p class="text-xs text-slate-500 mt-1">Warna tajam, anti gores, tahan air, dan tidak mudah luntur</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-[#E2E8F0] shadow-2xs hover:border-brand-500/40 transition-all">
+                        <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Kemudahan Akses</span>
+                        <h3 class="text-base font-black text-slate-900">Satu Sentuhan atau Pindai Kamera</h3>
+                        <p class="text-xs text-slate-500 mt-1">Pelanggan cukup menempelkan bagian belakang ponsel atau memindai barcode menggunakan kamera biasa. Bekerja otomatis selamanya tanpa baterai, bebas isi daya, dan langsung aktif untuk semua smartphone.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA Action Buttons (Beli di Shopee, Beli di Tokopedia, Konsultasi WhatsApp) -->
+            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-14 sm:mt-16">
+                <a href="https://shopee.co.id" target="_blank"
+                    class="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm rounded-full transition-all shadow-xs hover:shadow-md hover:-translate-y-0.5 select-none min-h-[44px] flex items-center justify-center">
+                    Beli di Shopee
+                </a>
+                <a href="https://tokopedia.com" target="_blank"
+                    class="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm rounded-full transition-all shadow-xs hover:shadow-md hover:-translate-y-0.5 select-none min-h-[44px] flex items-center justify-center">
+                    Beli di Tokopedia
+                </a>
+                <a href="https://wa.me/6281289895646" target="_blank"
+                    class="px-8 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm rounded-full transition-all hover:-translate-y-0.5 select-none min-h-[44px] flex items-center justify-center border border-slate-200">
+                    Konsultasi WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
