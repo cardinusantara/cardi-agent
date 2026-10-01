@@ -5,15 +5,19 @@ async function loadComponents() {
     const elements = Array.from(document.querySelectorAll('[data-include]'));
     await Promise.all(elements.map(async (el) => {
         const file = el.getAttribute('data-include');
-        try {
-            const response = await fetch(file);
-            if (response.ok) {
-                el.outerHTML = await response.text();
-            } else {
-                console.error(`Gagal memuat komponen ${file}: Status ${response.status}`);
+        if (file) {
+            const compName = file.split('/').pop().replace(/\.html$/, '');
+            const targetUrl = `/cardiloyal/card/components/${compName}.html`;
+            try {
+                const response = await fetch(targetUrl);
+                if (response.ok) {
+                    el.outerHTML = await response.text();
+                } else {
+                    console.error(`Gagal memuat komponen ${targetUrl}: Status ${response.status}`);
+                }
+            } catch (err) {
+                console.error(`Error memuat komponen ${targetUrl}:`, err);
             }
-        } catch (err) {
-            console.error(`Error memuat komponen ${file}:`, err);
         }
     }));
     // Inisialisasi seluruh fitur & interaksi setelah komponen termuat di DOM
@@ -53,13 +57,30 @@ function initPageFeatures() {
         });
     }
 
-            // 2. Hero 3D Card Flip
-            function toggleHeroCard() {
+            // 2. Hero 3D Card Flip (360 Degree Flip Interactive) & Audio Feedback
+            function toggleHeroCard(e) {
+                if (e && typeof e.stopPropagation === 'function') {
+                    e.stopPropagation();
+                }
                 const card = document.getElementById('heroCard3D');
                 if (card) {
                     card.classList.toggle('is-flipped');
+                    try {
+                        getAudioContext();
+                        playNfcTapChime();
+                    } catch (err) {}
                 }
             }
+
+            // Pastikan event listener untuk interaksi kartu Hero terpasang aman
+            const heroCard = document.getElementById('heroCard3D');
+            if (heroCard) {
+                heroCard.onclick = toggleHeroCard;
+            }
+            const heroFlipBtns = document.querySelectorAll('button[onclick*="toggleHeroCard"]');
+            heroFlipBtns.forEach(btn => {
+                btn.onclick = toggleHeroCard;
+            });
 
             // 2b. Spesifikasi Plakat 3D Card Toggle & Auto-Idle Flip Animation
             let specCardAutoFlipTimer = null;
@@ -115,6 +136,32 @@ function initPageFeatures() {
                         dotBack.className = 'h-1.5 rounded-full transition-all duration-300 cursor-pointer w-1.5 bg-slate-300 hover:bg-slate-400';
                     }
                 }
+                try {
+                    getAudioContext();
+                    playNfcTapChime();
+                } catch (err) {}
+            }
+
+            // Pastikan event listener kontrol kartu spesifikasi terpasang
+            const specCard = document.getElementById('specCard3D');
+            if (specCard) {
+                specCard.onclick = () => switchSpecCard('toggle');
+            }
+            const tabSpecFrontEl = document.getElementById('tabSpecFront');
+            if (tabSpecFrontEl) {
+                tabSpecFrontEl.onclick = () => switchSpecCard('front');
+            }
+            const tabSpecBackEl = document.getElementById('tabSpecBack');
+            if (tabSpecBackEl) {
+                tabSpecBackEl.onclick = () => switchSpecCard('back');
+            }
+            const dotSpecFrontEl = document.getElementById('dotSpecFront');
+            if (dotSpecFrontEl) {
+                dotSpecFrontEl.onclick = () => switchSpecCard('front');
+            }
+            const dotSpecBackEl = document.getElementById('dotSpecBack');
+            if (dotSpecBackEl) {
+                dotSpecBackEl.onclick = () => switchSpecCard('back');
             }
 
             // Auto-idle flip every 4 seconds (flips smoothly when not hovered)
@@ -319,6 +366,8 @@ function initPageFeatures() {
     // Pastikan fungsi interaksi global dapat dipanggil dari atribut onclick di HTML komponen
     window.toggleHeroCard = toggleHeroCard;
     window.switchSpecCard = switchSpecCard;
+    window.playNfcTapChime = playNfcTapChime;
+    window.getAudioContext = getAudioContext;
 }
 
 // ========================================================
