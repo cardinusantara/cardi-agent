@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id" class="w-full max-w-full overflow-x-hidden bg-white">
+
+<head>
+    <base href="/cardiloyal/card/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Checkout &mdash; Cardi Loyal Card</title>
+    <meta name="description"
+        content="Halaman checkout resmi pemesanan Plakat Akrilik Google Review NFC Cardi Loyal Card. Proses cepat, aman, dan instan.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#FF6800',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="/cardiloyal/card/css/style.css">
+</head>
+
+<body class="w-full max-w-full overflow-x-hidden bg-white text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-600">
+
+    <!-- ========================================================
+         MINIMALIST CHECKOUT HEADER
+         ======================================================== -->
+    <header class="w-full border-b border-slate-200/90 bg-white sticky top-0 z-30 shadow-2xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="/cardiloyal/card/" class="flex items-center gap-2 group select-none" aria-label="Cardi Loyal Homepage">
+                <img src="/cardiloyal/card/assets/logo-loyal-official.png" alt="Cardi Agent Loyal Card"
+                    class="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105">
+            </a>
+
+            <!-- Right Secure Badge & Back Link -->
+            <div class="flex items-center gap-4 sm:gap-6 text-xs font-semibold text-slate-600">
+                <a href="/cardiloyal/card/"
+                    class="hidden sm:inline-flex items-center gap-1.5 text-slate-500 hover:text-brand-600 transition-colors py-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span>Kembali ke Toko</span>
+                </a>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-[11px] sm:text-xs font-bold border border-slate-200">
+                    <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>256-Bit SSL Secure</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================
+         MAIN CHECKOUT CONTENT (2-COLUMN WOOCOMMERCE STYLE)
+         ======================================================== -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+
+        <!-- Mobile Back Link -->
+        <div class="sm:hidden mb-6">
+            <a href="/cardiloyal/card/" class="inline-flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-brand-600">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span>Kembali ke Beranda</span>
+            </a>
+        </div>
+
+        <form id="checkout_form" novalidate>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+                <!-- ========================================================
+                     LEFT COLUMN: BILLING DETAILS
+                     ======================================================== -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                            Billing details
+                        </h1>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                            Lengkapi data pengiriman fisik untuk plakat akrilik Anda.
+                        </p>
+                    </div>
+
+                    <!-- Alert Notifikasi Validasi -->
+                    <div id="checkout_error_box" class="hidden p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm font-semibold flex items-start gap-2.5">
+                        <svg class="w-5 h-5 shrink-0 mt-0.5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span id="checkout_error_text">Mohon lengkapi semua kolom wajib bertanda bintang (*).</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Nama Lengkap -->
+                        <div>
+                            <label for="billing_fullname" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                Nama Lengkap <span class="text-red-500 font-bold">*</span>
+                            </label>
+                            <input type="text" id="billing_fullname" name="billing_fullname" required
+                                placeholder="Nama depan dan nama belakang"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                        </div>
+
+                        <!-- Nama Perusahaan (Opsional) -->
+                        <div>
+                            <label for="billing_company" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                Nama Perusahaan / Bisnis <span class="text-slate-400 font-normal">(opsional)</span>
+                            </label>
+                            <input type="text" id="billing_company" name="billing_company"
+                                placeholder="Contoh: Kopi Senja / PT Maju Sejahtera"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                        </div>
+
+                        <!-- 2 Kolom: Handphone & Email -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="billing_phone" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    Nomor Handphone / WhatsApp <span class="text-red-500 font-bold">*</span>
+                                </label>
+                                <input type="tel" id="billing_phone" name="billing_phone" required
+                                    placeholder="081234567890"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                            </div>
+
+                            <div>
+                                <label for="billing_email" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    Alamat Email <span class="text-red-500 font-bold">*</span>
+                                </label>
+                                <input type="email" id="billing_email" name="billing_email" required
+                                    placeholder="nama@email.com"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                            </div>
+                        </div>
+
+                        <!-- 2 Kolom: Provinsi & Kota/Kabupaten -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="billing_province" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    Provinsi <span class="text-red-500 font-bold">*</span>
+                                </label>
+                                <input type="text" id="billing_province" name="billing_province" required
+                                    placeholder="Contoh: Jawa Barat / DKI Jakarta"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                            </div>
+
+                            <div>
+                                <label for="billing_city" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    Kota / Kabupaten <span class="text-red-500 font-bold">*</span>
+                                </label>
+                                <input type="text" id="billing_city" name="billing_city" required
+                                    placeholder="Contoh: Kota Bandung / Jakarta Selatan"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                            </div>
+                        </div>
+
+                        <!-- 2 Kolom: Kecamatan & Kode Pos -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="billing_district" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    Kecamatan <span class="text-red-500 font-bold">*</span>
+                                </label>
+                                <input type="text" id="billing_district" name="billing_district" required
+                                    placeholder="Contoh: Sukajadi / Setiabudi"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                            </div>
+
+                            <div>
+                                <label for="billing_postcode" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    Kode Pos <span class="text-red-500 font-bold">*</span>
+                                </label>
+                                <input type="text" id="billing_postcode" name="billing_postcode" required
+                                    placeholder="Contoh: 40162"
+                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400">
+                            </div>
+                        </div>
+
+                        <!-- Detail Alamat -->
+                        <div>
+                            <label for="billing_street" class="block text-xs font-bold text-slate-700 mb-1.5">
+                                Detail Alamat (Jalan, No. Bangunan, RT/RW) <span class="text-red-500 font-bold">*</span>
+                            </label>
+                            <textarea id="billing_street" name="billing_street" rows="3" required
+                                placeholder="Nomor rumah/ruko, nama jalan, patokan, RT/RW, kelurahan"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 text-xs sm:text-sm text-slate-900 transition outline-hidden placeholder:text-slate-400 resize-none"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     RIGHT COLUMN: YOUR ORDER
+                     ======================================================== -->
+                <div class="lg:col-span-5 lg:sticky lg:top-28">
+                    <div class="bg-[#F8FAFC] border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-xs">
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight pb-4 border-b border-slate-200">
+                            Your order
+                        </h2>
+
+                        <!-- Product Table -->
+                        <div class="py-5 border-b border-slate-200 space-y-4">
+                            <div class="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                <span>Product</span>
+                                <span>Subtotal</span>
+                            </div>
+
+                            <!-- Product Row -->
+                            <div class="flex items-center justify-between gap-4 pt-1">
+                                <div class="flex items-center gap-3">
+                                    <img src="/cardiloyal/card/assets/google-review-card.jpg"
+                                        alt="Plakat Akrilik Google Review NFC"
+                                        class="w-14 h-14 object-cover rounded-xl border border-slate-200 shadow-2xs shrink-0">
+                                    <div>
+                                        <h3 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                                            Plakat Akrilik Google Review NFC
+                                        </h3>
+                                        <span class="text-[11px] text-slate-500 font-semibold mt-0.5 block">
+                                            Qty: <strong>1</strong> &bull; Chip Pintar NFC + QR
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-xs line-through text-slate-400 block font-medium">Rp138.000</span>
+                                    <span class="text-sm font-black text-slate-900">Rp69.000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Breakdown -->
+                        <div class="py-4 border-b border-slate-200 space-y-2.5 text-xs sm:text-sm">
+                            <div class="flex items-center justify-between text-slate-600">
+                                <span>Subtotal</span>
+                                <span class="font-bold text-slate-900">Rp69.000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-600">
+                                <span>Pengiriman</span>
+                                <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">Reguler / COD Siap</span>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-900 pt-2 border-t border-slate-200/70">
+                                <span class="text-base font-black">Total</span>
+                                <span class="text-xl sm:text-2xl font-black text-brand-600">Rp69.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method Option -->
+                        <div class="py-5 border-b border-slate-200 space-y-3">
+                            <div class="flex items-start gap-3">
+                                <input type="radio" id="payment_xendit" name="payment_method" value="xendit" checked
+                                    class="mt-1 h-4 w-4 text-brand-600 border-slate-300 focus:ring-brand-500 cursor-pointer">
+                                <label for="payment_xendit" class="cursor-pointer">
+                                    <span class="block text-xs sm:text-sm font-bold text-slate-900">
+                                        Proceed with payment (Xendit QRIS / Transfer / E-Wallet)
+                                    </span>
+                                    <span class="block text-[11px] text-slate-500 mt-1 leading-relaxed">
+                                        Bayar secara instan dan otomatis melalui QRIS (GoPay, OVO, Dana, ShopeePay), Transfer Virtual Account (BCA, Mandiri, BRI, BNI), atau Kartu via Xendit.
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Policy Statement -->
+                        <div class="py-4">
+                            <p class="text-[11px] text-slate-500 leading-relaxed font-medium">
+                                Data Anda digunakan untuk memproses pesanan dan pengiriman plakat. Kami menjaga kerahasiaan informasi Anda dengan standar keamanan perbankan.
+                            </p>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button type="submit" id="place_order_btn"
+                            class="w-full py-4 px-6 rounded-xl bg-slate-950 hover:bg-brand-500 active:bg-brand-600 active:scale-98 text-white font-extrabold text-sm sm:text-base shadow-md hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2.5 min-h-[52px] cursor-pointer select-none">
+                            <span id="place_order_text">Place order</span>
+                            <svg id="place_order_icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                            <!-- Spinner Icon -->
+                            <svg id="place_order_spinner" class="hidden w-5 h-5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                            </svg>
+                        </button>
+
+                        <div class="flex items-center justify-center gap-2 mt-4 text-[11px] text-slate-400 font-semibold">
+                            <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Official Payment Gateway by Xendit</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+    <!-- ========================================================
+         MINIMALIST FOOTER
+         ======================================================== -->
+    <footer class="border-t border-slate-200/80 bg-white py-8 text-center text-xs text-slate-400">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>&copy; 2026 Cardi Loyal Card Indonesia. Semua hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================
+         CLIENT LOGIC: VALIDATION, GOOGLE APPS SCRIPT, & XENDIT REDIRECT
+         ======================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('checkout_form');
+            const submitBtn = document.getElementById('place_order_btn');
+            const btnText = document.getElementById('place_order_text');
+            const btnIcon = document.getElementById('place_order_icon');
+            const btnSpinner = document.getElementById('place_order_spinner');
+            const errorBox = document.getElementById('checkout_error_box');
+            const errorText = document.getElementById('checkout_error_text');
+
+            const GAS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx7ONWvhY-q-GKr3MvhyxjurFJU_sJGNFTCOO6CmmPP8n3ICW28CmLZaFtNVxdcUVe8Vw/exec';
+            const XENDIT_CHECKOUT_URL = 'https://xen.to/ZlJBcNFb';
+
+            let isProcessing = false;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (isProcessing) return;
+
+                // Ambil nilai input
+                const fullnameInput = document.getElementById('billing_fullname');
+                const companyInput = document.getElementById('billing_company');
+                const phoneInput = document.getElementById('billing_phone');
+                const emailInput = document.getElementById('billing_email');
+                const provinceInput = document.getElementById('billing_province');
+                const cityInput = document.getElementById('billing_city');
+                const districtInput = document.getElementById('billing_district');
+                const streetInput = document.getElementById('billing_street');
+                const postcodeInput = document.getElementById('billing_postcode');
+
+                const requiredFields = [
+                    { el: fullnameInput, name: 'Nama Lengkap' },
+                    { el: phoneInput, name: 'Nomor Handphone / WhatsApp' },
+                    { el: emailInput, name: 'Alamat Email' },
+                    { el: provinceInput, name: 'Provinsi' },
+                    { el: cityInput, name: 'Kota / Kabupaten' },
+                    { el: districtInput, name: 'Kecamatan' },
+                    { el: streetInput, name: 'Detail Alamat' },
+                    { el: postcodeInput, name: 'Kode Pos' }
+                ];
+
+                // Reset error visual
+                requiredFields.forEach(f => {
+                    if (f.el) {
+                        f.el.classList.remove('border-red-400', 'ring-2', 'ring-red-200');
+                    }
+                });
+
+                // Validasi kolom wajib
+                let firstInvalid = null;
+                for (const field of requiredFields) {
+                    if (!field.el || !field.el.value.trim()) {
+                        firstInvalid = field;
+                        break;
+                    }
+                }
+
+                if (firstInvalid) {
+                    errorText.textContent = `Kolom "${firstInvalid.name}" wajib diisi.`;
+                    errorBox.classList.remove('hidden');
+                    firstInvalid.el.classList.add('border-red-400', 'ring-2', 'ring-red-200');
+                    firstInvalid.el.focus();
+                    firstInvalid.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                // Sembunyikan error
+                errorBox.classList.add('hidden');
+
+                // Siapkan JSON Payload persis sesuai permintaan
+                const payload = {
+                    "fullName": fullnameInput.value.trim(),
+                    "phone": phoneInput.value.trim(),
+                    "email": emailInput.value.trim(),
+                    "company": (companyInput && companyInput.value.trim()) ? companyInput.value.trim() : '-',
+                    "province": provinceInput.value.trim(),
+                    "city": cityInput.value.trim(),
+                    "district": districtInput.value.trim(),
+                    "street": streetInput.value.trim(),
+                    "postalCode": postcodeInput.value.trim()
+                };
+
+                // Ubah status tombol menjadi "Memproses Pesanan..." dan disable
+                isProcessing = true;
+                submitBtn.disabled = true;
+                btnText.textContent = 'Memproses Pesanan...';
+                btnIcon.classList.add('hidden');
+                btnSpinner.classList.remove('hidden');
+
+                // Simpan salinan lokal ke localStorage
+                try {
+                    localStorage.setItem('cardi_last_checkout', JSON.stringify(payload));
+                } catch (err) {}
+
+                // Kirim data via background fetch (mode: 'no-cors') ke Webhook Google Apps Script
+                try {
+                    fetch(GAS_WEBHOOK_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    }).catch(function (err) {
+                        console.warn('Background GAS webhook error:', err);
+                    });
+                } catch (err) {
+                    console.warn('Fetch execution error:', err);
+                }
+
+                // Beri jeda 500ms, lalu alihkan halaman pembeli langsung ke link Xendit
+                setTimeout(function () {
+                    window.location.href = XENDIT_CHECKOUT_URL;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

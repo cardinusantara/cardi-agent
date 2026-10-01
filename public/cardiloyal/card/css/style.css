@@ -112,38 +112,6 @@ a, button, input, [role="button"] {
             transform: rotateY(180deg) translateZ(0);
         }
 
-        @keyframes floatSubtle {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        .card-floating {
-            animation: floatSubtle 4.8s ease-in-out infinite;
-        }
-
-        @keyframes shadowBreath {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.25;
-            }
-
-            50% {
-                transform: scale(0.9);
-                opacity: 0.12;
-            }
-        }
-
-        .shadow-floating {
-            animation: shadowBreath 4.8s ease-in-out infinite;
-        }
-
         /* 3M Tape Strips */
         .tape-3m {
             background: repeating-linear-gradient(
