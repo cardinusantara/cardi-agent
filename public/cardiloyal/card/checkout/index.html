@@ -259,7 +259,7 @@
                             </div>
                             <div class="flex items-center justify-between text-slate-600">
                                 <span>Pengiriman</span>
-                                <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">Reguler / COD Siap</span>
+                                <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">Kurir Reguler</span>
                             </div>
                             <div class="flex items-center justify-between text-slate-900 pt-2 border-t border-slate-200/70">
                                 <span class="text-base font-black">Total</span>
@@ -339,17 +339,24 @@
             const errorBox = document.getElementById('checkout_error_box');
             const errorText = document.getElementById('checkout_error_text');
 
-            const GAS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx7ONWvhY-q-GKr3MvhyxjurFJU_sJGNFTCOO6CmmPP8n3ICW28CmLZaFtNVxdcUVe8Vw/exec';
-            const XENDIT_CHECKOUT_URL = 'https://xen.to/ZlJBcNFb';
+            const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx7ONWvhY-q-GKr3MvhyxjurFJU_sJGNFTCOO6CmmPP8n3ICW28CmLZaFtNVxdcUVe8Vw/exec';
 
             let isProcessing = false;
 
-            form.addEventListener('submit', function (e) {
+            function resetButton() {
+                isProcessing = false;
+                submitBtn.disabled = false;
+                btnText.textContent = 'Place order';
+                btnIcon.classList.remove('hidden');
+                btnSpinner.classList.add('hidden');
+            }
+
+            form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 if (isProcessing) return;
 
-                // Ambil nilai input
+                // Ambil elemen input
                 const fullnameInput = document.getElementById('billing_fullname');
                 const companyInput = document.getElementById('billing_company');
                 const phoneInput = document.getElementById('billing_phone');
@@ -371,14 +378,14 @@
                     { el: postcodeInput, name: 'Kode Pos' }
                 ];
 
-                // Reset error visual
+                // Reset highlight error visual
                 requiredFields.forEach(f => {
                     if (f.el) {
                         f.el.classList.remove('border-red-400', 'ring-2', 'ring-red-200');
                     }
                 });
 
-                // Validasi kolom wajib
+                // 1. VALIDASI INPUT FORM
                 let firstInvalid = null;
                 for (const field of requiredFields) {
                     if (!field.el || !field.el.value.trim()) {
@@ -396,54 +403,55 @@
                     return;
                 }
 
-                // Sembunyikan error
+                // Sembunyikan error jika lolos validasi
                 errorBox.classList.add('hidden');
 
-                // Siapkan JSON Payload persis sesuai permintaan
-                const payload = {
-                    "fullName": fullnameInput.value.trim(),
-                    "phone": phoneInput.value.trim(),
-                    "email": emailInput.value.trim(),
-                    "company": (companyInput && companyInput.value.trim()) ? companyInput.value.trim() : '-',
-                    "province": provinceInput.value.trim(),
-                    "city": cityInput.value.trim(),
-                    "district": districtInput.value.trim(),
-                    "street": streetInput.value.trim(),
-                    "postalCode": postcodeInput.value.trim()
-                };
-
-                // Ubah status tombol menjadi "Memproses Pesanan..." dan disable
+                // 2. STATE LOADING
                 isProcessing = true;
                 submitBtn.disabled = true;
-                btnText.textContent = 'Memproses Pesanan...';
+                btnText.textContent = 'Membuat Pembayaran...';
                 btnIcon.classList.add('hidden');
                 btnSpinner.classList.remove('hidden');
 
+                // 3. SUSUN PAYLOAD DATA DALAM FORMAT JSON
+                const formData = {
+                    fullName: document.getElementById('billing_fullname').value,
+                    phone: document.getElementById('billing_phone').value,
+                    email: document.getElementById('billing_email').value,
+                    company: document.getElementById('billing_company')?.value || '-',
+                    province: document.getElementById('billing_province').value,
+                    city: document.getElementById('billing_city').value,
+                    district: document.getElementById('billing_district').value,
+                    street: document.getElementById('billing_street').value,
+                    postalCode: document.getElementById('billing_postcode').value
+                };
+
                 // Simpan salinan lokal ke localStorage
                 try {
-                    localStorage.setItem('cardi_last_checkout', JSON.stringify(payload));
+                    localStorage.setItem('cardi_last_checkout', JSON.stringify(formData));
                 } catch (err) {}
 
-                // Kirim data via background fetch (mode: 'no-cors') ke Webhook Google Apps Script
+                // 4. KIRIM DATA KE GOOGLE APPS SCRIPT TANPA HEADER KUSTOM & REDIRECT KE INVOICE XENDIT
                 try {
-                    fetch(GAS_WEBHOOK_URL, {
+                    const response = await fetch(GAS_WEBAPP_URL, {
                         method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    }).catch(function (err) {
-                        console.warn('Background GAS webhook error:', err);
+                        body: JSON.stringify(formData)
                     });
-                } catch (err) {
-                    console.warn('Fetch execution error:', err);
-                }
 
-                // Beri jeda 500ms, lalu alihkan halaman pembeli langsung ke link Xendit
-                setTimeout(function () {
-                    window.location.href = XENDIT_CHECKOUT_URL;
-                }, 500);
+                    const data = await response.json();
+
+                    if ((data.status === 'success' || data.result === 'success') && data.invoice_url) {
+                        window.location.href = data.invoice_url;
+                    } else {
+                        const errorMsg = data.message || "Terjadi kendala saat memproses pesanan, silakan coba lagi.";
+                        alert(errorMsg);
+                        resetButton();
+                    }
+                } catch (err) {
+                    console.error('Checkout error:', err);
+                    alert("Terjadi kendala saat memproses pesanan, silakan coba lagi.");
+                    resetButton();
+                }
             });
         });
     </script>
