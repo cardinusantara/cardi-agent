@@ -338,9 +338,88 @@ function initPageFeatures() {
                 });
             });
 
+            // 5. Social Proof / Recent Sales Notification Popup
+            initRecentSalesPopup();
+
     window.switchSpecCard = switchSpecCard;
     window.playNfcTapChime = playNfcTapChime;
     window.getAudioContext = getAudioContext;
+}
+
+// ========================================================
+// 5. SOCIAL PROOF / RECENT SALES NOTIFICATION POPUP
+// ========================================================
+function initRecentSalesPopup() {
+    const popup = document.getElementById('recentSalesPopup');
+    if (!popup) return;
+
+    const buyerEl = document.getElementById('salesBuyer');
+    const cityEl = document.getElementById('salesCity');
+    const timeEl = document.getElementById('salesTime');
+    const closeBtn = document.getElementById('closeRecentSales');
+
+    // Data Variasi Pembeli Realistis (Orientasi Pemilik Usaha / Toko)
+    const salesData = [
+        { name: "drg. Vania M***", city: "Jakarta Selatan", time: "4 menit yang lalu" },
+        { name: "Kopi Titik Tem***", city: "Bandung", time: "7 menit yang lalu" },
+        { name: "Hendra Pratama***", city: "Surabaya", time: "12 menit yang lalu" },
+        { name: "Barbershop Bro***", city: "Bekasi", time: "18 menit yang lalu" },
+        { name: "Resto Dapoer N***", city: "Tangerang", time: "25 menit yang lalu" },
+        { name: "Klinik Estetika G***", city: "Semarang", time: "31 menit yang lalu" },
+        { name: "Rian Saputra***", city: "Makassar", time: "45 menit yang lalu" },
+        { name: "Bengkel Jaya M***", city: "Denpasar", time: "1 jam yang lalu" }
+    ];
+
+    let currentIndex = 0;
+    let hideTimer = null;
+    let nextTimer = null;
+
+    function renderItem(item) {
+        if (!item) return;
+        if (buyerEl) buyerEl.textContent = item.name;
+        if (cityEl) cityEl.textContent = item.city;
+        if (timeEl) timeEl.textContent = item.time;
+    }
+
+    function showPopup() {
+        renderItem(salesData[currentIndex]);
+        popup.classList.add('is-visible');
+
+        // Tampil di layar selama 5 detik, kemudian slide-down & fade-out otomatis
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+            hidePopup();
+        }, 5000);
+    }
+
+    function hidePopup() {
+        popup.classList.remove('is-visible');
+        if (hideTimer) clearTimeout(hideTimer);
+
+        // Siapkan giliran pembeli berikutnya (rotasi berurutan)
+        currentIndex = (currentIndex + 1) % salesData.length;
+
+        // Beri jeda acak (8 sampai 14 detik) sebelum memunculkan yang berikutnya
+        const randomDelay = Math.floor(Math.random() * (14000 - 8000 + 1)) + 8000;
+        if (nextTimer) clearTimeout(nextTimer);
+        nextTimer = setTimeout(() => {
+            showPopup();
+        }, randomDelay);
+    }
+
+    // Tombol close (✕)
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            hidePopup();
+        });
+    }
+
+    // Notifikasi pertama muncul 4 detik setelah pengunjung membuka halaman web
+    setTimeout(() => {
+        showPopup();
+    }, 4000);
 }
 
 // ========================================================
